@@ -10,9 +10,8 @@ arch:
   - armhf
   - armv7
   - i386
+image: "ghcr.io/bluemaex/ha-addon-traefik-{arch}"
 startup: system
-stage: stable
-boot: auto
 url: https://github.com/bluemaex/home-assistant-addons/tree/master/traefik
 ports:
   80/tcp: 83
@@ -23,7 +22,6 @@ ports_description:
 init: false
 ingress: true
 ingress_entry: dashboard/
-hassio_role: default
 hassio_api: true
 panel_icon: mdi:earth-arrow-right
 map:
