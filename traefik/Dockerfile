@@ -1,6 +1,6 @@
 ARG BUILD_ARCH
 
-FROM ghcr.io/home-assistant/aarch64-base:3.15 AS aarch64-base
+FROM ghcr.io/home-assistant/aarch64-base:3.16 AS aarch64-base
 FROM ghcr.io/home-assistant/amd64-base:3.15 AS amd64-base
 FROM ghcr.io/home-assistant/armv7-base:3.15 AS armv7-base
 FROM ghcr.io/home-assistant/armhf-base:3.15 AS armhf-base
