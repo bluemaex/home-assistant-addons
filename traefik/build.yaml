@@ -10,4 +10,4 @@ labels:
   org.opencontainers.image.source: "https://github.com/bluemaex/home-assistant-addons/"
   org.opencontainers.image.licenses: "MIT"
 args:
-  TRAEFIK_VERSION: 2.6.3
+  TRAEFIK_VERSION: 2.8.1
