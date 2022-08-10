@@ -5,6 +5,10 @@ updates:
     schedule:
       interval: weekly
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/rclone"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "/traefik"
     schedule:
       interval: "weekly"
