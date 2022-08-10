@@ -3,5 +3,15 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: weekly
-      time: "06:00"
+      interval: "daily"
+      time: "09:00"
+  - package-ecosystem: "docker"
+    directory: "/rclone"
+    schedule:
+      interval: "daily"
+      time: "09:00"
+  - package-ecosystem: "docker"
+    directory: "/traefik"
+    schedule:
+      interval: "daily"
+      time: "09:00"
