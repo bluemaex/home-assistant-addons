@@ -19,8 +19,8 @@ LABEL \
   org.opencontainers.image.description="Home Assistant Unofficial Add-on: ${BUILD_ARCH} Traefik image" \
   org.opencontainers.image.vendor="bluemaex" \
   org.opencontainers.image.authors="bluemaex <homeassistant@blmx.de>" \
-  org.opencontainers.image.url="https://github.com/bluemaex/home-assistant-addons/" \
-  org.opencontainers.image.source="https://github.com/bluemaex/home-assistant-addons/" \
+  org.opencontainers.image.url="https://github.com/bluemaex/home-assistant-addons/traefik" \
+  org.opencontainers.image.source="https://github.com/bluemaex/home-assistant-addons/traefik" \
   org.opencontainers.image.documentation="https://github.com/bluemaex/home-assistant-addons/blob/master/traefik/README.md" \
   org.opencontainers.image.created=${BUILD_DATE} \
   org.opencontainers.image.revision=${BUILD_REF} \
