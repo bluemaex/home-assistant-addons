@@ -9,7 +9,7 @@ arch:
   - amd64
   - armhf
   - armv7
-image: "ghcr.io/bluemaex/ha-addons/traefik-{arch}"
+image: "ghcr.io/bluemaex/ha-addons-traefik-{arch}"
 startup: system
 url: https://github.com/bluemaex/home-assistant-addons/tree/master/traefik
 ports:
