@@ -10,7 +10,7 @@ arch:
   - armhf
   - armv7
   - i386
-image: "ghcr.io/bluemaex/ha-addon-rclone-{arch}"
+image: "ghcr.io/bluemaex/ha-addons/rclone-{arch}"
 startup: once
 boot: manual
 url: https://github.com/bluemaex/home-assistant-addons/tree/master/rclone
@@ -21,12 +21,12 @@ map:
   - config:rw
   - share:rw
 options:
-  configuration_path: "/share/rclone/rclone.conf"
+  configuration_path: "/config/addons/rclone/rclone.conf"
   local_retention_days: 60
   remotes:
     - name: ""
       path: "/"
-      retention_days: 14
+      retention_days: 60
 schema:
   configuration_path: str
   local_retention_days: int

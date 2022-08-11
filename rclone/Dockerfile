@@ -1,35 +1,27 @@
-ARG BUILD_FROM
-
-FROM $BUILD_FROM
-
 ARG BUILD_ARCH
-ARG RCLONE_VERSION
 
-RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
-    elif [ "${BUILD_ARCH}" == "i386" ]; then BUILD_ARCH=386; \
-    elif [ "${BUILD_ARCH}" == "armhf" ]; then BUILD_ARCH=arm-v7; \
-    elif [ "${BUILD_ARCH}" == "armv7" ]; then BUILD_ARCH=arm-v7; \
-    fi && \
-    apk add --no-cache unzip findutils && \
-    wget --quiet -O /tmp/rclone.zip https://downloads.rclone.org/v${RCLONE_VERSION}/rclone-v${RCLONE_VERSION}-linux-${BUILD_ARCH}.zip && \
-    unzip /tmp/rclone.zip -d /tmp && \
-    cp /tmp/rclone-v${RCLONE_VERSION}-linux-${BUILD_ARCH}/rclone /usr/bin/rclone && \
-    chmod +x /usr/bin/rclone && \
-    rm -rf /tmp/*
+FROM ghcr.io/home-assistant/aarch64-base:3.15 AS aarch64-base
+FROM ghcr.io/home-assistant/amd64-base:3.15 AS amd64-base
+FROM ghcr.io/home-assistant/armv7-base:3.15 AS armv7-base
+FROM ghcr.io/home-assistant/armhf-base:3.15 AS armhf-base
+FROM ghcr.io/home-assistant/i386-base:3.15 AS i386-base
+FROM rclone/rclone:1.59.1 as rclone-base
 
+FROM ${BUILD_ARCH}-base AS final
 COPY rootfs /
+COPY --from=rclone-base /usr/local/bin/rclone /usr/local/bin/rclone
 
 LABEL \
-    io.hass.name="Rclone for ${BUILD_ARCH}" \
-    io.hass.description="Home Assistant Unofficial Add-on: ${BUILD_ARCH} Rclone image" \
-    maintainer="bluemaex <homeassistant@blmx.de>" \
-    org.opencontainers.image.title="Rclone for ${BUILD_ARCH}" \
-    org.opencontainers.image.description="Home Assistant Unofficial Add-on: ${BUILD_ARCH} Rclone image" \
-    org.opencontainers.image.vendor="bluemaex" \
-    org.opencontainers.image.authors="bluemaex <homeassistant@blmx.de>" \
-    org.opencontainers.image.url="https://github.com/bluemaex/home-assistant-addons/" \
-    org.opencontainers.image.source="https://github.com/bluemaex/home-assistant-addons/" \
-    org.opencontainers.image.documentation="https://github.com/bluemaex/home-assistant-addons/blob/master/rclone/README.md" \
-    org.opencontainers.image.created=${BUILD_DATE} \
-    org.opencontainers.image.revision=${BUILD_REF} \
-    org.opencontainers.image.version=${BUILD_VERSION}
+  io.hass.name="Rclone for ${BUILD_ARCH}" \
+  io.hass.description="Home Assistant Unofficial Add-on: ${BUILD_ARCH} Rclone image" \
+  maintainer="bluemaex <homeassistant@blmx.de>" \
+  org.opencontainers.image.title="Rclone for ${BUILD_ARCH}" \
+  org.opencontainers.image.description="Home Assistant Unofficial Add-on: ${BUILD_ARCH} Rclone image" \
+  org.opencontainers.image.vendor="bluemaex" \
+  org.opencontainers.image.authors="bluemaex <homeassistant@blmx.de>" \
+  org.opencontainers.image.url="https://github.com/bluemaex/home-assistant-addons/" \
+  org.opencontainers.image.source="https://github.com/bluemaex/home-assistant-addons/" \
+  org.opencontainers.image.documentation="https://github.com/bluemaex/home-assistant-addons/blob/master/rclone/README.md" \
+  org.opencontainers.image.created=${BUILD_DATE} \
+  org.opencontainers.image.revision=${BUILD_REF} \
+  org.opencontainers.image.version=${BUILD_VERSION}
