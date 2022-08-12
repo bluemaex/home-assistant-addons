@@ -1,8 +1,13 @@
 # Changelog
 
+## 3.0.11
+
+- 🆕 Update base image
+- 🆕 When an end_url is specified it POSTs the rclone log of the run
+
 ## 3.0.10
 
-- 🆕 Add start_url and end_url to remote to allow monitoring
+- 🆕 Add start_url and end_url to each remote to allow monitoring (via e.g. healthchecks.io)
 - 🆕 Update base image
 
 ## 3.0.9

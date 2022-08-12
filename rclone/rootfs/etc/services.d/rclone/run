@@ -1,6 +1,7 @@
 #!/usr/bin/with-contenv bashio
 
 RCLONE_CONFIG=$(bashio::config 'configuration_path')
+RCLONE_LOG=$(dirname $(bashio::config 'configuration_path'))'/sync.log'
 REMOTES=$(bashio::config 'remotes')
 LOCAL_RETENTION=$(bashio::config 'local_retention_days')
 
@@ -16,8 +17,11 @@ for remote in ${REMOTES}; do
     remote_start_url=$(bashio::jq "${remote}" ".start_url")
     remote_end_url=$(bashio::jq "${remote}" ".end_url")
 
-    bashio::log.info "Pinging start_url for ${remote_name}: ${remote_start_url}..."
-    [[ "${remote_start_url}" != "null" ]] && curl "${remote_start_url}"
+    if [[ "${remote_start_url}" != "null" ]] 
+    then
+        bashio::log.info "Pinging start_url for ${remote_name}: ${remote_start_url}..."
+        curl -fsS "${remote_start_url}"
+    fi
 
     bashio::log.info "Starting remote copy for ${remote_name}..."
 
@@ -27,10 +31,16 @@ for remote in ${REMOTES}; do
         --delete-during \
         --delete-excluded \
         --ignore-errors \
-        --ignore-existing /backup/ "${remote_name}:${remote_path}"
+        --ignore-existing /backup/ "${remote_name}:${remote_path}" \
+        --log-level INFO \
+        --log-file=${RCLONE_LOG}
+    RET=$?
 
     bashio::log.info "Remote copy for ${remote_name} finished"
 
-    bashio::log.info "Pinging end_url ${remote_name}: ${remote_end_url}"
-    [[ "${remote_end_url}" != "null" ]] && curl "${remote_end_url}"
+    if [[ "${remote_end_url}" != "null" ]]
+    then
+        bashio::log.info "Pinging end_url ${remote_name}: ${remote_end_url}"
+        curl -fsS "${remote_end_url}/${RET}" --data-binary "@${RCLONE_LOG}"
+    fi
 done
