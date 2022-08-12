@@ -9,7 +9,6 @@ find /backup/ -mtime +"${LOCAL_RETENTION}" -type f -delete
 bashio::log.info "Pruning local files finished"
 
 for remote in ${REMOTES}; do
-    bashio::log.info $(bashio::jq "${remote}")
     remote_name=$(bashio::jq "${remote}" ".name")
     remote_path=$(bashio::jq "${remote}" ".path")
     remote_retention=$(bashio::jq "${remote}" ".retention_days")
@@ -40,7 +39,8 @@ for remote in ${REMOTES}; do
 
     if [[ "${remote_end_url}" != "null" ]]
     then
-        bashio::log.info "Pinging end_url ${remote_name}: ${remote_end_url}"
-        curl -fsS "${remote_end_url}/${EXIT_CODE}" --data-binary "@${remote_log}"
+        ping_url=${remote_end_url}/${EXIT_CODE}
+        bashio::log.info "Pinging end_url for ${remote_name}: ${ping_url}"
+        curl -fsS "${ping_url}" --data-binary "@${remote_log}"
     fi
 done
