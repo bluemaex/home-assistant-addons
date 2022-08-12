@@ -15,7 +15,7 @@ for remote in ${REMOTES}; do
     remote_retention=$(bashio::jq "${remote}" ".retention_days")
     remote_start_url=$(bashio::jq "${remote}" ".start_url")
     remote_end_url=$(bashio::jq "${remote}" ".end_url")
-    remote_log=$(dirname $(bashio::config 'configuration_path'))"/sync_${remote}.log"
+    remote_log=$(dirname $(bashio::config 'configuration_path'))"/sync_${remote_name}.log"
 
     if [[ "${remote_start_url}" != "null" ]] 
     then
