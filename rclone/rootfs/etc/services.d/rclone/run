@@ -1,7 +1,6 @@
 #!/usr/bin/with-contenv bashio
 
 RCLONE_CONFIG=$(bashio::config 'configuration_path')
-RCLONE_LOG=$(dirname $(bashio::config 'configuration_path'))'/sync.log'
 REMOTES=$(bashio::config 'remotes')
 LOCAL_RETENTION=$(bashio::config 'local_retention_days')
 
@@ -16,6 +15,7 @@ for remote in ${REMOTES}; do
     remote_retention=$(bashio::jq "${remote}" ".retention_days")
     remote_start_url=$(bashio::jq "${remote}" ".start_url")
     remote_end_url=$(bashio::jq "${remote}" ".end_url")
+    remote_log=$(dirname $(bashio::config 'configuration_path'))"/sync_${remote}.log"
 
     if [[ "${remote_start_url}" != "null" ]] 
     then
@@ -25,22 +25,22 @@ for remote in ${REMOTES}; do
 
     bashio::log.info "Starting remote copy for ${remote_name}..."
 
+    EXIT_CODE=0
     rclone --config "${RCLONE_CONFIG}" \
-        sync -v \
+        sync \
         --max-age "${remote_retention}d" \
         --delete-during \
         --delete-excluded \
         --ignore-errors \
         --ignore-existing /backup/ "${remote_name}:${remote_path}" \
         --log-level INFO \
-        --log-file=${RCLONE_LOG}
-    RET=$?
+        --log-file=${remote_log} || EXIT_CODE=$?
 
-    bashio::log.info "Remote copy for ${remote_name} finished"
+    bashio::log.info "Remote copy for ${remote_name} finished with code ${EXIT_CODE}"
 
     if [[ "${remote_end_url}" != "null" ]]
     then
         bashio::log.info "Pinging end_url ${remote_name}: ${remote_end_url}"
-        curl -fsS "${remote_end_url}/${RET}" --data-binary "@${RCLONE_LOG}"
+        curl -fsS "${remote_end_url}/${EXIT_CODE}" --data-binary "@${remote_log}"
     fi
 done
