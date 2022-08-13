@@ -25,6 +25,7 @@ for remote in ${REMOTES}; do
     bashio::log.info "Starting remote copy for ${remote_name}..."
 
     EXIT_CODE=0
+    true > ${remote_log}
     rclone --config "${RCLONE_CONFIG}" \
         sync \
         --max-age "${remote_retention}d" \
