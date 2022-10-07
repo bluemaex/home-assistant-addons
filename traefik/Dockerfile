@@ -8,6 +8,7 @@ FROM traefik:v2.8.5 as traefik-base
 
 FROM ${BUILD_ARCH}-base AS final
 COPY rootfs /
+COPY --from=hairyhenderson/gomplate:stable /gomplate /usr/local/bin/gomplate
 COPY --from=traefik-base /usr/local/bin/traefik /usr/local/bin/traefik
 
 LABEL \
