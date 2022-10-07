@@ -8,8 +8,8 @@ FROM traefik:v2.9.1 as traefik-base
 
 FROM ${BUILD_ARCH}-base AS final
 COPY rootfs /
-COPY --from=hairyhenderson/gomplate:stable /gomplate /usr/local/bin/gomplate
 COPY --from=traefik-base /usr/local/bin/traefik /usr/local/bin/traefik
+RUN apk add --no-cache nginx gomplate
 
 LABEL \
   io.hass.name="Treafik for ${BUILD_ARCH}" \
