@@ -4,7 +4,7 @@ FROM ghcr.io/home-assistant/aarch64-base:3.16 AS aarch64-base
 FROM ghcr.io/home-assistant/amd64-base:3.16 AS amd64-base
 FROM ghcr.io/home-assistant/armv7-base:3.16 AS armv7-base
 FROM ghcr.io/home-assistant/armhf-base:3.16 AS armhf-base
-FROM traefik:2.9.8 as traefik-base
+FROM traefik:2.10.1 as traefik-base
 
 FROM ${BUILD_ARCH}-base AS final
 COPY rootfs /
