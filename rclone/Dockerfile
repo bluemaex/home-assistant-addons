@@ -2,7 +2,7 @@ ARG BUILD_ARCH
 
 FROM ghcr.io/home-assistant/aarch64-base:3.18 AS aarch64-base
 FROM ghcr.io/home-assistant/amd64-base:3.18 AS amd64-base
-FROM ghcr.io/home-assistant/armv7-base:3.16 AS armv7-base
+FROM ghcr.io/home-assistant/armv7-base:3.18 AS armv7-base
 FROM ghcr.io/home-assistant/armhf-base:3.18 AS armhf-base
 FROM ghcr.io/home-assistant/i386-base:3.18 AS i386-base
 FROM rclone/rclone:1.62.2 as rclone-base
