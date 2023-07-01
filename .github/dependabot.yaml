@@ -9,9 +9,14 @@ updates:
     directory: "/rclone"
     schedule:
       interval: "daily"
-      time: "09:00"
+      time: "09:05"
   - package-ecosystem: "docker"
     directory: "/traefik"
     schedule:
       interval: "daily"
-      time: "09:00"
+      time: "09:10"
+  - package-ecosystem: "docker"
+    directory: "/victoriametrics"
+    schedule:
+      interval: "daily"
+      time: "09:15"

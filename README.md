@@ -22,3 +22,7 @@ Rclone as a backup tool for your backups and/or configuration.
 ### [traefik](./traefik)
 
 Alternative way to expose Home Assistant and it's addons via automated HTTPS
+
+### [VictoriaMetrics](./victoriametrics)
+
+Time Series Database Database/Agent for long term storage
