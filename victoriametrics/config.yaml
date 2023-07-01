@@ -1,5 +1,5 @@
 name: Victoria Metrics
-version: 1.9.13
+version: 1.9.13-2
 slug: victoriametrics
 description: |
   VictoriaMetrics is a fast, cost-effective and scalable monitoring solution and time series database.
@@ -22,7 +22,6 @@ ingress_port: 8428
 panel_icon: mdi:monitor-eye
 map:
   - config
-  - share:rw
 options:
   log_level: info
   dynamic_configuration_path: "/config/addons/victoriametrics"

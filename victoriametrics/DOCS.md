@@ -14,12 +14,6 @@ Follow these steps to get the add-on installed on your system:
 6. Adapt your Configuration to your liking (Retention Time, Additional Configuration, Home Assistant)
 7. Start with long term tracking 👍
 
-## Data Storage
-
-If you run the full Server the VictoriaMetrics TSDB Data is stored in `/share/victoria-metrics-data` provided by the Home Assistant OS to make individual backups easy.
-
-If you choose the VMAgent, the temporary data is stored in `/share/vmagent-data`. Which can be backuped the same way.
-
 ## HomeAssistant
 
 To send data from Home Assistant to VictoriaMetrics, you can use either the [InfluxDB](https://www.home-assistant.io/integrations/influxdb/) or [Prometheus](https://www.home-assistant.io/integrations/prometheus/) integration.
