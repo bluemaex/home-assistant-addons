@@ -12,8 +12,8 @@ fi
 if bashio::config.false 'use_agent_instead'
 then
     bashio::log.info "Starting Victoria Metrics Server"
-    /usr/local/bin/victoria-metrics-prod -storageDataPath /share/victoria-metrics-data -retentionPeriod ${RETENTION_PERIOD} ${PROMETHEUS_ARGS} ${ADDITIONAL_ARGS}
+    /usr/local/bin/victoria-metrics-prod -storageDataPath /data/victoria-metrics-data -retentionPeriod ${RETENTION_PERIOD} ${PROMETHEUS_ARGS} ${ADDITIONAL_ARGS}
 else
     bashio::log.info "Starting Victoria Metrics Agent"
-    /usr/local/bin/vmagent-prod -remoteWrite.tmpDataPath /share/vmagent-data -remoteWrite.url "$(bashio::config 'agent_remote_write_url')" ${PROMETHEUS_ARGS} ${ADDITIONAL_ARGS}
+    /usr/local/bin/vmagent-prod -remoteWrite.tmpDataPath /data/vmagent-data -remoteWrite.url "$(bashio::config 'agent_remote_write_url')" ${PROMETHEUS_ARGS} ${ADDITIONAL_ARGS}
 fi
