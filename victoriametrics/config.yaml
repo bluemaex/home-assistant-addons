@@ -20,7 +20,6 @@ ingress: true
 ingress_entry: /vmui
 ingress_port: 8428
 panel_icon: mdi:monitor-eye
-webui: "http://[HOST]:[PORT:8428]"
 map:
   - config
   - share:rw
