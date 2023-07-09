@@ -1,0 +1,45 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [":dependencyDashboard", ":ignoreModulesAndTests"],
+  "rebaseWhen": "behind-base-branch",
+  "dependencyDashboard": true,
+  "labels": ["dependencies"],
+  "commitMessagePrefix": "⏫",
+  "commitMessageTopic": "{{depName}}",
+  "packageRules": [
+    {
+      "dependencyDashboardApproval": true,
+      "matchUpdateTypes": ["major"],
+      "labels": ["UPDATE-MAJOR"]
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    },
+    {
+      "matchDatasources": ["docker", "github-actions"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "groupName": "HomeAssistant Add-on base image",
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["^(?:ghcr.io/)?home-assistant/.*-base$"]
+    },
+    {
+      "groupName": "rclone",
+      "matchDatasources": ["docker"],
+      "matchDepNames": ["rclone/rclone"]
+    },
+    {
+      "groupName": "traefik",
+      "matchDatasources": ["docker"],
+      "matchDepNames": ["traefik"]
+    },
+    {
+      "groupName": "VictoriaMetrics",
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["^victoriametrics/"]
+    }
+  ]
+}
