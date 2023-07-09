@@ -7,7 +7,7 @@ arch:
   - aarch64
   - amd64
   - armv7
-#image: "ghcr.io/bluemaex/ha-addons-unpoller-{arch}"
+image: "ghcr.io/bluemaex/ha-addons-unpoller-{arch}"
 startup: system
 url: https://github.com/bluemaex/home-assistant-addons/tree/master/unpoller
 init: false
