@@ -6,7 +6,7 @@ FROM ghcr.io/home-assistant/aarch64-base:3.18 AS armv7-base
 FROM ghcr.io/home-assistant/aarch64-base:3.18 AS i386-base
 FROM ghcr.io/home-assistant/aarch64-base:3.18 AS aarch64-base
 
-FROM ghcr.io/unpoller/unpoller:v2.7.13 as unpoller-base
+FROM ghcr.io/unpoller/unpoller:v2.7.14 as unpoller-base
 
 FROM ${BUILD_ARCH}-base AS final
 COPY rootfs /
