@@ -1,11 +1,22 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [":dependencyDashboard", ":ignoreModulesAndTests"],
   "rebaseWhen": "behind-base-branch",
   "dependencyDashboard": true,
+  "dependencyDashboardAutoclose": true,
   "labels": ["dependencies"],
   "commitMessagePrefix": "⏫",
   "commitMessageTopic": "{{depName}}",
+  "regexManagers": [
+    {
+      "fileMatch": ["/Dockerfile$", "/build.yaml$"],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+",
+        "(aarch64|amd64|armhf|armv7|i386):\\s[\"']?(?<depName>.*?):(?<currentValue>.*?)[\"']?\\s"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ],
   "packageRules": [
     {
       "dependencyDashboardApproval": true,
@@ -16,10 +27,6 @@
       "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
-    },
-    {
-      "matchDatasources": ["docker", "github-actions"],
-      "minimumReleaseAge": "3 days"
     },
     {
       "groupName": "HomeAssistant Add-on base image",
