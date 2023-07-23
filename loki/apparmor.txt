@@ -9,9 +9,6 @@ include <tunables/global>
 @{do_usr}=@{fs_root}/usr/
 @{do_var}=@{fs_root}/var/
 
-# Nginx data dirs
-@{nginx_data}=@{do_usr}/lib/nginx/ @{do_usr}/share/nginx/ @{do_var}/lib/nginx/
-
 profile loki flags=(attach_disconnected,mediate_deleted) {
   include <abstractions/base>
   include <abstractions/bash>
@@ -62,7 +59,7 @@ profile loki flags=(attach_disconnected,mediate_deleted) {
   /data/**                                    rw,
 
   # Needed for setup
-  @{do_etc}/{loki,nginx}/{,**}                rw,
+  @{do_etc}/{loki}/{,**}                rw,
   /config/addons/loki/{,**}                  r,
   /{share,ssl}/{,**}                          r,
 
@@ -99,3 +96,4 @@ profile loki flags=(attach_disconnected,mediate_deleted) {
     @{PROC}/@{pid}/cpuset                     r,
     @{sys}/kernel/mm/transparent_hugepage/hpage_pmd_size r,
   }
+}
