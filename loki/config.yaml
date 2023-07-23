@@ -6,7 +6,6 @@ description: |
 arch:
   - aarch64
   - amd64
-  - armv7
 image: "ghcr.io/bluemaex/ha-addons-loki-{arch}"
 startup: system
 url: https://github.com/bluemaex/home-assistant-addons/tree/master/loki
