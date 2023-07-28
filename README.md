@@ -38,3 +38,7 @@ Grafana Loki is a horizontally-scalable, highly-available, multi-tenant log aggr
 ### [promtail](./promtail)
 
 Promtail is an agent which ships the contents of local logs to a private Loki instance or Grafana Cloud.
+
+### [syslog-ng](./syslog-ng)
+
+syslog-ng allows you to flexibly collect, parse, classify, rewrite and correlate logs from across your infrastructure and store or route them to log analysis tools
