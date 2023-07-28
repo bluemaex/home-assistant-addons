@@ -2,18 +2,6 @@
 
 VictoriaMetrics bundled as an Home Assistant add-on.
 
-## Installation
-
-Follow these steps to get the add-on installed on your system:
-
-1. Navigate in your Home Assistant frontend to **Supervisor -> Add-on Store**
-2. Add this new repository by URL (`https://github.com/bluemaex/home-assistant-addons`)
-3. Find the "VictoraMetrics" add-on and click on it.
-4. Click on the "INSTALL" button
-5. Read the Documentation inside the Addon
-6. Adapt your Configuration to your liking (Retention Time, Additional Configuration, Home Assistant)
-7. Start with long term tracking 👍
-
 ## HomeAssistant
 
 To send data from Home Assistant to VictoriaMetrics, you can use either the [InfluxDB](https://www.home-assistant.io/integrations/influxdb/) or [Prometheus](https://www.home-assistant.io/integrations/prometheus/) integration.

@@ -34,6 +34,11 @@
       "matchPackagePatterns": ["^(?:ghcr.io/)?home-assistant/.*-base$"]
     },
     {
+      "groupName": "HomeAssistant hassio-addons debian base image",
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["^(?:ghcr.io/)?hassio-addons/debian-base/.*$"]
+    },
+    {
       "groupName": "rclone",
       "matchDatasources": ["docker"],
       "matchDepNames": ["rclone/rclone"]
