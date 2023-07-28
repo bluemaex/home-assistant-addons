@@ -39,19 +39,14 @@
       "matchPackagePatterns": ["^(?:ghcr.io/)?hassio-addons/debian-base/.*$"]
     },
     {
-      "groupName": "rclone",
-      "matchDatasources": ["docker"],
-      "matchDepNames": ["rclone/rclone"]
-    },
-    {
-      "groupName": "traefik",
-      "matchDatasources": ["docker"],
-      "matchDepNames": ["traefik"]
-    },
-    {
       "groupName": "VictoriaMetrics",
       "matchDatasources": ["docker"],
       "matchPackagePatterns": ["^victoriametrics/"]
+    },
+    {
+      "groupName": "linuxserver.io/syslog-ng",
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["^lscr.io/linuxserver/syslog-ng"]
     }
   ]
 }
