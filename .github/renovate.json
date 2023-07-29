@@ -47,6 +47,11 @@
       "groupName": "linuxserver.io/syslog-ng",
       "matchDatasources": ["docker"],
       "matchPackagePatterns": ["^lscr.io/linuxserver/syslog-ng"]
+    },
+    {
+      "groupName": "linuxserver.io/healthchecks",
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["^lscr.io/linuxserver/healthchecks"]
     }
   ]
 }

@@ -42,3 +42,7 @@ Promtail is an agent which ships the contents of local logs to a private Loki in
 ### [syslog-ng](./syslog-ng)
 
 syslog-ng allows you to flexibly collect, parse, classify, rewrite and correlate logs from across your infrastructure and store or route them to log analysis tools
+
+### [healtchecks](./healthchecks)
+
+Healthchecks is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.
