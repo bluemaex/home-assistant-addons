@@ -1,10 +1,6 @@
 ---
 name: Builder
 
-env:
-  BUILD_ARGS: "--test"
-  MONITORED_FILES: "build.yaml config.yaml Dockerfile rootfs apparmor.txt"
-
 # yamllint disable-line rule:truthy
 on:
   push:
@@ -13,9 +9,6 @@ on:
   pull_request:
     branches:
       - main
-  release:
-    types:
-      - published
 
 jobs:
   init:
@@ -64,10 +57,6 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.init.outputs.changed == 'true'
     name: Build ${{ matrix.arch }} ${{ matrix.addon }} add-on
-    permissions:
-      contents: read
-      packages: write
-      id-token: write
     strategy:
       matrix:
         addon: ${{ fromJson(needs.init.outputs.changed_addons) }}
@@ -84,52 +73,18 @@ jobs:
         id: check
         run: |
           if [[ "${{ steps.info.outputs.architectures }}" =~ ${{ matrix.arch }} ]]; then
+             echo "${{ matrix.arch }} is a supported arch for ${{ matrix.addon }}, starting build";
              echo "build_arch=true" >> $GITHUB_OUTPUT;
-             echo "image=$(echo ${{ steps.info.outputs.image }} | cut -d'/' -f3)" >> $GITHUB_OUTPUT;
-             if [[ -z "${{ github.head_ref }}" ]] && [[ "${{ github.event_name }}" == "push" ]]; then
-                 echo "BUILD_ARGS=" >> $GITHUB_ENV;
-             fi
            else
              echo "${{ matrix.arch }} is not a valid arch for ${{ matrix.addon }}, skipping build";
              echo "build_arch=false" >> $GITHUB_OUTPUT;
-          fi
-      - name: 🏗  Login to GitHub Container Registry
-        if: env.BUILD_ARGS != '--test'
-        uses: docker/login-action@v2.2.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: 👷‍♂️ Update Build Values
-        if: steps.check.outputs.build_arch == 'true'
-        id: check-release
-        run: |
-          if [[ "${{ github.event_name }}" == "release" ]]; then
-            echo "🎉 It's a release: ${{ github.event_name }}, increasing version in config.yaml"
-            version="${{ github.event.release.tag_name }}"
-            version="${version#${{ matrix.addon }}}"
-            version="${version#-}"
-            date=$(date +"%Y-%m-%dT%H:%M:%SZ")
-
-            version="$version" /usr/bin/yq -i ".version = strenv(version)" "${{ matrix.addon }}/config.yaml"
-            version="$version" date="$date" yq -i '
-            .labels."org.opencontainers.image.title" = "Home Assistant Unofficial Add-on: ${{ matrix.addon }}" |
-            .labels."org.opencontainers.image.url" = "https://github.com/bluemaex/home-assistant-addons/" |
-            .labels."org.opencontainers.image.source" = "https://github.com/bluemaex/home-assistant-addons/${{ matrix.addon }}" |
-            .labels."org.opencontainers.image.documentation" = "https://github.com/bluemaex/home-assistant-addons/${{ matrix.addon }}/README.md" |
-            .labels."org.opencontainers.image.created" = strenv(date) |
-            .labels."org.opencontainers.image.revision" = "${{ github.sha }}" |
-            .labels."org.opencontainers.image.version" = strenv(version)
-          ' ${{ matrix.addon }}/build.yaml
-          else
-            echo "❌ Not a release, not touching build.yaml/config.yaml"
           fi
       - name: 🚀 Build ${{ matrix.addon }} add-on
         if: steps.check.outputs.build_arch == 'true'
         uses: home-assistant/builder@2023.06.1
         with:
           args: |
-            ${{ env.BUILD_ARGS }} \
+            --test \
             --${{ matrix.arch }} \
             --target /data/${{ matrix.addon }} \
             --image "${{ steps.check.outputs.image }}" \
