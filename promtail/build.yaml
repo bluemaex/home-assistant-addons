@@ -9,6 +9,3 @@ labels:
   maintainer: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.authors: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.licenses: "MIT License"
-  org.opencontainers.image.title: "Home Assistant Unofficial Add-on: Promtail"
-  org.opencontainers.image.source: "https://github.com/bluemaex/home-assistant-addons/promtail"
-  org.opencontainers.image.documentation: "https://github.com/bluemaex/home-assistant-addons/promtail/README.md"
