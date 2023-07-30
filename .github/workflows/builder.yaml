@@ -13,28 +13,28 @@ on:
   pull_request:
     branches:
       - main
+  release:
+    types:
+      - published
   workflow_dispatch:
 
 jobs:
   init:
     runs-on: ubuntu-latest
-    name: Initialize builds
+    name: ⏳ Initialize builds
     outputs:
       changed_addons: ${{ steps.changed_addons.outputs.addons }}
       changed: ${{ steps.changed_addons.outputs.changed }}
     steps:
-      - name: Check out the repository
+      - name: ⤵️ Check out the repository
         uses: actions/checkout@v3.5.3
-
-      - name: Get changed files
+      - name: 🗝️ Get changed files
         id: changed_files
         uses: jitterbit/get-changed-files@v1
-
-      - name: Find add-on directories
+      - name: 🚀 Find add-on directories
         id: addons
         uses: home-assistant/actions/helpers/find-addons@master
-
-      - name: Get changed add-ons
+      - name: 🦺 Get changed add-ons
         id: changed_addons
         run: |
           declare -a changed_addons
@@ -59,6 +59,7 @@ jobs:
           else
             echo "No add-on had any monitored files changed (${{ env.MONITORED_FILES }})";
           fi
+
   build:
     needs: init
     runs-on: ubuntu-latest
@@ -72,18 +73,15 @@ jobs:
       matrix:
         addon: ${{ fromJson(needs.init.outputs.changed_addons) }}
         arch: ["aarch64", "amd64", "armhf", "armv7", "i386"]
-
     steps:
-      - name: Check out repository
+      - name: ⤵️ Check out repository
         uses: actions/checkout@v3.5.3
-
-      - name: Get information
+      - name: ℹ️ Get information
         id: info
         uses: home-assistant/actions/helpers/info@master
         with:
           path: "./${{ matrix.addon }}"
-
-      - name: Check if add-on should be built
+      - name: 🦺 Check if add-on should be built
         id: check
         run: |
           if [[ "${{ steps.info.outputs.architectures }}" =~ ${{ matrix.arch }} ]]; then
@@ -96,16 +94,38 @@ jobs:
              echo "${{ matrix.arch }} is not a valid arch for ${{ matrix.addon }}, skipping build";
              echo "build_arch=false" >> $GITHUB_OUTPUT;
           fi
-
-      - name: Login to GitHub Container Registry
+      - name: 🏗  Login to GitHub Container Registry
         if: env.BUILD_ARGS != '--test'
         uses: docker/login-action@v2.2.0
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: 👷‍♂️ Update Build Values
+        if: steps.check.outputs.build_arch == 'true'
+        id: check-release
+        run: |
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            echo "🎉 It's a release: ${{ github.event_name }}, increasing version in config.yaml"
+            version="${{ github.event.release.tag_name }}"
+            version="${version#${{ matrix.addon }}}"
+            version="${version#-}"
+            date=$(date +"%Y-%m-%dT%H:%M:%SZ")
 
-      - name: Build ${{ matrix.addon }} add-on
+            version="$version" /usr/bin/yq -i ".version = strenv(version)" "${{ matrix.addon }}/config.yaml"
+            version="$version" date="$date" yq -i '
+            .labels."org.opencontainers.image.title" = "Home Assistant Unofficial Add-on: ${{ matrix.addon }}" |
+            .labels."org.opencontainers.image.url" = "https://github.com/bluemaex/home-assistant-addons/" |
+            .labels."org.opencontainers.image.source" = "https://github.com/bluemaex/home-assistant-addons/${{ matrix.addon }}" |
+            .labels."org.opencontainers.image.documentation" = "https://github.com/bluemaex/home-assistant-addons/${{ matrix.addon }}/README.md" |
+            .labels."org.opencontainers.image.created" = strenv(date) |
+            .labels."org.opencontainers.image.revision" = "${{ github.sha }}" |
+            .labels."org.opencontainers.image.version" = strenv(version)
+          ' ${{ matrix.addon }}/build.yaml
+          else
+            echo "❌ Not a release, not touching build.yaml/config.yaml"
+          fi
+      - name: 🚀 Build ${{ matrix.addon }} add-on
         if: steps.check.outputs.build_arch == 'true'
         uses: home-assistant/builder@2023.06.1
         with:
