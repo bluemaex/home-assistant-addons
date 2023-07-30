@@ -55,6 +55,7 @@ jobs:
     name: 🔍 Lint add-on ${{ matrix.path }}
     runs-on: ubuntu-latest
     needs: find
+    if: needs.find.outputs.changed == 'true'
     strategy:
       matrix:
         path: ${{ fromJson(needs.find.outputs.changed_addons) }}
