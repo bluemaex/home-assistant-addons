@@ -9,6 +9,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   init:
@@ -33,7 +34,7 @@ jobs:
           for addon in ${{ steps.addons.outputs.addons }}; do
             if [[ "${{ steps.changed_files.outputs.all }}" =~ $addon ]]; then
               for file in ${{ env.MONITORED_FILES }}; do
-                  if [[ "${{ steps.changed_files.outputs.all }}" =~ $addon/$file ]]; then
+                  if [[ "${{ steps.changed_files.outputs.all }}" =~ $addon/$file ]] || [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
                     if [[ ! "${changed_addons[@]}" =~ $addon ]]; then
                       changed_addons+=("\"${addon}\",");
                     fi
@@ -56,7 +57,7 @@ jobs:
     needs: init
     runs-on: ubuntu-latest
     if: needs.init.outputs.changed == 'true'
-    name: Build ${{ matrix.arch }} ${{ matrix.addon }} add-on
+    name: 👷‍♂️ Build ${{ matrix.addon }} add-on for ${{ matrix.arch }}
     strategy:
       matrix:
         addon: ${{ fromJson(needs.init.outputs.changed_addons) }}
