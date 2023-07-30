@@ -1,3 +1,4 @@
+---
 name: Lint
 
 on:
@@ -5,8 +6,11 @@ on:
     branches:
       - main
   pull_request:
-    branches:
-      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+  workflow_dispatch:
 
 jobs:
   find:
@@ -22,7 +26,7 @@ jobs:
         id: addons
         uses: home-assistant/actions/helpers/find-addons@master
 
-  lint:
+  lint-addon:
     name: Lint add-on ${{ matrix.path }}
     runs-on: ubuntu-latest
     needs: find
@@ -32,8 +36,58 @@ jobs:
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v3.5.3
-
       - name: 🚀 Run Home Assistant Add-on Lint
         uses: frenck/action-addon-linter@v2.13
         with:
           path: "./${{ matrix.path }}"
+
+  lint-shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⤵️ Check out code from GitHub
+        uses: actions/checkout@v3
+      - name: 🚀 Run Shellcheck
+        uses: ludeeus/action-shellcheck@2.0.0
+        env:
+          SHELLCHECK_OPTS: -s bash
+
+  lint-markdown:
+    name: MarkdownLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⤵️ Check out code from GitHub
+        uses: actions/checkout@v3
+      - name: 🚀 Run mdl
+        uses: actionshub/markdownlint@v3.1.3
+
+  lint-json:
+    name: JSON Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⤵️ Check out code from GitHub
+        uses: actions/checkout@v3
+      - name: 🚀 Run JQ
+        run: |
+          shopt -s globstar
+          cat **/*.json | jq '.'
+
+  lint-yamllint:
+    name: YAMLLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⤵️ Check out code from GitHub
+        uses: actions/checkout@v3
+      - name: 🚀 Run YAMLLint
+        uses: frenck/action-yamllint@v1.4
+
+  lint-prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⤵️ Check out code from GitHub
+        uses: actions/checkout@v3
+      - name: 🚀 Run Prettier
+        uses: creyD/prettier_action@v4.3
+        with:
+          prettier_options: --write **/*.{json,js,md,yaml}
