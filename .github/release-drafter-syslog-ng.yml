@@ -1,7 +1,7 @@
 ---
 name-template: "syslog-ng $RESOLVED_VERSION"
-tag-template: "syslog-ng.$RESOLVED_VERSION"
-tag-prefix: "syslog-ng."
+tag-template: "syslog-ng-$RESOLVED_VERSION"
+tag-prefix: "syslog-ng-"
 include-paths:
   - "syslog-ng"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"

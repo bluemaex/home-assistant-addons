@@ -1,7 +1,7 @@
 ---
 name-template: "traefik $RESOLVED_VERSION"
-tag-template: "traefik.$RESOLVED_VERSION"
-tag-prefix: "traefik."
+tag-template: "traefik-$RESOLVED_VERSION"
+tag-prefix: "traefik-"
 include-paths:
   - "traefik"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"

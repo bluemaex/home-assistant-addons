@@ -1,7 +1,7 @@
 ---
 name-template: "unpoller $RESOLVED_VERSION"
-tag-template: "unpoller.$RESOLVED_VERSION"
-tag-prefix: "unpoller."
+tag-template: "unpoller-$RESOLVED_VERSION"
+tag-prefix: "unpoller-"
 include-paths:
   - "unpoller"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"

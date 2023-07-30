@@ -1,7 +1,7 @@
 ---
 name-template: "healthchecks $RESOLVED_VERSION"
-tag-template: "healthchecks.$RESOLVED_VERSION"
-tag-prefix: "healthchecks."
+tag-template: "healthchecks-$RESOLVED_VERSION"
+tag-prefix: "healthchecks-"
 include-paths:
   - "healthchecks"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"

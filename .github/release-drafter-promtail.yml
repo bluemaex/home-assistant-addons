@@ -1,7 +1,7 @@
 ---
 name-template: "promtail $RESOLVED_VERSION"
-tag-template: "promtail.$RESOLVED_VERSION"
-tag-prefix: "promtail."
+tag-template: "promtail-$RESOLVED_VERSION"
+tag-prefix: "promtail-"
 include-paths:
   - "promtail"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"

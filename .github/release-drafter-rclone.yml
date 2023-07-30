@@ -1,7 +1,7 @@
 ---
 name-template: "rclone $RESOLVED_VERSION"
-tag-template: "rclone.$RESOLVED_VERSION"
-tag-prefix: "rclone."
+tag-template: "rclone-$RESOLVED_VERSION"
+tag-prefix: "rclone-"
 include-paths:
   - "rclone"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"

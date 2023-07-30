@@ -1,7 +1,7 @@
 ---
 name-template: "victoriametrics $RESOLVED_VERSION"
-tag-template: "victoriametrics.$RESOLVED_VERSION"
-tag-prefix: "victoriametrics."
+tag-template: "victoriametrics-$RESOLVED_VERSION"
+tag-prefix: "victoriametrics-"
 include-paths:
   - "victoriametrics"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"

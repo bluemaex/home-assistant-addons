@@ -1,7 +1,7 @@
 ---
 name-template: "loki $RESOLVED_VERSION"
-tag-template: "loki.$RESOLVED_VERSION"
-tag-prefix: "loki."
+tag-template: "loki-$RESOLVED_VERSION"
+tag-prefix: "loki-"
 include-paths:
   - "loki"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
