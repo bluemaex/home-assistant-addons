@@ -54,7 +54,7 @@ jobs:
           SHELLCHECK_OPTS: -s bash
 
   lint-markdown:
-    name: MarkdownLint
+    name: Markdown Lint
     runs-on: ubuntu-latest
     steps:
       - name: ⤵️ Check out code from GitHub
@@ -74,7 +74,7 @@ jobs:
           cat **/*.json | jq '.'
 
   lint-yamllint:
-    name: YAMLLint
+    name: YAML Lint
     runs-on: ubuntu-latest
     steps:
       - name: ⤵️ Check out code from GitHub
