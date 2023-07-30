@@ -12,6 +12,7 @@ url: https://github.com/bluemaex/home-assistant-addons/tree/master/healthchecks
 init: false
 ingress: true
 ingress_port: 8000
+panel_icon: mdi:timer-check-outline
 ports:
   8000/tcp: null
   2525/tcp: 2525
