@@ -155,7 +155,7 @@ scrape_configs:
       credentials: "<<Your Token>>"
     scheme: http
     static_configs:
-      - targets: ['http://homeassistant:8123/api/prometheus']
+      - targets: ["http://homeassistant:8123/api/prometheus"]
 ```
 
 If you need special configuration for VMAgent or the Server because of reasons:

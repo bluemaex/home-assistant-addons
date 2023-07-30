@@ -198,12 +198,12 @@ For more information, go on the
 [Traefik Prometheus Documentation](https://doc.traefik.io/traefik/observability/metrics/prometheus/).
 
 ```yaml
-    metricsRouter:
-      rule: "Host(`hass.io`) && PathPrefix(`/metrics`)"
-      entryPoints: ["web-secure"]
-      tls:
-        certResolver: le
-      service: prometheus@internal
+metricsRouter:
+  rule: "Host(`hass.io`) && PathPrefix(`/metrics`)"
+  entryPoints: ["web-secure"]
+  tls:
+    certResolver: le
+  service: prometheus@internal
 ```
 
 ### Option `env_vars`
