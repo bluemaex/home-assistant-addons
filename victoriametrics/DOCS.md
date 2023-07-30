@@ -16,9 +16,9 @@ the entities/domains as you wish.
 
 Be aware of two things:
 
-- 1.  VictoriaMetrics only saves integer and date values. It does not save
+1. VictoriaMetrics only saves integer and date values. It does not save
       string values.
-- 2.  What you choose as value for `measurement_attr`. This decides how you
+1. What you choose as value for `measurement_attr`. This decides how you
       create your series, if you want an own series for each entity you are best
       with `entity_id`. For a series based on the `domain` or the `measurement`
       you should choose the respective values.

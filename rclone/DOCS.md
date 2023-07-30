@@ -7,9 +7,9 @@ Rclone bundled as an Home Assistant add-on.
 Follow these steps to get the add-on installed on your system:
 
 1. Navigate in your Home Assistant frontend to **Supervisor -> Add-on Store**
-2. Add this new repository by URL (`https://github.com/bluemaex/home-assistant-addons`)
-3. Find the "Rclone" add-on and click it.
-4. Click on the "INSTALL" button
+1. Add this new repository by URL (`https://github.com/bluemaex/home-assistant-addons`)
+1. Find the "Rclone" add-on and click it.
+1. Click on the "INSTALL" button
 
 ## How to use
 
@@ -20,16 +20,16 @@ can be done in several ways:
 
 1. Download the [latest release](https://rclone.org/downloads/) for your
    platform and extract the rclone binary
-2. Run `rclone config`
-3. Set up your remote
-4. Copy the generated Rclone config to your Hass.io host
+1. Run `rclone config`
+1. Set up your remote
+1. Copy the generated Rclone config to your Hass.io host
 
 ### Generate rclone config through a Docker container
 
 1. Run `docker run --rm -it --entrypoint /bin/sh rclone/rclone`
-2. Run `rclone --config /data/rclone.conf config`
-3. Set up your remote
-4. Run `cat /data/rclone.conf` and copy over the contents to your Hass.io host
+1. Run `rclone --config /data/rclone.conf config`
+1. Set up your remote
+1. Run `cat /data/rclone.conf` and copy over the contents to your Hass.io host
 
 > **Note** For more information regarding Rclone config, please read the
 > [Rclone documentation](https://rclone.org/docs/).

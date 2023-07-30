@@ -13,13 +13,13 @@ as an Home Assistant add-on.
 Follow these steps to get the add-on installed on your system:
 
 1. Navigate in your Home Assistant frontend to **Supervisor -> Add-on Store**
-2. Add this new repository by URL
+1. Add this new repository by URL
    (`https://github.com/bluemaex/home-assistant-addons`)
-3. Find the "Unpoller" add-on and click on it.
-4. Click on the "INSTALL" button
-5. Read the Documentation inside the Addon
-6. Adapt your Configuration to your liking
-7. Start with long term tracking 👍
+1. Find the "Unpoller" add-on and click on it.
+1. Click on the "INSTALL" button
+1. Read the Documentation inside the Addon
+1. Adapt your Configuration to your liking
+1. Start with long term tracking 👍
 
 ## About
 

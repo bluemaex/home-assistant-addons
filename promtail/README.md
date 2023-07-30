@@ -2,10 +2,6 @@
 
 Promtail (<https://grafana.com/oss/loki/>) bundled as an Home Assistant add-on.
 
-![aarch64-shield](https://img.shields.io/badge/aarch64-yes-green)
-![amd64-shield](https://img.shields.io/badge/amd64-yes-green)
-![armv7-shield](https://img.shields.io/badge/armv7-yes-green)
-
 ## About
 
 Promtail is an agent which ships the contents of local logs to a private Loki

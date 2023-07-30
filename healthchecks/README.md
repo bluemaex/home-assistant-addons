@@ -2,10 +2,6 @@
 
 Healthchecks (<https://healthchecks.io/>) bundled as an Home Assistant add-on.
 
-![aarch64-shield](https://img.shields.io/badge/aarch64-yes-green)
-![amd64-shield](https://img.shields.io/badge/amd64-yes-green)
-![armv7-shield](https://img.shields.io/badge/armv7-yes-green)
-
 ## About
 
 Healthchecks is a watchdog for your cron jobs. It's a web server that listens

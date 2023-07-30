@@ -3,10 +3,6 @@
 syslog-ng (<https://www.syslog-ng.com/products/open-source-log-management/>)
 bundled as an Home Assistant add-on.
 
-![aarch64-shield](https://img.shields.io/badge/aarch64-yes-green)
-![amd64-shield](https://img.shields.io/badge/amd64-yes-green)
-![armv7-shield](https://img.shields.io/badge/armv7-yes-green)
-
 ## About
 
 syslog-ng allows you to flexibly collect, parse, classify, rewrite and correlate
