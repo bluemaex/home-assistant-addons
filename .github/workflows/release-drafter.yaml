@@ -8,11 +8,28 @@ on:
       - main
 
 jobs:
+  find:
+    name: Find add-ons
+    runs-on: ubuntu-latest
+    outputs:
+      addons: ${{ steps.addons.outputs.addons_list }}
+    steps:
+      - name: ⤵️ Check out code from GitHub
+        uses: actions/checkout@v3.5.3
+      - name: 🔍 Find add-on directories
+        id: addons
+        uses: home-assistant/actions/helpers/find-addons@master
+
   update_release_draft:
     name: ✏️ Draft release
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        path: ${{ fromJson(needs.find.outputs.addons) }}
     steps:
-      - name: 🚀 Run Release Drafter
+      - name: 🚀 Run Release Drafter for ${{ matrix.path }}
         uses: release-drafter/release-drafter@v5.24.0
+        with:
+          config-name: "release-drafter-${{ matrix.path }}.yml"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

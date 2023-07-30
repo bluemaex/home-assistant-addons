@@ -1,8 +1,26 @@
 ---
-name-template: "v$RESOLVED_VERSION"
-tag-template: "v$RESOLVED_VERSION"
+name-template: "syslog-ng $RESOLVED_VERSION"
+tag-template: "syslog-ng.$RESOLVED_VERSION"
+tag-prefix: "syslog-ng."
+include-paths:
+  - "syslog-ng"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
+no-changes-template: "- No changes"
 sort-direction: ascending
+
+autolabeler:
+  - label: "documentation"
+    files:
+      - "**/*.md"
+  - label: "enhancement"
+    files:
+      - "syslog-ng/**/*"
+  - label: "maintenance"
+    files:
+      - ".github/**/*"
+      - ".vscode/**/*"
+
+## Defaults
 
 categories:
   - title: "🚨 Breaking changes"
