@@ -17,12 +17,12 @@ the entities/domains as you wish.
 Be aware of two things:
 
 1. VictoriaMetrics only saves integer and date values. It does not save
-      string values.
+   string values.
 1. What you choose as value for `measurement_attr`. This decides how you
-      create your series, if you want an own series for each entity you are best
-      with `entity_id`. For a series based on the `domain` or the `measurement`
-      you should choose the respective values.
-      Please refer to the [official Integration Documentation][integration-influxdb-measurement].
+   create your series, if you want an own series for each entity you are best
+   with `entity_id`. For a series based on the `domain` or the `measurement`
+   you should choose the respective values.
+   Please refer to the [official Integration Documentation][integration-influxdb-measurement].
 
 To avoid having lot's of empty metrics it is important to tune
 `ignore_attributes` to exclude what you are not interested in. Here is an
