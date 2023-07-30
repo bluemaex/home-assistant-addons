@@ -1,8 +1,10 @@
+---
 name: healthchecks
 version: 2.10-ls182
 slug: healthchecks
 description: |
-  Healthchecks is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.
+  Healthchecks is a watchdog for your cron jobs.
+  It's a web server that listens for pings from your cron jobs, plus a web interface.
 arch:
   - aarch64
   - amd64

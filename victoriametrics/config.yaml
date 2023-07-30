@@ -1,3 +1,4 @@
+---
 name: Victoria Metrics
 version: 1.9.13-2
 slug: victoriametrics
@@ -13,8 +14,10 @@ startup: system
 url: https://github.com/bluemaex/home-assistant-addons/tree/master/victoriametrics
 ports:
   8428/tcp: 8428
+  2003/udp: null
 ports_description:
   8428/tcp: victoriametrics HTTP Endpoint
+  2003/udp: Graphite TCP listener Endpoint
 init: false
 ingress: true
 ingress_entry: /vmui

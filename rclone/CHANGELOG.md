@@ -7,7 +7,8 @@
 
 ## 3.0.10
 
-- 🆕 Add start_url and end_url to each remote to allow monitoring (via e.g. healthchecks.io)
+- 🆕 Add start_url and end_url to each remote to allow monitoring (via e.g.
+  healthchecks.io)
 - 🆕 Update base image
 
 ## 3.0.9
@@ -50,5 +51,7 @@
 ## 3.0.0
 
 - 🆕 Migrated to use S6 init system
-- 🆕 Added support for all arch types (`armhf`, `armv7`, `amd64`, `aarch64`, `i386`)
-- 🐞 Added Hassio role / api access to remove an error from startup [home-assistant-addons/addon-base](https://github.com/home-assistant-addons/addon-base/issues/41)
+- 🆕 Added support for all arch types (`armhf`, `armv7`, `amd64`, `aarch64`,
+  `i386`)
+- 🐞 Added Hassio role / api access to remove an error from startup
+  [home-assistant-addons/addon-base](https://github.com/home-assistant-addons/addon-base/issues/41)

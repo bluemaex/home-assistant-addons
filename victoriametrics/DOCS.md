@@ -4,20 +4,31 @@ VictoriaMetrics bundled as an Home Assistant add-on.
 
 ## HomeAssistant
 
-To send data from Home Assistant to VictoriaMetrics, you can use either the [InfluxDB](https://www.home-assistant.io/integrations/influxdb/) or [Prometheus](https://www.home-assistant.io/integrations/prometheus/) integration.
+To send data from Home Assistant to VictoriaMetrics, you can use either the
+[InfluxDB][integration-influxdb] or
+[Prometheus][integration-prometheus]
+integration.
 
-You can configure it to your liking as you wish. Make sure to include/exclude the entities/domains as you wish.
+You can configure it to your liking as you wish. Make sure to include/exclude
+the entities/domains as you wish.
 
 ### InfluxDB Specialites
 
 Be aware of two things:
 
-- 1.  VictoriaMetrics only saves integer and date values. It does not save string values.
-- 2.  What you choose as value for `measurement_attr`. This decides how you create your series, if you want an own series for each entity you are best with `entity_id`. For a series based on the `domain` or the `measurement` you should choose the respective values - Please refer to the [official Integration Documentation](https://www.home-assistant.io/integrations/influxdb/#measurement_attr) for this/
+- 1.  VictoriaMetrics only saves integer and date values. It does not save
+      string values.
+- 2.  What you choose as value for `measurement_attr`. This decides how you
+      create your series, if you want an own series for each entity you are best
+      with `entity_id`. For a series based on the `domain` or the `measurement`
+      you should choose the respective values.
+      Please refer to the [official Integration Documentation][integration-influxdb-measurement].
 
-To avoid having lot's of empty metrics it is important to tune `ignore_attributes` to exclude what you are not interested in. Here is an example of lots of exception. You can make these global or for each entity.
+To avoid having lot's of empty metrics it is important to tune
+`ignore_attributes` to exclude what you are not interested in. Here is an
+example of lots of exception. You can make these global or for each entity.
 
-```
+```yaml
 influxdb:
   api_version: 1
   host: <<<PLease use the hostname from the Addon Info Page>>>
@@ -115,18 +126,22 @@ influxdb:
 
 ### Retention
 
-Here you can specify how long VictoriaMetrics should keep it's data. You can set it to any string VictoriaMetrics Supports (https://github.com/VictoriaMetrics/VictoriaMetrics#retention).
+Here you can specify how long VictoriaMetrics should keep it's data. You can set
+it to any string VictoriaMetrics Supports ([see documentation][documentation-metrics]).
 Default value is for the retention is `5y`.
 
 ### Custom Start Arguments
 
-You pass any commandline arguments the Server or the Agent supports via this text field. Go easy or wild. It's your choice.
+You pass any commandline arguments the Server or the Agent supports via this
+text field. Go easy or wild. It's your choice.
 
 ### Custom Configuration Files
 
-If you want to scrape the Prometheus endpoint from HomeAssistant or from any other service you can simply create a `prometheus.yaml` file in the specified configuration folder and it will be automatically imported:
+If you want to scrape the Prometheus endpoint from HomeAssistant or from any
+other service you can simply create a `prometheus.yaml` file in the specified
+configuration folder and it will be automatically imported:
 
-```
+```yaml
 global:
   scrape_interval: 1m
   scrape_timeout: 15s
@@ -143,4 +158,11 @@ scrape_configs:
       - targets: ['http://homeassistant:8123/api/prometheus']
 ```
 
-If you need special configuration for VMAgent or the Server because of reasons: You can specify any files inside your HomeAssistant configuration path on the additional commandline parameters.
+If you need special configuration for VMAgent or the Server because of reasons:
+You can specify any files inside your HomeAssistant configuration path on the
+additional commandline parameters.
+
+[documentation-metrics]: https://github.com/VictoriaMetrics/VictoriaMetrics#retention
+[integration-influxdb]: https://www.home-assistant.io/integrations/influxdb/
+[integration-prometheus]: https://www.home-assistant.io/integrations/prometheus/
+[integration-influxdb-measurement]: https://www.home-assistant.io/integrations/influxdb/#measurement_attr

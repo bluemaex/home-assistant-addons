@@ -13,11 +13,13 @@ Follow these steps to get the add-on installed on your system:
 
 ## How to use
 
-After installation you will need to generate a rclone configuration file. This can be done in several ways:
+After installation you will need to generate a rclone configuration file. This
+can be done in several ways:
 
 ### Generate rclone config locally
 
-1. Download the [latest release](https://rclone.org/downloads/) for your platform and extract the rclone binary
+1. Download the [latest release](https://rclone.org/downloads/) for your
+   platform and extract the rclone binary
 2. Run `rclone config`
 3. Set up your remote
 4. Copy the generated Rclone config to your Hass.io host
@@ -29,7 +31,8 @@ After installation you will need to generate a rclone configuration file. This c
 3. Set up your remote
 4. Run `cat /data/rclone.conf` and copy over the contents to your Hass.io host
 
-> **Note** For more information regarding Rclone config, please read the [Rclone documentation](https://rclone.org/docs/).
+> **Note** For more information regarding Rclone config, please read the
+> [Rclone documentation](https://rclone.org/docs/).
 
 ### Example Rclone configuration
 
@@ -58,11 +61,14 @@ remotes:
 
 ### Option `configuration_path` (required)
 
-Path to the Rclone configuration file. You can use the `/share/` or `/config/` directories for storing this file.
+Path to the Rclone configuration file. You can use the `/share/` or `/config/`
+directories for storing this file.
 
 ### Option `local_retention_days` (required)
 
-The number of days the local files are kept. Files older than this date are pruned by this application. If for example the set value is 15, local files older than 15 days will be deleted.
+The number of days the local files are kept. Files older than this date are
+pruned by this application. If for example the set value is 15, local files
+older than 15 days will be deleted.
 
 > **Note** This value should be higher than `remote_retention_days`.
 
@@ -76,15 +82,19 @@ Path on the remote where the copied files should be stored.
 
 ### Option `remotes.retention_days` (required)
 
-The number of days the remote files are kept. Files older than this date are pruned by this application. If for example the set value is 15, remote files older than 15 days will be deleted.
+The number of days the remote files are kept. Files older than this date are
+pruned by this application. If for example the set value is 15, remote files
+older than 15 days will be deleted.
 
 ### Option `remotes.start_url` (optional)
 
-An URL that is pinged before we start rclone for this remote. Ideal for monitoring the progress with e.g. `healthchecks.io`
+An URL that is pinged before we start rclone for this remote. Ideal for
+monitoring the progress with e.g. `healthchecks.io`
 
 ### Option `remotes.end_url` (optional)
 
-An URL that we POST the resulting log to after the rclone run for this remote. Ideal for monitoring the progress with e.g. `healthchecks.io`
+An URL that we POST the resulting log to after the rclone run for this remote.
+Ideal for monitoring the progress with e.g. `healthchecks.io`
 
 ## Automations
 

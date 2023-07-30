@@ -1,8 +1,11 @@
+---
 name: syslog-ng
 version: 4.1.1-r2-ls83
 slug: syslog-ng
 description: |
-  syslog-ng allows you to flexibly collect, parse, classify, rewrite and correlate logs from across your infrastructure and store or route them to log analysis tools
+  syslog-ng allows you to flexibly collect, parse, classify, rewrite
+  and correlate logs from across your infrastructure and store or route
+  them to log analysis tools
 arch:
   - aarch64
   - amd64

@@ -1,6 +1,7 @@
 ---
 name: Lint
 
+# yamllint disable-line rule:truthy
 on:
   push:
     branches:
@@ -90,4 +91,4 @@ jobs:
       - name: 🚀 Run Prettier
         uses: creyD/prettier_action@v4.3
         with:
-          prettier_options: --write **/*.{json,js,md,yaml}
+          prettier_options: --write **/*.{json,js,md,yaml,yml}

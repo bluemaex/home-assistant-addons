@@ -9,7 +9,9 @@ Traefik bundled as an Home Assistant add-on.
 
 ## About
 
-Traefik is a modern HTTP reverse proxy and load balancer that makes deploying microservices easy. This add-on provides dynamic Traefik configuration based on files.
+Traefik is a modern HTTP reverse proxy and load balancer that makes deploying
+microservices easy. This add-on provides dynamic Traefik configuration based on
+files.
 
 [Click here for the full Treafik documentation](https://docs.traefik.io/)
 
@@ -19,6 +21,8 @@ Traefik is a modern HTTP reverse proxy and load balancer that makes deploying mi
 
 ## Final notes
 
-This project is not affiliated with Traefik, the Traefik Maintainer Team or Containous, but simply a community effort. Traefik itself is distributed under the [MIT License](https://github.com/containous/traefik/blob/master/LICENSE.md).
+This project is not affiliated with Traefik, the Traefik Maintainer Team or
+Containous, but simply a community effort. Traefik itself is distributed under
+the [MIT License](https://github.com/containous/traefik/blob/master/LICENSE.md).
 
 Forked from ![https://github.com/alex3305/home-assistant-addons](https://github.com/alex3305/home-assistant-addons)
