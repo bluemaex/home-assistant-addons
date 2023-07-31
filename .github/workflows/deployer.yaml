@@ -74,6 +74,8 @@ jobs:
     steps:
       - name: ⤵️ Check out repository
         uses: actions/checkout@v3.5.3
+        with:
+          ref: ${{ github.event.release.target_commitish }}
       - name: 📝 Update Build Values
         run: |
           echo "📦 Updating version in config.yaml"
