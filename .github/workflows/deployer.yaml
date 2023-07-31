@@ -1,0 +1,104 @@
+---
+name: Deployer
+
+# yamllint disable-line rule:truthy
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: Addon-Name
+        required: true
+        type: string
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    name: ⏳ Find Add-on for release
+    outputs:
+      addon: ${{ steps.verify_release.outputs.addon }}
+      version: ${{ steps.verify_release.outputs.version }}
+      architectures: ${{ steps.info.outputs.architectures }}
+    steps:
+      - name: ⤵️ Check out the repository
+        uses: actions/checkout@v3.5.3
+      - name: 🚀 Find add-on directories
+        id: addons
+        uses: home-assistant/actions/helpers/find-addons@master
+      - name: 🦺 Verify Addon
+        id: verify_release
+        run: |
+          declare -a version addon_from_tag
+
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            addon_from_tag="${{ inputs.slug }} "
+            version="0.0.0-dev"
+          else
+            echo "Triggered by ${{ github.event_name }}: ${{ github.event.release.tag_name }}"
+            addon_from_tag="${{ github.event.release.tag_name }}"
+            addon_from_tag="${addon_from_tag%%-*}"
+            version="${{ github.event.release.tag_name }}"
+            version="${version#${addon_from_tag}}"
+            version="${version#-}"
+          fi
+
+          echo "Add-on: $addon_from_tag Version: $version"
+          echo "addon=$addon_from_tag" >> $GITHUB_OUTPUT
+          echo "version=$version" >> $GITHUB_OUTPUT
+      - name: ℹ️ Get information
+        id: info
+        uses: home-assistant/actions/helpers/info@master
+        with:
+          path: "./${{ steps.verify_release.outputs.addon }}"
+
+  build:
+    needs: init
+    runs-on: ubuntu-latest
+    name: 👩‍💻 Build & Deploy ${{ matrix.arch }}
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    strategy:
+      matrix:
+        addon: ["${{ needs.init.outputs.addon }}"]
+        version: ["${{ needs.init.outputs.version }}"]
+        arch: ${{ fromJson(needs.init.outputs.architectures) }}
+    steps:
+      - name: ⤵️ Check out repository
+        uses: actions/checkout@v3.5.3
+      - name: 🖋️ Update Build Values
+        id: check-release
+        run: |
+          echo "📦 Updating version in config.yaml"
+          yq -i ".version = ${{ matrix.version }}" "${{ matrix.addon }}/config.yaml"
+
+          echo "🎁 Adding Docker Labels in config.yaml"
+          date="$(date +"%Y-%m-%dT%H:%M:%SZ")" yq -i '
+            .labels."org.opencontainers.image.title" = "Home Assistant Unofficial Add-on: ${{ matrix.addon }}" |
+            .labels."org.opencontainers.image.url" = "https://github.com/bluemaex/home-assistant-addons/" |
+            .labels."org.opencontainers.image.source" = "https://github.com/bluemaex/home-assistant-addons/${{ matrix.addon }}" |
+            .labels."org.opencontainers.image.documentation" = "https://github.com/bluemaex/home-assistant-addons/${{ matrix.addon }}/README.md" |
+            .labels."org.opencontainers.image.created" = strenv(date) |
+            .labels."org.opencontainers.image.revision" = "${{ github.sha }}" |
+            .labels."org.opencontainers.image.version" = ${{ matrix.version }}
+          ' ${{ matrix.addon }}/build.yaml
+          cat ${{ matrix.addon }}/build.yaml
+      - name: 🏗  Login to GitHub Container Registry
+        uses: docker/login-action@v2.2.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: 🚀 Build ${{ matrix.addon }} add-on
+        uses: home-assistant/builder@2023.06.1
+        with:
+          args: |
+            --test \
+            --${{ matrix.arch }} \
+            --target /data/${{ matrix.addon }} \
+            --image "${{ steps.check.outputs.image }}" \
+            --docker-hub "ghcr.io/${{ github.repository_owner }}" \
+            --addon
