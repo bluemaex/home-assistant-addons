@@ -63,7 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     name: 👩‍💻 Build & Deploy ${{ matrix.arch }}
     permissions:
-      contents: read
+      contents: write
       packages: write
       id-token: write
     strategy:
@@ -108,7 +108,7 @@ jobs:
             --image "${{ steps.check.outputs.image }}" \
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --addon
-      - name: 🚀 Update Version in Addon Config
+      - name: 🚀 Update & Commit new Addon Config
         uses: EndBug/add-and-commit@v9.1.3
         if: matrix.arch == 'amd64'
         with:
