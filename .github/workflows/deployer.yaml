@@ -33,7 +33,7 @@ jobs:
           declare -a version addon_from_tag
 
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            addon_from_tag="${{ inputs.slug }} "
+            addon_from_tag="${{ inputs.slug }}"
             version="0.0.0-dev"
           else
             echo "Triggered by ${{ github.event_name }}: ${{ github.event.release.tag_name }}"
