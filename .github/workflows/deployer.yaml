@@ -74,8 +74,7 @@ jobs:
     steps:
       - name: ⤵️ Check out repository
         uses: actions/checkout@v3.5.3
-      - name: 🖋️ Update Build Values
-        id: check-release
+      - name: 📝 Update Build Values
         run: |
           echo "📦 Updating version in config.yaml"
           yq -i '.version = "${{ matrix.version }}"' "${{ matrix.addon }}/config.yaml"
@@ -108,6 +107,13 @@ jobs:
             --image "${{ steps.check.outputs.image }}" \
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --addon
+      - name: 📝 Update CHANGELOG.md
+        uses: stefanzweifel/changelog-updater-action@v1.9.0
+        if: matrix.arch == 'amd64'
+        with:
+          latest-version: ${{ matrix.addon }}
+          release-notes: ${{ github.event.release.body }}
+          path-to-changelog: ${{ matrix.addon }}/CHANGELOG.md
       - name: 🚀 Update & Commit new Addon Config
         uses: EndBug/add-and-commit@v9.1.3
         if: matrix.arch == 'amd64'
@@ -115,4 +121,4 @@ jobs:
           message: 🚀 Released ${{ matrix.addon }} ${{ matrix.version }}
           committer_name: GitHub Actions
           committer_email: actions@github.com
-          add: "${{ matrix.addon }}/config.yaml ${{ matrix.addon }}/build.yaml"
+          add: "${{ matrix.addon }}/config.yaml ${{ matrix.addon }}/build.yaml ${{ matrix.addon }}/CHANGELOG.md"
