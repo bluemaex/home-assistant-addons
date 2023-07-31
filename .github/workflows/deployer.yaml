@@ -12,6 +12,11 @@ on:
         description: Addon-Name
         required: true
         type: string
+      version:
+        description: Version Number
+        required: true
+        type: string
+        default: "0.0.0-dev-test"
 
 jobs:
   init:
@@ -34,7 +39,7 @@ jobs:
 
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             addon_from_tag="${{ inputs.slug }}"
-            version="0.0.0-dev"
+            version="${{ inputs.version }}"
           else
             echo "Triggered by ${{ github.event_name }}: ${{ github.event.release.tag_name }}"
             addon_from_tag="${{ github.event.release.tag_name }}"
@@ -74,6 +79,7 @@ jobs:
         run: |
           echo "📦 Updating version in config.yaml"
           yq -i '.version = "${{ matrix.version }}"' "${{ matrix.addon }}/config.yaml"
+          head "${{ matrix.addon }}/config.yaml"
 
           echo "🎁 Adding Docker Labels in config.yaml"
           date="$(date +"%Y-%m-%dT%H:%M:%SZ")" yq -i '
@@ -85,7 +91,7 @@ jobs:
             .labels."org.opencontainers.image.revision" = "${{ github.sha }}" |
             .labels."org.opencontainers.image.version" = "${{ matrix.version }}"
           ' "${{ matrix.addon }}/build.yaml"
-          cat ${{ matrix.addon }}/build.yaml
+          cat "${{ matrix.addon }}/build.yaml"
       - name: 🏗  Login to GitHub Container Registry
         uses: docker/login-action@v2.2.0
         with:
@@ -102,3 +108,10 @@ jobs:
             --image "${{ steps.check.outputs.image }}" \
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --addon
+      - uses: EndBug/add-and-commit@v9.1.3
+        if: github.event_name == 'release'
+        with:
+          message: 🚀 Released ${{ matrix.addon }} ${{ matrix.version }}
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
+          add: "${{ matrix.addon }}/config.yml ${{ matrix.addon }}/build.yml"
