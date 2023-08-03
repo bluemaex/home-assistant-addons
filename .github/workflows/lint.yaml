@@ -117,4 +117,5 @@ jobs:
       - name: 🚀 Run Prettier
         uses: creyD/prettier_action@v4.3
         with:
-          prettier_options: --write **/*.{json,js,md,yaml,yml}
+          dry: true
+          prettier_options: --check **/*.{json,js,md,yaml,yml}
