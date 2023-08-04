@@ -74,7 +74,7 @@ jobs:
         uses: stefanzweifel/changelog-updater-action@v1.9.0
         id: update_changelog
         with:
-          latest-version: ${{ steps.values.outputs.release_version }}
+          latest-version: ${{ steps.release_notes.outputs.name }}
           release-notes: ${{ steps.release_notes.outputs.body }}
           path-to-changelog: ${{ inputs.addon }}/CHANGELOG.md
       - name: ⤴️ Upload Release Artifacts
