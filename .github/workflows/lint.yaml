@@ -41,7 +41,7 @@ jobs:
 
           changed=$(echo ${changed_addons[@]} | rev | cut -c 2- | rev)
           echo "addons=[$changed]" >> $GITHUB_OUTPUT;
-          echo "Changed add-ons: $changed";
+          echo "Changed add-ons: [$changed]";
 
   lint-addon:
     name: 🔍 Lint add-on ${{ matrix.path }}

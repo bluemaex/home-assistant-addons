@@ -43,13 +43,13 @@ jobs:
 
           changed=$(echo ${changed_addons[@]} | rev | cut -c 2- | rev)
           echo "addons=[$changed]" >> $GITHUB_OUTPUT;
-          echo "Changed add-ons: $changed";
+          echo "Changed add-ons: [$changed]";
 
   build:
     needs: init
     runs-on: ubuntu-latest
     if: needs.init.outputs.addons != '[]'
-    name: 👷‍♂️ Build ${{ matrix.addon }} add-on for ${{ matrix.arch }}
+    name: 👷‍♂️ Build ${{ matrix.addon }} for ${{ matrix.arch }}
     strategy:
       matrix:
         addon: ${{ fromJson(needs.init.outputs.addons) }}

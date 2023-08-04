@@ -17,7 +17,7 @@ jobs:
     name: Find add-ons
     runs-on: ubuntu-latest
     outputs:
-      addons: ${{ steps.addons.outputs.addons_list }}
+      addons: ${{ steps.changed_addons.outputs.addons }}
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v3.5.3
@@ -39,7 +39,7 @@ jobs:
 
           changed=$(echo ${changed_addons[@]} | rev | cut -c 2- | rev)
           echo "addons=[$changed]" >> $GITHUB_OUTPUT;
-          echo "Changed add-ons: $changed";
+          echo "Changed add-ons: [$changed]";
 
   update_release_draft:
     permissions:
