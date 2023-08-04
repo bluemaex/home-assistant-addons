@@ -3,124 +3,144 @@ name: Deployer
 
 # yamllint disable-line rule:truthy
 on:
-  release:
-    types:
-      - published
   workflow_dispatch:
     inputs:
-      slug:
+      addon:
         description: Addon-Name
         required: true
         type: string
-      version:
-        description: Version Number
+  workflow_call:
+    inputs:
+      addon:
+        description: Addon-Name
         required: true
         type: string
-        default: "0.0.0-dev-test"
 
 jobs:
   init:
     runs-on: ubuntu-latest
-    name: ⏳ Find Add-on for release
+    name: ⏳ Prepare ${{ inputs.addon }} Release
     outputs:
-      addon: ${{ steps.verify_release.outputs.addon }}
-      version: ${{ steps.verify_release.outputs.version }}
+      image: ${{ steps.info.outputs.image }}
       architectures: ${{ steps.info.outputs.architectures }}
+      release_name: ${{ steps.release_notes.outputs.name }}
+      release_version: ${{ steps.values.outputs.release_version }}
     steps:
       - name: ⤵️ Check out the repository
         uses: actions/checkout@v3.5.3
       - name: 🚀 Find add-on directories
         id: addons
         uses: home-assistant/actions/helpers/find-addons@master
-      - name: 🦺 Verify Addon
-        id: verify_release
-        run: |
-          declare -a version addon_from_tag
-
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            addon_from_tag="${{ inputs.slug }}"
-            version="${{ inputs.version }}"
-          else
-            echo "Triggered by ${{ github.event_name }}: ${{ github.event.release.tag_name }}"
-            addon_from_tag="${{ github.event.release.tag_name }}"
-            addon_from_tag="${addon_from_tag%%-*}"
-            version="${{ github.event.release.tag_name }}"
-            version="${version#${addon_from_tag}}"
-            version="${version#-}"
-          fi
-
-          echo "Add-on: $addon_from_tag Version: $version"
-          echo "addon=$addon_from_tag" >> $GITHUB_OUTPUT
-          echo "version=$version" >> $GITHUB_OUTPUT
       - name: ℹ️ Get information
         id: info
         uses: home-assistant/actions/helpers/info@master
         with:
-          path: "./${{ steps.verify_release.outputs.addon }}"
+          path: "./${{ inputs.addon }}"
+      - name: 📝 Run Release Drafter
+        uses: release-drafter/release-drafter@v5.24.0
+        id: release_notes
+        with:
+          config-name: "release-drafter-${{ inputs.addon }}.yml"
+      - name: 🪚 Generate Build-Values
+        id: values
+        run: |
+          date="$(date +"%Y-%m-%dT%H:%M:%SZ")"
+          version="${{ steps.release_notes.outputs.tag_name }}"
+          version="${version#*-}"
+
+          echo "Add-on: ${{ inputs.addon }} Version: $version Date: $date"
+          echo "release_date=$date" >> $GITHUB_OUTPUT
+          echo "release_version=$version" >> $GITHUB_OUTPUT
+      - name: ✍️ Update Config Files
+        run: |
+          echo "📦 Updating version in config.yaml"
+          yq -i '.version = "${{ steps.values.outputs.release_version }}"' "${{ inputs.addon }}/config.yaml"
+          head "${{ inputs.addon }}/config.yaml"
+
+          echo "🎁 Adding Docker Labels in config.yaml"
+          yq -i '
+            .labels."org.opencontainers.image.title" = "Home Assistant Unofficial Add-on: ${{ inputs.addon }}" |
+            .labels."org.opencontainers.image.url" = "https://github.com/${{ github.repository }}" |
+            .labels."org.opencontainers.image.source" = "https://github.com/${{ github.repository }}/${{ inputs.addon }}" |
+            .labels."org.opencontainers.image.documentation" = "https://github.com/${{ github.repository }}/${{ inputs.addon }}/README.md" |
+            .labels."org.opencontainers.image.created" = "${{ steps.values.outputs.release_date }}" |
+            .labels."org.opencontainers.image.revision" = "${{ github.sha }}" |
+            .labels."org.opencontainers.image.version" = "${{ steps.values.outputs.release_version }}"
+          ' "${{ inputs.addon }}/build.yaml"
+          cat "${{ inputs.addon }}/build.yaml"
+      - name: 📝 Update CHANGELOG.md
+        uses: stefanzweifel/changelog-updater-action@v1.9.0
+        id: update_changelog
+        with:
+          latest-version: ${{ steps.values.outputs.release_version }}
+          release-notes: ${{ steps.values.release_notes.changelog }}
+          path-to-changelog: ${{ inputs.addon }}/CHANGELOG.md
+      - name: ⤴️ Upload Release Artifacts
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: release-files
+          path: |
+            ${{ inputs.addon }}/config.yaml
+            ${{ inputs.addon }}/build.yaml
+            ${{ inputs.addon }}/CHANGELOG.md
 
   build:
     needs: init
     runs-on: ubuntu-latest
-    name: 👩‍💻 Build & Deploy ${{ matrix.arch }}
+    name: 👩‍💻 Build & Push ${{ matrix.arch }}
     permissions:
-      contents: write
       packages: write
       id-token: write
     strategy:
       matrix:
-        addon: ["${{ needs.init.outputs.addon }}"]
-        version: ["${{ needs.init.outputs.version }}"]
         arch: ${{ fromJson(needs.init.outputs.architectures) }}
     steps:
-      - name: ⤵️ Check out repository
+      - name: ⤵️ Check out the repository
         uses: actions/checkout@v3.5.3
+      - name: ⤵️ Download Release Artifacts
+        uses: actions/download-artifact@v3.0.2
         with:
-          ref: ${{ github.event.release.target_commitish }}
-      - name: 📝 Update Build Values
-        run: |
-          echo "📦 Updating version in config.yaml"
-          yq -i '.version = "${{ matrix.version }}"' "${{ matrix.addon }}/config.yaml"
-          head "${{ matrix.addon }}/config.yaml"
-
-          echo "🎁 Adding Docker Labels in config.yaml"
-          date="$(date +"%Y-%m-%dT%H:%M:%SZ")" yq -i '
-            .labels."org.opencontainers.image.title" = "Home Assistant Unofficial Add-on: ${{ matrix.addon }}" |
-            .labels."org.opencontainers.image.url" = "https://github.com/bluemaex/home-assistant-addons/" |
-            .labels."org.opencontainers.image.source" = "https://github.com/bluemaex/home-assistant-addons/${{ matrix.addon }}" |
-            .labels."org.opencontainers.image.documentation" = "https://github.com/bluemaex/home-assistant-addons/${{ matrix.addon }}/README.md" |
-            .labels."org.opencontainers.image.created" = strenv(date) |
-            .labels."org.opencontainers.image.revision" = "${{ github.sha }}" |
-            .labels."org.opencontainers.image.version" = "${{ matrix.version }}"
-          ' "${{ matrix.addon }}/build.yaml"
-          cat "${{ matrix.addon }}/build.yaml"
+          name: release-files
       - name: 🏗  Login to GitHub Container Registry
         uses: docker/login-action@v2.2.0
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: 🧱 Build ${{ matrix.addon }} add-on
+      - name: 🧱 Build ${{ inputs.addon }} add-on
         uses: home-assistant/builder@2023.06.1
         with:
           args: |
             --test \
             --${{ matrix.arch }} \
-            --target /data/${{ matrix.addon }} \
-            --image "${{ steps.check.outputs.image }}" \
+            --target /data/${{ inputs.addon }} \
+            --image "${{ needs.init.outputs.image }}" \
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --addon
-      - name: 📝 Update CHANGELOG.md
-        uses: stefanzweifel/changelog-updater-action@v1.9.0
-        if: matrix.arch == 'amd64'
+      - name: Test
+        run: |
+          cat "${{ inputs.addon }}/CHANGELOG.md"
+
+  release:
+    needs: ["init", "build"]
+    runs-on: ubuntu-latest
+    name: 🚀 Release "${{ needs.init.outputs.release_version }}
+    permissions:
+      contents: write
+    steps:
+      - name: ⤵️ Check out the repository
+        uses: actions/checkout@v3.5.3
+      - name: ⤵️ Download Release Artifacts
+        uses: actions/download-artifact@v3.0.2
         with:
-          latest-version: ${{ matrix.addon }}
-          release-notes: ${{ github.event.release.body }}
-          path-to-changelog: ${{ matrix.addon }}/CHANGELOG.md
-      - name: 🚀 Update & Commit new Addon Config
-        uses: EndBug/add-and-commit@v9.1.3
-        if: matrix.arch == 'amd64'
+          name: release-files
+      - name: ✍️ Commit new Addon Config
+        uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with:
-          message: 🚀 Released ${{ matrix.addon }} ${{ matrix.version }}
-          committer_name: GitHub Actions
-          committer_email: actions@github.com
-          add: "${{ matrix.addon }}/config.yaml ${{ matrix.addon }}/build.yaml ${{ matrix.addon }}/CHANGELOG.md"
+          commit_user_email: actions@github.com
+      - name: 📝 Create Release
+        uses: release-drafter/release-drafter@v5.24.0
+        with:
+          config-name: "release-drafter-${{ inputs.addon }}.yml"
+          publish: true
+          latest: true
