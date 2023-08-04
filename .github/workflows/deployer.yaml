@@ -75,7 +75,7 @@ jobs:
         id: update_changelog
         with:
           latest-version: ${{ steps.values.outputs.release_version }}
-          release-notes: ${{ steps.values.release_notes.changelog }}
+          release-notes: ${{ steps.values.release_notes.outputs.changelog }}
           path-to-changelog: ${{ inputs.addon }}/CHANGELOG.md
       - name: ⤴️ Upload Release Artifacts
         uses: actions/upload-artifact@v3.1.2
