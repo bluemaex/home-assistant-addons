@@ -95,8 +95,6 @@ jobs:
       matrix:
         arch: ${{ fromJson(needs.init.outputs.architectures) }}
     steps:
-      - name: ⤵️ Check out the repository
-        uses: actions/checkout@v3.5.3
       - name: ⤵️ Download Release Artifacts
         uses: actions/download-artifact@v3.0.2
         with:
@@ -117,9 +115,6 @@ jobs:
             --image "${{ needs.init.outputs.image }}" \
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --addon
-      - name: Test
-        run: |
-          cat "${{ inputs.addon }}/CHANGELOG.md"
 
   release:
     needs: ["init", "build"]
