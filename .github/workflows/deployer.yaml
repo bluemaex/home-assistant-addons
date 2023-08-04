@@ -82,9 +82,7 @@ jobs:
         with:
           name: release-files
           path: |
-            ${{ inputs.addon }}/config.yaml
-            ${{ inputs.addon }}/build.yaml
-            ${{ inputs.addon }}/CHANGELOG.md
+            ${{ inputs.addon }}
 
   build:
     needs: init
@@ -139,12 +137,12 @@ jobs:
       - name: ✍️ Commit new Addon Config
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with:
+          commit_message: 🚀 Released ${{ needs.init.outputs.release_name }}
           commit_user_email: actions@github.com
       - name: 📝 Create Release
         uses: release-drafter/release-drafter@v5.24.0
         with:
           config-name: "release-drafter-${{ inputs.addon }}.yml"
           publish: true
-          latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
