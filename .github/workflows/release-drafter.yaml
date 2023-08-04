@@ -8,7 +8,6 @@ on:
       - main
   pull_request:
     types: [opened, reopened, synchronize]
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -22,9 +21,25 @@ jobs:
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v3.5.3
+      - name: 🗝️ Get changed files
+        id: changed_files
+        uses: jitterbit/get-changed-files@v1
       - name: 🔍 Find add-on directories
         id: addons
         uses: home-assistant/actions/helpers/find-addons@master
+      - name: 🦺 Get changed add-ons
+        id: changed_addons
+        run: |
+          changed_addons=()
+          for addon in ${{ steps.addons.outputs.addons }}; do
+            if [[ "${{ steps.changed_files.outputs.all }}" =~ $addon ]] && [[ ! "${changed_addons[@]}" =~ $addon ]]; then
+                changed_addons+=("\"${addon}\",");
+            fi
+          done
+
+          changed=$(echo ${changed_addons[@]} | rev | cut -c 2- | rev)
+          echo "addons=[$changed]" >> $GITHUB_OUTPUT;
+          echo "Changed add-ons: $changed";
 
   update_release_draft:
     permissions:
@@ -33,6 +48,7 @@ jobs:
     name: ✏️ Draft release
     runs-on: ubuntu-latest
     needs: find
+    if: needs.find.outputs.addons != '[]'
     strategy:
       matrix:
         path: ${{ fromJson(needs.find.outputs.addons) }}
