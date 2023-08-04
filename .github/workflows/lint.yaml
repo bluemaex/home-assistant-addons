@@ -18,8 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     name: 📢 Find changed addons
     outputs:
-      changed_addons: ${{ steps.changed_addons.outputs.addons }}
-      changed: ${{ steps.changed_addons.outputs.changed }}
+      addons: ${{ steps.changed_addons.outputs.addons }}
     steps:
       - name: ⤵️ Check out the repository
         uses: actions/checkout@v3.5.3
@@ -33,33 +32,25 @@ jobs:
       - name: 🦺 Get changed add-ons
         id: changed_addons
         run: |
-          declare -a changed_addons
+          changed_addons=()
           for addon in ${{ steps.addons.outputs.addons }}; do
-            if [[ "${{ steps.changed_files.outputs.all }}" =~ $addon ]] || [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-              if [[ ! "${changed_addons[@]}" =~ $addon ]]; then
-                changed_addons+=("\"${addon}\",");
-              fi
+            if [[ "${{ steps.changed_files.outputs.all }}" =~ "${addon}/" ]] && [[ ! "${changed_addons[@]}" =~ $addon ]]; then
+              changed_addons+=("\"${addon}\",");
             fi
           done
 
           changed=$(echo ${changed_addons[@]} | rev | cut -c 2- | rev)
-
-          if [[ -n ${changed} ]]; then
-            echo "Changed add-ons: $changed";
-            echo "changed=true" >> $GITHUB_OUTPUT;
-            echo "addons=[$changed]" >> $GITHUB_OUTPUT;
-          else
-            echo "No add-on had any monitored files changed (${{ env.MONITORED_FILES }})";
-          fi
+          echo "addons=[$changed]" >> $GITHUB_OUTPUT;
+          echo "Changed add-ons: $changed";
 
   lint-addon:
     name: 🔍 Lint add-on ${{ matrix.path }}
     runs-on: ubuntu-latest
     needs: find
-    if: needs.find.outputs.changed == 'true'
+    if: needs.find.outputs.addons != '[]'
     strategy:
       matrix:
-        path: ${{ fromJson(needs.find.outputs.changed_addons) }}
+        path: ${{ fromJson(needs.find.outputs.addons) }}
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v3.5.3
