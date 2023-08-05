@@ -54,4 +54,4 @@ jobs:
         with:
           commit_message: 🔧 Update Readme
           commit_user_email: actions@github.com
-          file_pattern: './\*.md'
+          file_pattern: "*.md"
