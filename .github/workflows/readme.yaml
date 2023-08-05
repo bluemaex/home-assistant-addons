@@ -1,0 +1,53 @@
+---
+name: README
+
+# yamllint disable-line rule:truthy
+on:
+  schedule:
+    - cron: "42 23 * * *"
+  release:
+    - published
+  workflow_dispatch:
+
+jobs:
+  main_readme:
+    name: 📝 Update README.md
+    runs-on: ubuntu-latest
+    outputs:
+      addons: '["loki", "promtail"]'
+    steps:
+      - name: ⤵️ Check out the repository
+        uses: actions/checkout@v3.5.3
+      - name: 👀 Search Addons
+        id: addons
+        run: |
+          wget -q https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
+          chmod +x /usr/bin/yq
+
+          data=()
+          for addon in $(find ./ -maxdepth 2 -name config.json -o -name config.yaml -o -name config.yml | cut -d "/" -f2 | sort -u); do
+            addon=$(yq e -N -M '. | {"name": .name, "slug": .slug, "version": .version, "description": .description, "arch": .arch }' -o=json -I=0 "${addon}/config.yaml")
+            data+=("${addon}");
+          done
+
+          addons=[$(IFS=, ; echo "${data[*]}")]
+          echo "addons=$addons" >> $GITHUB_OUTPUT;
+          echo ${addons} >> addons-list.json
+          echo "['aarch64', 'amd64', 'armhf', 'armv7']" >> addons-arch.json
+          echo "Found add-ons: $(cat addons.json | yq -o json)";
+      - name: 📝 Generate README.md
+        env:
+          REPOSITORY: ${{ github.repository }}
+          REPOSITORY_URL: https://github.com/${{ github.repository }}
+        run: |
+          curl -o /usr/local/bin/gomplate -sSL https://github.com/hairyhenderson/gomplate/releases/download/v3.11.5/gomplate_linux-amd64
+          chmod 755 /usr/local/bin/gomplate
+          gomplate --file=.README.tmpl --out=README.md --context addons=addons-list.json --context architectures=addons-arch.json
+
+          cat README.md
+      - name: 🚀 Commit new README
+        uses: stefanzweifel/git-auto-commit-action@v4.16.0
+        with:
+          commit_message: 🔧 Update Readme
+          commit_user_email: actions@github.com
+          file_pattern: "README.md"

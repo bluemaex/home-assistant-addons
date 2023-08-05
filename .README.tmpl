@@ -1,0 +1,64 @@
+{{- $repo := .Env.REPOSITORY -}}
+{{- $repo_url := .Env.REPOSITORY_URL -}}
+{{- $arch := .architectures -}}
+
+# bluemaex's Add-ons Shack
+
+![Project Stage][project-stage-shield]
+![Maintenance][maintenance-shield]
+[![License][license-shield]](LICENSE.md)
+
+## About
+
+Home Assistant allows anyone to create add-on repositories to share their
+add-ons for Home Assistant easily. This repository contains my personal, 
+but free to use [Home Assistant Add-ons][ha-addons].
+
+[![Add Repository Link][add-repository-image]][add-repository-button]
+
+## Usage
+
+Adding this add-ons repository to your Home Assistant instance is pretty 
+straightforward. In the Home Assistant add-on store, a possibility to 
+add a repository is provided.
+
+1. Navigate in your Home Assistant frontend to **Supervisor -> Add-on Store**
+1. Add this new repository by URL (`{{ $repo_url }}`)
+1. Find the add-on that you want to use and click it
+1. Click on the "INSTALL" button
+
+## Add-ons
+
+This repository contains the following add-ons:
+{{ range .addons }}
+### &#10003; [{{ .name }}][addon-{{ .slug }}]
+
+![Latest Version][{{ .slug }}-version-shield]
+![Supports armhf Architecture][{{ .slug }}-armhf-shield]
+![Supports armv7 Architecture][{{ .slug }}-armv7-shield]
+![Supports aarch64 Architecture][{{ .slug }}-aarch64-shield]
+![Supports amd64 Architecture][{{ .slug }}-amd64-shield]
+
+{{ .description }}
+[:books: {{ .name }} add-on documentation][addon-doc-{{ .slug }}]
+{{ end }}
+
+[add-repository-button]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url={{ $repo_url }}
+[ha-addons]: https://www.home-assistant.io/addons/
+[add-repository-image]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
+[license-shield]: https://img.shields.io/github/license/{{ $repo }}.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2023.svg
+[project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
+{{- range .addons }}
+[addon-{{ .slug }}]: {{ $repo_url }}/tree/{{.slug}}-{{ .version }}
+[addon-doc-{{ .slug }}]: {{ $repo_url }}/blob/{{ .version }}/README.md
+[{{ .slug }}-version-shield]: https://img.shields.io/badge/version-{{ .version | strings.ReplaceAll "-" "--" }}-blue.svg
+{{- $addon := . }}
+{{- range $arch }}
+{{- if has $addon.arch . }}
+[{{ $addon.slug }}-{{ . }}-shield]: https://img.shields.io/badge/{{ . }}-yes-green.svg
+{{- else }}
+[{{ $addon.slug }}-{{ . }}-shield]: https://img.shields.io/badge/{{ . }}-no-red.svg
+{{- end }}
+{{- end }}
+{{- end }}
