@@ -6,7 +6,8 @@ on:
   schedule:
     - cron: "42 23 * * *"
   release:
-    - published
+    types:
+      - published
   workflow_dispatch:
 
 jobs:
