@@ -1,3 +1,5 @@
+
+
 # bluemaex's Add-ons Shack
 
 ![Project Stage][project-stage-shield]
@@ -7,15 +9,15 @@
 ## About
 
 Home Assistant allows anyone to create add-on repositories to share their
-add-ons for Home Assistant easily. This repository contains my personal,
+add-ons for Home Assistant easily. This repository contains my personal, 
 but free to use [Home Assistant Add-ons][ha-addons].
 
 [![Add Repository Link][add-repository-image]][add-repository-button]
 
 ## Usage
 
-Adding this add-ons repository to your Home Assistant instance is pretty
-straightforward. In the Home Assistant add-on store, a possibility to
+Adding this add-ons repository to your Home Assistant instance is pretty 
+straightforward. In the Home Assistant add-on store, a possibility to 
 add a repository is provided.
 
 1. Navigate in your Home Assistant frontend to **Supervisor -> Add-on Store**
@@ -128,6 +130,7 @@ VictoriaMetrics is a fast, cost-effective and scalable monitoring solution and t
 
 [:books: Victoria Metrics add-on documentation][addon-doc-victoriametrics]
 
+
 ## License
 
 MIT License
@@ -200,9 +203,9 @@ SOFTWARE.
 [traefik-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [traefik-armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
 [traefik-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[addon-unpoller]: https://github.com/bluemaex/home-assistant-addons/tree/unpoller-2.7.20
-[addon-doc-unpoller]: https://github.com/bluemaex/home-assistant-addons/blob/2.7.20/README.md
-[unpoller-version-shield]: https://img.shields.io/badge/version-2.7.20-blue.svg
+[addon-unpoller]: https://github.com/bluemaex/home-assistant-addons/tree/unpoller-3.0.3
+[addon-doc-unpoller]: https://github.com/bluemaex/home-assistant-addons/blob/3.0.3/README.md
+[unpoller-version-shield]: https://img.shields.io/badge/version-3.0.3-blue.svg
 [unpoller-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [unpoller-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [unpoller-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
