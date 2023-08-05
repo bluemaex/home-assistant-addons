@@ -5,10 +5,18 @@ name: README
 on:
   schedule:
     - cron: "42 23 * * *"
-  release:
-    types:
-      - published
   workflow_dispatch:
+    inputs:
+      addons:
+        description: Addon-Names(s)
+        required: false
+        type: string
+  workflow_call:
+    inputs:
+      addons:
+        description: Addon-Name(s)
+        required: false
+        type: string
 
 jobs:
   main_readme:
@@ -17,39 +25,45 @@ jobs:
     steps:
       - name: ⤵️ Check out the repository
         uses: actions/checkout@v3.5.3
-      - name: 👀 Search Addons
-        id: addons
+      - name: ℹ️ Gather Addon Info
+        id: info
         run: |
           data=()
-          list=()
+          readme=()
           for directory in $(find ./ -maxdepth 2 -name config.json -o -name config.yaml -o -name config.yml | cut -d "/" -f2 | sort -u); do
             addon=$(yq e -N -M '. | {"name": .name, "slug": .slug, "version": .version, "description": .description, "arch": .arch }' -o=json -I=0 "${directory}/config.yaml")
             data+=("${addon}");
-            list+=("${directory}");
+            readme+=("${directory}");
           done
 
-          addons=[$(IFS=, ; echo "${data[*]}")]
-          echo "addons=$addons" >> $GITHUB_OUTPUT;
-          echo "addons_list=${list[@]}" >> $GITHUB_OUTPUT;
+          if [[ ! -z "${{ inputs.addons }}" ]]; then
+            readme=("${{ inputs.addons }}")
+          fi
 
-          echo ${addons} >> addons-list.json
-          echo "['aarch64', 'amd64', 'armhf', 'armv7']" >> addons-arch.json
-          echo "Found add-ons: ${list[@]}";
+          echo "readme=${readme[@]}" >> $GITHUB_OUTPUT;
+          echo "Readme's to update: ${readme[@]}";
+
+          addons=[$(IFS=, ; echo "${data[*]}")]
+          echo "addons=${addons}" >> $GITHUB_OUTPUT;
+          echo "Resolved addon data: ${addons}";
       - name: 📝 Generate README.md
         env:
           REPOSITORY: ${{ github.repository }}
           REPOSITORY_URL: https://github.com/${{ github.repository }}
+          ARCHITECTURES: "['aarch64', 'amd64', 'armhf', 'armv7']"
+          ADDONS_DATA: ${{ steps.info.outputs.addons }}
         run: |
           curl -o /usr/local/bin/gomplate -sSL https://github.com/hairyhenderson/gomplate/releases/download/v3.11.5/gomplate_linux-amd64
           chmod 755 /usr/local/bin/gomplate
 
-          for addon in '.' ${{ steps.addons.outputs.addons_list }}; do
+          for addon in '.' ${{ steps.info.outputs.readme }}; do
+            echo "Generating README for ${addon}"
             if [[ -f "${addon}/.README.tmpl" ]]; then
-              echo "- Generating README for ${addon}"
-              gomplate --file=${addon}/.README.tmpl --out=${addon}/README.md --context addons=addons-list.json --context architectures=addons-arch.json
+              gomplate --file=${addon}/.README.tmpl --out=${addon}/README.md
             fi
           done
       - name: 🚀 Commit new README
+        if: github.event_name != 'workflow_call'
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with:
           commit_message: 🔧 Update Readme
