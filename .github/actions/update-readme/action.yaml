@@ -1,0 +1,50 @@
+name: README Updates
+description: "Update all or given READMEs"
+
+inputs:
+  addons:
+    description: Addon-Name(s)
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: ℹ️ Gather Addon Info
+      id: info
+      shell: bash
+      run: |
+        data=()
+        readme=()
+        for directory in $(find ./ -maxdepth 2 -name config.json -o -name config.yaml -o -name config.yml | cut -d "/" -f2 | sort -u); do
+          addon=$(yq e -N -M '. | {"name": .name, "slug": .slug, "version": .version, "description": .description, "arch": .arch }' -o=json -I=0 "${directory}/config.yaml")
+          data+=("${addon}");
+          readme+=("${directory}");
+        done
+
+        if [[ ! -z "${{ inputs.addons }}" ]]; then
+          readme=("${{ inputs.addons }}")
+        fi
+
+        echo "readme=${readme[@]}" >> $GITHUB_OUTPUT;
+        echo "Readme's to update: ${readme[@]}";
+
+        addons=[$(IFS=, ; echo "${data[*]}")]
+        echo "addons=${addons}" >> $GITHUB_OUTPUT;
+        echo "Resolved addon data: ${addons}";
+    - name: 📝 Generate README.md
+      shell: bash
+      env:
+        REPOSITORY: ${{ github.repository }}
+        REPOSITORY_URL: https://github.com/${{ github.repository }}
+        ARCHITECTURES: "['aarch64', 'amd64', 'armhf', 'armv7']"
+        ADDONS_DATA: ${{ steps.info.outputs.addons }}
+      run: |
+        curl -o /usr/local/bin/gomplate -sSL https://github.com/hairyhenderson/gomplate/releases/download/v3.11.5/gomplate_linux-amd64
+        chmod 755 /usr/local/bin/gomplate
+
+        for addon in '.' ${{ steps.info.outputs.readme }}; do
+          echo "Generating README for ${addon}"
+          if [[ -f "${addon}/.README.tmpl" ]]; then
+            gomplate --file=${addon}/.README.tmpl --out=${addon}/README.md
+          fi
+        done
