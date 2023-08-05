@@ -1,5 +1,11 @@
 # Changelog
 
+## unpoller 3.0.3 - 2023-08-05
+
+### Changes
+
+- No changes
+
 ## unpoller - 2023-07-31
 
 ### What’s changed
