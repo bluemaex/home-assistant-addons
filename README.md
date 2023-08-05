@@ -7,15 +7,15 @@
 ## About
 
 Home Assistant allows anyone to create add-on repositories to share their
-add-ons for Home Assistant easily. This repository contains my personal,
+add-ons for Home Assistant easily. This repository contains my personal, 
 but free to use [Home Assistant Add-ons][ha-addons].
 
 [![Add Repository Link][add-repository-image]][add-repository-button]
 
 ## Usage
 
-Adding this add-ons repository to your Home Assistant instance is pretty
-straightforward. In the Home Assistant add-on store, a possibility to
+Adding this add-ons repository to your Home Assistant instance is pretty 
+straightforward. In the Home Assistant add-on store, a possibility to 
 add a repository is provided.
 
 1. Navigate in your Home Assistant frontend to **Supervisor -> Add-on Store**
@@ -128,6 +128,7 @@ VictoriaMetrics is a fast, cost-effective and scalable monitoring solution and t
 
 [:books: Victoria Metrics add-on documentation][addon-doc-victoriametrics]
 
+
 ## License
 
 MIT License
@@ -172,9 +173,9 @@ SOFTWARE.
 [grafana-loki-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [grafana-loki-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [grafana-loki-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
-[addon-grafana-promtail]: https://github.com/bluemaex/home-assistant-addons/tree/grafana-promtail-3.0.1
-[addon-doc-grafana-promtail]: https://github.com/bluemaex/home-assistant-addons/blob/3.0.1/README.md
-[grafana-promtail-version-shield]: https://img.shields.io/badge/version-3.0.1-blue.svg
+[addon-grafana-promtail]: https://github.com/bluemaex/home-assistant-addons/tree/grafana-promtail-3.0.2
+[addon-doc-grafana-promtail]: https://github.com/bluemaex/home-assistant-addons/blob/3.0.2/README.md
+[grafana-promtail-version-shield]: https://img.shields.io/badge/version-3.0.2-blue.svg
 [grafana-promtail-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [grafana-promtail-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [grafana-promtail-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
