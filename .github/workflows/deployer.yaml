@@ -95,12 +95,11 @@ jobs:
       matrix:
         arch: ${{ fromJson(needs.init.outputs.architectures) }}
     steps:
-      - name: ⤵️ Check out repository
-        uses: actions/checkout@v3.5.3
       - name: ⤵️ Download Release Artifacts
         uses: actions/download-artifact@v3.0.2
         with:
           name: release-files
+          path: ${{ inputs.addon }}
       - name: 🏗  Login to GitHub Container Registry
         uses: docker/login-action@v2.2.0
         with:
@@ -131,6 +130,7 @@ jobs:
         uses: actions/download-artifact@v3.0.2
         with:
           name: release-files
+          path: ${{ inputs.addon }}
       - name: ✍️ Commit new Addon Config
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with:
