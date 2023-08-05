@@ -7,15 +7,15 @@
 ## About
 
 Home Assistant allows anyone to create add-on repositories to share their
-add-ons for Home Assistant easily. This repository contains my personal, 
+add-ons for Home Assistant easily. This repository contains my personal,
 but free to use [Home Assistant Add-ons][ha-addons].
 
 [![Add Repository Link][add-repository-image]][add-repository-button]
 
 ## Usage
 
-Adding this add-ons repository to your Home Assistant instance is pretty 
-straightforward. In the Home Assistant add-on store, a possibility to 
+Adding this add-ons repository to your Home Assistant instance is pretty
+straightforward. In the Home Assistant add-on store, a possibility to
 add a repository is provided.
 
 1. Navigate in your Home Assistant frontend to **Supervisor -> Add-on Store**
@@ -127,7 +127,6 @@ Collect your UniFi controller data and report it to an InfluxDB instance, or exp
 VictoriaMetrics is a fast, cost-effective and scalable monitoring solution and time series database.
 
 [:books: Victoria Metrics add-on documentation][addon-doc-victoriametrics]
-
 
 [add-repository-button]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/bluemaex/home-assistant-addons
 [ha-addons]: https://www.home-assistant.io/addons/
