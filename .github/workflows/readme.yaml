@@ -22,9 +22,6 @@ jobs:
       - name: 👀 Search Addons
         id: addons
         run: |
-          wget -q https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
-          chmod +x /usr/bin/yq
-
           data=()
           for addon in $(find ./ -maxdepth 2 -name config.json -o -name config.yaml -o -name config.yml | cut -d "/" -f2 | sort -u); do
             addon=$(yq e -N -M '. | {"name": .name, "slug": .slug, "version": .version, "description": .description, "arch": .arch }' -o=json -I=0 "${addon}/config.yaml")
