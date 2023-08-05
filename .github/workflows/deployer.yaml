@@ -131,8 +131,8 @@ jobs:
         with:
           name: release-files
           path: ${{ inputs.addon }}
-      - name: 📝 Update README
-        uses: bluemaex/home-assistant-addons/.github/workflows/readme.yml@main
+      - name: 📝 Update README.md
+        uses: bluemaex/home-assistant-addons/.github/actions/update-readme@main
         with:
           addons: ${{ inputs.addon }}
       - name: 🔧 Commit new Addon Config
