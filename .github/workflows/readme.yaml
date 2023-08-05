@@ -14,8 +14,6 @@ jobs:
   main_readme:
     name: 📝 Update README.md
     runs-on: ubuntu-latest
-    outputs:
-      addons: '["loki", "promtail"]'
     steps:
       - name: ⤵️ Check out the repository
         uses: actions/checkout@v3.5.3
@@ -23,16 +21,20 @@ jobs:
         id: addons
         run: |
           data=()
-          for addon in $(find ./ -maxdepth 2 -name config.json -o -name config.yaml -o -name config.yml | cut -d "/" -f2 | sort -u); do
-            addon=$(yq e -N -M '. | {"name": .name, "slug": .slug, "version": .version, "description": .description, "arch": .arch }' -o=json -I=0 "${addon}/config.yaml")
+          list=()
+          for directory in $(find ./ -maxdepth 2 -name config.json -o -name config.yaml -o -name config.yml | cut -d "/" -f2 | sort -u); do
+            addon=$(yq e -N -M '. | {"name": .name, "slug": .slug, "version": .version, "description": .description, "arch": .arch }' -o=json -I=0 "${directory}/config.yaml")
             data+=("${addon}");
+            list+=("${directory}");
           done
 
           addons=[$(IFS=, ; echo "${data[*]}")]
           echo "addons=$addons" >> $GITHUB_OUTPUT;
+          echo "addons_list=${list[@]}" >> $GITHUB_OUTPUT;
+
           echo ${addons} >> addons-list.json
           echo "['aarch64', 'amd64', 'armhf', 'armv7']" >> addons-arch.json
-          echo "Found add-ons: $(cat addons.json | yq -o json)";
+          echo "Found add-ons: ${list[@]}";
       - name: 📝 Generate README.md
         env:
           REPOSITORY: ${{ github.repository }}
@@ -40,12 +42,16 @@ jobs:
         run: |
           curl -o /usr/local/bin/gomplate -sSL https://github.com/hairyhenderson/gomplate/releases/download/v3.11.5/gomplate_linux-amd64
           chmod 755 /usr/local/bin/gomplate
-          gomplate --file=.README.tmpl --out=README.md --context addons=addons-list.json --context architectures=addons-arch.json
 
-          cat README.md
+          for addon in '.' ${{ steps.addons.outputs.addons_list }}; do
+            if [[ -f "${addon}/.README.tmpl" ]]; then
+              echo "- Generating README for ${addon}"
+              gomplate --file=${addon}/.README.tmpl --out=${addon}/README.md --context addons=addons-list.json --context architectures=addons-arch.json
+            fi
+          done
       - name: 🚀 Commit new README
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with:
           commit_message: 🔧 Update Readme
           commit_user_email: actions@github.com
-          file_pattern: "README.md"
+          file_pattern: './\*.md'
