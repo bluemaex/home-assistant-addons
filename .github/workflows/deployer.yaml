@@ -120,7 +120,7 @@ jobs:
   release:
     needs: ["init", "build"]
     runs-on: ubuntu-latest
-    name: 🚀 Release "${{ needs.init.outputs.release_version }}
+    name: 🚀 Release ${{ needs.init.outputs.release_name }}
     permissions:
       contents: write
     steps:
