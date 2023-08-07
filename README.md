@@ -27,19 +27,6 @@ add a repository is provided.
 
 This repository contains the following add-ons:
 
-### &#10003; [healthchecks][addon-healthchecks]
-
-![Latest Version][healthchecks-version-shield]
-![Supports armhf Architecture][healthchecks-armhf-shield]
-![Supports armv7 Architecture][healthchecks-armv7-shield]
-![Supports aarch64 Architecture][healthchecks-aarch64-shield]
-![Supports amd64 Architecture][healthchecks-amd64-shield]
-
-Healthchecks is a watchdog for your cron jobs.
-It's a web server that listens for pings from your cron jobs, plus a web interface.
-
-[:books: healthchecks add-on documentation][addon-doc-healthchecks]
-
 ### &#10003; [Grafana Loki][addon-grafana-loki]
 
 ![Latest Version][grafana-loki-version-shield]
@@ -63,6 +50,19 @@ Grafana Loki is a horizontally-scalable, highly-available, multi-tenant log aggr
 Promtail is an agent which ships the contents of local logs to a private Loki instance or Grafana Cloud.
 
 [:books: Grafana Promtail add-on documentation][addon-doc-grafana-promtail]
+
+### &#10003; [healthchecks][addon-healthchecks]
+
+![Latest Version][healthchecks-version-shield]
+![Supports armhf Architecture][healthchecks-armhf-shield]
+![Supports armv7 Architecture][healthchecks-armv7-shield]
+![Supports aarch64 Architecture][healthchecks-aarch64-shield]
+![Supports amd64 Architecture][healthchecks-amd64-shield]
+
+Healthchecks is a watchdog for your cron jobs.
+It's a web server that listens for pings from your cron jobs, plus a web interface.
+
+[:books: healthchecks add-on documentation][addon-doc-healthchecks]
 
 ### &#10003; [Rclone][addon-rclone]
 
@@ -159,16 +159,9 @@ SOFTWARE.
 [license-shield]: https://img.shields.io/github/license/bluemaex/home-assistant-addons.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2023.svg
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
-[addon-healthchecks]: https://github.com/bluemaex/home-assistant-addons/tree/healthchecks-2.10-ls182
-[addon-doc-healthchecks]: https://github.com/bluemaex/home-assistant-addons/blob/2.10-ls182/README.md
-[healthchecks-version-shield]: https://img.shields.io/badge/version-2.10--ls182-blue.svg
-[healthchecks-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[healthchecks-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[healthchecks-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
-[healthchecks-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
-[addon-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/tree/grafana-loki-2.8.3-2
-[addon-doc-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/blob/2.8.3-2/README.md
-[grafana-loki-version-shield]: https://img.shields.io/badge/version-2.8.3--2-blue.svg
+[addon-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/tree/grafana-loki-loki-0.1.0
+[addon-doc-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/blob/loki-0.1.0/README.md
+[grafana-loki-version-shield]: https://img.shields.io/badge/version-loki--0.1.0-blue.svg
 [grafana-loki-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [grafana-loki-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [grafana-loki-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
@@ -180,6 +173,13 @@ SOFTWARE.
 [grafana-promtail-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [grafana-promtail-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [grafana-promtail-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
+[addon-healthchecks]: https://github.com/bluemaex/home-assistant-addons/tree/healthchecks-2.10-ls182
+[addon-doc-healthchecks]: https://github.com/bluemaex/home-assistant-addons/blob/2.10-ls182/README.md
+[healthchecks-version-shield]: https://img.shields.io/badge/version-2.10--ls182-blue.svg
+[healthchecks-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[healthchecks-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[healthchecks-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
+[healthchecks-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
 [addon-rclone]: https://github.com/bluemaex/home-assistant-addons/tree/rclone-3.0.12
 [addon-doc-rclone]: https://github.com/bluemaex/home-assistant-addons/blob/3.0.12/README.md
 [rclone-version-shield]: https://img.shields.io/badge/version-3.0.12-blue.svg

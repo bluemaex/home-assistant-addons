@@ -9,3 +9,10 @@ labels:
   maintainer: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.authors: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.licenses: "MIT License"
+  org.opencontainers.image.title: 'Home Assistant Unofficial Add-on: grafana-loki'
+  org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
+  org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/grafana-loki
+  org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/grafana-loki/README.md
+  org.opencontainers.image.created: "2023-08-07T19:41:23Z"
+  org.opencontainers.image.revision: 531036a7d785d037ca50ee941d969a8df67f9ea9
+  org.opencontainers.image.version: loki-0.1.0
