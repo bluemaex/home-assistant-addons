@@ -159,9 +159,9 @@ SOFTWARE.
 [license-shield]: https://img.shields.io/github/license/bluemaex/home-assistant-addons.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2023.svg
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
-[addon-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/tree/grafana-loki-3.0.1
-[addon-doc-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/blob/3.0.1/README.md
-[grafana-loki-version-shield]: https://img.shields.io/badge/version-3.0.1-blue.svg
+[addon-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/tree/grafana-loki-3.0.2
+[addon-doc-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/blob/3.0.2/README.md
+[grafana-loki-version-shield]: https://img.shields.io/badge/version-3.0.2-blue.svg
 [grafana-loki-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [grafana-loki-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [grafana-loki-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
