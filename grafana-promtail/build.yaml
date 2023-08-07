@@ -9,10 +9,10 @@ labels:
   maintainer: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.authors: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.licenses: "MIT License"
-  org.opencontainers.image.title: "Home Assistant Unofficial Add-on: promtail"
+  org.opencontainers.image.title: "Home Assistant Unofficial Add-on: grafana-promtail"
   org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
-  org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/promtail
-  org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/promtail/README.md
-  org.opencontainers.image.created: "2023-08-05T15:18:52Z"
-  org.opencontainers.image.revision: 96384b0c86d30f1fdf010885dd8f2f51fdbadbc7
-  org.opencontainers.image.version: 3.0.2
+  org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/grafana-promtail
+  org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/grafana-promtail/README.md
+  org.opencontainers.image.created: "2023-08-07T19:54:31Z"
+  org.opencontainers.image.revision: 30420df5701120b2d56ac1b273159b1113791edc
+  org.opencontainers.image.version: promtail-0.1.0
