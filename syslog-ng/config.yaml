@@ -1,6 +1,6 @@
 ---
 name: syslog-ng
-version: 4.1.1-r2-ls83
+version: ng-5.0.1
 slug: syslog-ng
 description: |
   syslog-ng allows you to flexibly collect, parse, classify, rewrite

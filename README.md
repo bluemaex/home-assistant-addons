@@ -187,9 +187,9 @@ SOFTWARE.
 [rclone-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [rclone-armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
 [rclone-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[addon-syslog-ng]: https://github.com/bluemaex/home-assistant-addons/tree/syslog-ng-4.1.1-r2-ls83
-[addon-doc-syslog-ng]: https://github.com/bluemaex/home-assistant-addons/blob/4.1.1-r2-ls83/README.md
-[syslog-ng-version-shield]: https://img.shields.io/badge/version-4.1.1--r2--ls83-blue.svg
+[addon-syslog-ng]: https://github.com/bluemaex/home-assistant-addons/tree/syslog-ng-ng-5.0.1
+[addon-doc-syslog-ng]: https://github.com/bluemaex/home-assistant-addons/blob/ng-5.0.1/README.md
+[syslog-ng-version-shield]: https://img.shields.io/badge/version-ng--5.0.1-blue.svg
 [syslog-ng-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [syslog-ng-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [syslog-ng-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg

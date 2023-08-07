@@ -6,3 +6,10 @@ labels:
   maintainer: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.authors: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.licenses: "MIT License"
+  org.opencontainers.image.title: 'Home Assistant Unofficial Add-on: syslog-ng'
+  org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
+  org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/syslog-ng
+  org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/syslog-ng/README.md
+  org.opencontainers.image.created: "2023-08-07T19:48:49Z"
+  org.opencontainers.image.revision: 31f18df580b9bb14ad2dc8e202d6c9e0aa260127
+  org.opencontainers.image.version: ng-5.0.1
