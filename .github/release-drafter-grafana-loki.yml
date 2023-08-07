@@ -1,9 +1,9 @@
 ---
-name-template: "promtail $RESOLVED_VERSION"
-tag-template: "promtail-$RESOLVED_VERSION"
-tag-prefix: "promtail-"
+name-template: "loki $RESOLVED_VERSION"
+tag-template: "grafana-loki-$RESOLVED_VERSION"
+tag-prefix: "grafana-loki-"
 include-paths:
-  - "promtail"
+  - "grafana-loki"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
 no-changes-template: "- No changes"
 sort-direction: ascending
@@ -14,7 +14,7 @@ autolabeler:
       - "**/*.md"
   - label: "enhancement"
     files:
-      - "promtail/**/*"
+      - "grafana-loki/**/*"
   - label: "maintenance"
     files:
       - ".github/**/*"
