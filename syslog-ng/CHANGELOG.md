@@ -1,5 +1,11 @@
 # Changelog
 
+## syslog-ng 5.0.2 - 2023-08-07
+
+### Changes
+
+- No changes
+
 ## syslog-ng 5.0.1 - 2023-08-07
 
 ### Changes
