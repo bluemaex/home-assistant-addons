@@ -4,7 +4,7 @@
 
 ### Changes
 
-- No changes
+- Fixed issue with CI: Github Artifact looses permissions on files, thus image isn't able to start
 
 ## unpoller 3.0.5 - 2023-08-07
 
@@ -17,18 +17,6 @@
 #### ⬆️ Dependency updates
 
 - ⏫ Update ghcr.io/unpoller/unpoller Docker tag to v2.8.1 @renovate (#89)
-
-## unpoller 3.0.4 - 2023-08-07
-
-### Changes
-
-- No changes
-
-## unpoller 3.0.3 - 2023-08-05
-
-### Changes
-
-- No changes
 
 ## unpoller - 2023-07-31
 

@@ -4,7 +4,7 @@
 
 ### Changes
 
-- No changes
+- Fixed issue with CI: Github Artifact looses permissions on files, thus image isn't able to start
 
 ## syslog-ng 5.0.1 - 2023-08-07
 

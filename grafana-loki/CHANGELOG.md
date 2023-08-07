@@ -4,26 +4,7 @@
 
 ### Changes
 
-- No changes
-
-## grafana-loki 3.0.1 - 2023-08-07
-
-### Changes
-
-- No changes
-
-## loki 3.0.1 - 2023-08-07
-
-### Changes
-
-- No changes
-
-## loki 0.1.0 - 2023-08-07
-
-### Changes
-
-- No changes
-
+- Fixed issue with CI: Github Artifact looses permissions on files, thus image isn't able to start
 ## 2.8.3-2
 
 - Initial Release
