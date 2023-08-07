@@ -21,9 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     name: ⏳ Prepare ${{ inputs.addon }} Release
     outputs:
-      architectures: ${{ steps.info.outputs.architectures }}
       release_name: ${{ steps.release_notes.outputs.name }}
       release_version: ${{ steps.values.outputs.release_version }}
+      architectures: ${{ steps.info.outputs.architectures }}
       image: ${{ steps.values.outputs.image }}
     steps:
       - name: ⤵️ Check out the repository
@@ -48,7 +48,7 @@ jobs:
         run: |
           date="$(date +"%Y-%m-%dT%H:%M:%SZ")"
           version="${{ steps.release_notes.outputs.tag_name }}"
-          version="${version#*-}"
+          version="${version##*-}"
 
           echo "Add-on: ${{ inputs.addon }} Version: $version Date: $date"
           echo "release_date=$date" >> $GITHUB_OUTPUT
