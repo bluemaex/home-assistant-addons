@@ -1,5 +1,11 @@
 # Changelog
 
+## grafana-loki 3.0.1 - 2023-08-07
+
+### Changes
+
+- No changes
+
 ## loki 3.0.1 - 2023-08-07
 
 ### Changes
