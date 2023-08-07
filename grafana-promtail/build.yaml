@@ -13,6 +13,6 @@ labels:
   org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
   org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/grafana-promtail
   org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/grafana-promtail/README.md
-  org.opencontainers.image.created: "2023-08-07T20:08:49Z"
-  org.opencontainers.image.revision: ab6dc76c7abee1084042161c06446e6ff826a441
-  org.opencontainers.image.version: 3.0.3
+  org.opencontainers.image.created: "2023-08-07T21:18:16Z"
+  org.opencontainers.image.revision: 1d7b9c234a636e8aa824d828ae66fb1363b98350
+  org.opencontainers.image.version: 3.0.1

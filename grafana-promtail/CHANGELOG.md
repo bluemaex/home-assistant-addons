@@ -1,5 +1,11 @@
 # Changelog
 
+## grafana-promtail 3.0.1 - 2023-08-07
+
+### Changes
+
+- No changes
+
 ## promtail 3.0.3 - 2023-08-07
 
 ### Changes
