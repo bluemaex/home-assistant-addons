@@ -21,10 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     name: ⏳ Prepare ${{ inputs.addon }} Release
     outputs:
-      image: ${{ steps.info.outputs.image }}
       architectures: ${{ steps.info.outputs.architectures }}
       release_name: ${{ steps.release_notes.outputs.name }}
       release_version: ${{ steps.values.outputs.release_version }}
+      image: ${{ steps.values.outputs.image }}
     steps:
       - name: ⤵️ Check out the repository
         uses: actions/checkout@v3.5.3
@@ -53,6 +53,7 @@ jobs:
           echo "Add-on: ${{ inputs.addon }} Version: $version Date: $date"
           echo "release_date=$date" >> $GITHUB_OUTPUT
           echo "release_version=$version" >> $GITHUB_OUTPUT
+          echo "image=$(echo ${{ steps.info.outputs.image }} | cut -d'/' -f3)" >> $GITHUB_OUTPUT;
       - name: ✍️ Update Config Files
         run: |
           echo "📦 Updating version in config.yaml"
