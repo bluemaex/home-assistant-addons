@@ -110,7 +110,6 @@ jobs:
         uses: home-assistant/builder@2023.06.1
         with:
           args: |
-            --test \
             --${{ matrix.arch }} \
             --target /data/${{ inputs.addon }} \
             --image "${{ needs.init.outputs.image }}" \
