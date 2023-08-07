@@ -6,7 +6,7 @@ labels:
   maintainer: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.authors: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.licenses: "MIT License"
-  org.opencontainers.image.title: 'Home Assistant Unofficial Add-on: healthchecks'
+  org.opencontainers.image.title: "Home Assistant Unofficial Add-on: healthchecks"
   org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
   org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/healthchecks
   org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/healthchecks/README.md
