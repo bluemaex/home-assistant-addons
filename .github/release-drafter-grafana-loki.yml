@@ -1,7 +1,7 @@
 ---
-name-template: "grafana-loki $RESOLVED_VERSION"
-tag-template: "grafana-loki-$RESOLVED_VERSION"
-tag-prefix: "grafana-loki-"
+name-template: "loki $RESOLVED_VERSION"
+tag-template: "loki-$RESOLVED_VERSION"
+tag-prefix: "loki-"
 include-paths:
   - "grafana-loki"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
