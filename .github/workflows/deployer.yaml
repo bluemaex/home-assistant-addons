@@ -78,12 +78,13 @@ jobs:
           latest-version: ${{ steps.release_notes.outputs.name }}
           release-notes: ${{ steps.release_notes.outputs.body }}
           path-to-changelog: ${{ inputs.addon }}/CHANGELOG.md
+      - name: Tar files
+        run: tar -cvf addon.tar ${{ inputs.addon }}
       - name: ⤴️ Upload Release Artifacts
         uses: actions/upload-artifact@v3.1.2
         with:
           name: release-files
-          path: |
-            ${{ inputs.addon }}
+          path: addon.tar
 
   build:
     needs: init
@@ -100,7 +101,8 @@ jobs:
         uses: actions/download-artifact@v3.0.2
         with:
           name: release-files
-          path: ${{ inputs.addon }}
+      - name: Untar artifacts
+        run: tar -xvf addon.tar ${{ inputs.addon }} && rm addon.tar
       - name: 🏗  Login to GitHub Container Registry
         uses: docker/login-action@v2.2.0
         with:
@@ -130,7 +132,8 @@ jobs:
         uses: actions/download-artifact@v3.0.2
         with:
           name: release-files
-          path: ${{ inputs.addon }}
+      - name: Untar artifacts
+        run: tar -xvf addon.tar ${{ inputs.addon }} && rm addon.tar
       - name: 📝 Update README.md
         uses: bluemaex/home-assistant-addons/.github/actions/update-readme@main
         with:
