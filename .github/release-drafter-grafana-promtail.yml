@@ -1,5 +1,5 @@
 ---
-name-template: "promtail $RESOLVED_VERSION"
+name-template: "grafana-promtail $RESOLVED_VERSION"
 tag-template: "grafana-promtail-$RESOLVED_VERSION"
 tag-prefix: "grafana-promtail-"
 include-paths:

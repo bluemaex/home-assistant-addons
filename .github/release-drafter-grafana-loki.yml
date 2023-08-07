@@ -1,5 +1,5 @@
 ---
-name-template: "loki $RESOLVED_VERSION"
+name-template: "grafana-loki $RESOLVED_VERSION"
 tag-template: "grafana-loki-$RESOLVED_VERSION"
 tag-prefix: "grafana-loki-"
 include-paths:
