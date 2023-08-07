@@ -10,6 +10,6 @@ labels:
   org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
   org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/syslog-ng
   org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/syslog-ng/README.md
-  org.opencontainers.image.created: "2023-08-07T19:48:49Z"
-  org.opencontainers.image.revision: 31f18df580b9bb14ad2dc8e202d6c9e0aa260127
-  org.opencontainers.image.version: ng-5.0.1
+  org.opencontainers.image.created: "2023-08-07T21:20:48Z"
+  org.opencontainers.image.revision: c761ff379a52ae525fdcea80b2b469111f5da699
+  org.opencontainers.image.version: 5.0.1
