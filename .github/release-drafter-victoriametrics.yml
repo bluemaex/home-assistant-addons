@@ -8,18 +8,6 @@ change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
 no-changes-template: "- No changes"
 sort-direction: ascending
 
-autolabeler:
-  - label: "documentation"
-    files:
-      - "**/*.md"
-  - label: "enhancement"
-    files:
-      - "victoriametrics/**/*"
-  - label: "maintenance"
-    files:
-      - ".github/**/*"
-      - ".vscode/**/*"
-
 ## Defaults
 
 categories:
