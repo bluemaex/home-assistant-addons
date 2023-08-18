@@ -79,7 +79,7 @@ jobs:
       - name: 🚀 Run mdl
         uses: actionshub/markdownlint@v3.1.3
         with:
-          filesToIgnoreRegex: "(.*\/?README|CHANGELOG.md)"
+          filesToIgnoreRegex: ".*(README|CHANGELOG).md"
 
   lint-json:
     name: 🔍 JSON Lint
