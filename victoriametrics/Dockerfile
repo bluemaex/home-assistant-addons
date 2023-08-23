@@ -6,8 +6,8 @@ FROM ghcr.io/home-assistant/amd64-base:3.18 AS amd64-base
 FROM ghcr.io/home-assistant/armv7-base:3.18 AS armv7-base
 FROM ghcr.io/home-assistant/i386-base:3.18 AS i386-base
 
-FROM victoriametrics/victoria-metrics:v1.93.0 as victoriametrics-server
-FROM victoriametrics/vmagent:v1.93.0 as victoriametrics-agent
+FROM victoriametrics/victoria-metrics:v1.93.1 as victoriametrics-server
+FROM victoriametrics/vmagent:v1.93.1 as victoriametrics-agent
 
 FROM ${BUILD_ARCH}-base AS final
 COPY rootfs /
