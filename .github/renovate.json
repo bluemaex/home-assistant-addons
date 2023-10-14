@@ -29,7 +29,7 @@
     },
     {
       "packagePatterns": ["^ghcr.io\\/linuxserver\\/"],
-      "versionScheme": "regex:^(?!.*(nig(ht|th)ly|develop|development))(?<compatibility>[a-z]*-|v)?(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?(?:[\\.-]?(?<build>.*))?$"
+      "versionScheme": "regex:^(?<compatibility>[a-z]*-|v)?(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?(?:[\\.-]?(?<build>.*))?$"
     },
     {
       "groupName": "HomeAssistant Add-on base image",
