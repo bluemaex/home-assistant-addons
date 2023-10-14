@@ -11,3 +11,10 @@ labels:
   maintainer: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.authors: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.licenses: "MIT License"
+  org.opencontainers.image.title: 'Home Assistant Unofficial Add-on: rclone'
+  org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
+  org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/rclone
+  org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/rclone/README.md
+  org.opencontainers.image.created: "2023-10-14T21:31:03Z"
+  org.opencontainers.image.revision: 38ee3975f31a8e5db4607ef6397c07bf64069dca
+  org.opencontainers.image.version: 3.1.1

@@ -1,5 +1,13 @@
 # Changelog
 
+## rclone 3.1.1 - 2023-10-14
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update rclone/rclone Docker tag to v1.64.0 @renovate (#108)
+
 ## 3.0.11
 
 - 🆕 Update base image
@@ -7,7 +15,7 @@
 
 ## 3.0.10
 
-- 🆕 Add start_url and end_url to each remote to allow monitoring (via e.g.
+- 🆕 Add start_url and end_url to each remote to allow monitoring (via e.g.   
   healthchecks.io)
 - 🆕 Update base image
 
@@ -51,7 +59,7 @@
 ## 3.0.0
 
 - 🆕 Migrated to use S6 init system
-- 🆕 Added support for all arch types (`armhf`, `armv7`, `amd64`, `aarch64`,
+- 🆕 Added support for all arch types (`armhf`, `armv7`, `amd64`, `aarch64`,   
   `i386`)
-- 🐞 Added Hassio role / api access to remove an error from startup
+- 🐞 Added Hassio role / api access to remove an error from startup   
   [home-assistant-addons/addon-base](https://github.com/home-assistant-addons/addon-base/issues/41)
