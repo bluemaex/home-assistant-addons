@@ -28,8 +28,8 @@
       "automerge": true
     },
     {
-      "packagePatterns": ["^ghcr.io\\/linuxserver\\/"],
-      "versionScheme": "regex:^(?<compatibility>[a-z]*-|v)?(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?(?:[\\.-]?(?<build>.*))?$"
+      "matchPackagePatterns": ["^ghcr.io\\/linuxserver\\/"],
+      "versioning": "regex:^(?<compatibility>[a-z]*-|v)?(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?(?:[\\.-]?(?<build>.*))?$"
     },
     {
       "groupName": "HomeAssistant Add-on base image",
