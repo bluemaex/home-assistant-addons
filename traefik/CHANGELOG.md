@@ -1,5 +1,13 @@
 # Changelog
 
+## traefik 4.2.1 - 2023-10-14
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update traefik Docker tag to v2.10.5 @renovate (#117)
+
 ## 4.1.4
 
 - 🆕 Add metrics configuration for prometheus
@@ -70,6 +78,6 @@
 ## 4.0.0
 
 - 🆕 Migrated to use S6 init system
-- 🆕 Added Hassio role / api access to remove an error from startup
+- 🆕 Added Hassio role / api access to remove an error from startup   
   [home-assistant-addons/addon-base](https://github.com/home-assistant-addons/addon-base/issues/41)
 - 🐞 **[BREAKING]** converted log level to lowercase
