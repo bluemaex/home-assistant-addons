@@ -1,5 +1,13 @@
 # Changelog
 
+## healthchecks 3.0.2 - 2023-10-14
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v2.10.20231009 @renovate (#123)
+
 ## healthchecks 3.0.1 - 2023-08-07
 
 ### Changes
