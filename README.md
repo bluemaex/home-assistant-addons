@@ -185,7 +185,7 @@ SOFTWARE.
 [rclone-version-shield]: https://img.shields.io/badge/version-3.0.12-blue.svg
 [rclone-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [rclone-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[rclone-armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
+[rclone-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [rclone-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [addon-syslog-ng]: https://github.com/bluemaex/home-assistant-addons/tree/syslog-ng-5.0.2
 [addon-doc-syslog-ng]: https://github.com/bluemaex/home-assistant-addons/blob/5.0.2/README.md
@@ -199,7 +199,7 @@ SOFTWARE.
 [traefik-version-shield]: https://img.shields.io/badge/version-4.1.6-blue.svg
 [traefik-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [traefik-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[traefik-armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
+[traefik-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [traefik-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [addon-unpoller]: https://github.com/bluemaex/home-assistant-addons/tree/unpoller-3.0.6
 [addon-doc-unpoller]: https://github.com/bluemaex/home-assistant-addons/blob/3.0.6/README.md
@@ -208,9 +208,9 @@ SOFTWARE.
 [unpoller-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [unpoller-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [unpoller-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[addon-victoriametrics]: https://github.com/bluemaex/home-assistant-addons/tree/victoriametrics-1.9.13-2
-[addon-doc-victoriametrics]: https://github.com/bluemaex/home-assistant-addons/blob/1.9.13-2/README.md
-[victoriametrics-version-shield]: https://img.shields.io/badge/version-1.9.13--2-blue.svg
+[addon-victoriametrics]: https://github.com/bluemaex/home-assistant-addons/tree/victoriametrics-2.0.1
+[addon-doc-victoriametrics]: https://github.com/bluemaex/home-assistant-addons/blob/2.0.1/README.md
+[victoriametrics-version-shield]: https://img.shields.io/badge/version-2.0.1-blue.svg
 [victoriametrics-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [victoriametrics-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [victoriametrics-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
