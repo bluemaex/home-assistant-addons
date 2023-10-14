@@ -28,6 +28,10 @@
       "automerge": true
     },
     {
+      "packagePatterns": ["^lscr.io\\/linuxserver\\/"],
+      "versionScheme": "regex:^(?<compatibility>.*?)-(?<major>v?\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)[\\.-]*(?<build>r?\\d+)*-*(?<tag>r?\\w+)*$"
+    },
+    {
       "groupName": "HomeAssistant Add-on base image",
       "matchDatasources": ["docker"],
       "matchPackagePatterns": ["^(?:ghcr.io/)?home-assistant/.*-base$"]
