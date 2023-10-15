@@ -20,7 +20,7 @@ jobs:
       addons: ${{ steps.changed_addons.outputs.addons }}
     steps:
       - name: ⤵️ Check out code from GitHub
-        uses: actions/checkout@v3.6.0
+        uses: actions/checkout@v4.1.0
       - name: 🗝️ Get changed files
         id: changed_files
         uses: jitterbit/get-changed-files@v1
