@@ -180,9 +180,9 @@ SOFTWARE.
 [healthchecks-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [healthchecks-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [healthchecks-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
-[addon-rclone]: https://github.com/bluemaex/home-assistant-addons/tree/rclone-3.1.1
-[addon-doc-rclone]: https://github.com/bluemaex/home-assistant-addons/blob/rclone-3.1.1/README.md
-[rclone-version-shield]: https://img.shields.io/badge/version-3.1.1-blue.svg
+[addon-rclone]: https://github.com/bluemaex/home-assistant-addons/tree/rclone-3.1.2
+[addon-doc-rclone]: https://github.com/bluemaex/home-assistant-addons/blob/rclone-3.1.2/README.md
+[rclone-version-shield]: https://img.shields.io/badge/version-3.1.2-blue.svg
 [rclone-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [rclone-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [rclone-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg

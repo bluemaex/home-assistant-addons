@@ -1,5 +1,13 @@
 # Changelog
 
+## rclone 3.1.2 - 2023-11-16
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update rclone/rclone Docker tag to v1.64.2 @renovate (#128)
+
 ## rclone 3.1.1 - 2023-10-14
 
 ### Changes
