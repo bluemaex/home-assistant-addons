@@ -1,5 +1,13 @@
 # Changelog
 
+## grafana-promtail 3.0.4 - 2023-11-16
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update grafana/promtail Docker tag to v2.9.2 @renovate (#125)
+
 ## grafana-promtail 3.0.3 - 2023-10-14
 
 ### Changes
