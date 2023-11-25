@@ -72,7 +72,7 @@ jobs:
           ' "${{ inputs.addon }}/build.yaml"
           cat "${{ inputs.addon }}/build.yaml"
       - name: 📝 Update CHANGELOG.md
-        uses: stefanzweifel/changelog-updater-action@v1.9.1
+        uses: stefanzweifel/changelog-updater-action@v1.10.0
         id: update_changelog
         with:
           latest-version: ${{ steps.release_notes.outputs.name }}
