@@ -1,6 +1,6 @@
 ARG BUILD_FROM
 
-FROM traefik:2.10.5 as traefik-base
+FROM traefik:2.10.6 as traefik-base
 FROM ${BUILD_FROM} AS final
 
 COPY rootfs /
