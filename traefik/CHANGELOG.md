@@ -1,5 +1,15 @@
 # Changelog
 
+## traefik 4.2.2 - 2023-12-31
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update traefik Docker tag to v2.10.6 @renovate (#138)
+- ⏫ Update traefik Docker tag to v2.10.7 @renovate (#140)
+- ⏫ Update HomeAssistant Add-on base image to v3.19 @renovate (#141)
+
 ## traefik 4.2.1 - 2023-10-14
 
 ### Changes
@@ -78,6 +88,6 @@
 ## 4.0.0
 
 - 🆕 Migrated to use S6 init system
-- 🆕 Added Hassio role / api access to remove an error from startup   
+- 🆕 Added Hassio role / api access to remove an error from startup
   [home-assistant-addons/addon-base](https://github.com/home-assistant-addons/addon-base/issues/41)
 - 🐞 **[BREAKING]** converted log level to lowercase

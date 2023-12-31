@@ -194,9 +194,9 @@ SOFTWARE.
 [syslog-ng-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [syslog-ng-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [syslog-ng-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
-[addon-traefik]: https://github.com/bluemaex/home-assistant-addons/tree/traefik-4.2.1
-[addon-doc-traefik]: https://github.com/bluemaex/home-assistant-addons/blob/traefik-4.2.1/README.md
-[traefik-version-shield]: https://img.shields.io/badge/version-4.2.1-blue.svg
+[addon-traefik]: https://github.com/bluemaex/home-assistant-addons/tree/traefik-4.2.2
+[addon-doc-traefik]: https://github.com/bluemaex/home-assistant-addons/blob/traefik-4.2.2/README.md
+[traefik-version-shield]: https://img.shields.io/badge/version-4.2.2-blue.svg
 [traefik-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [traefik-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [traefik-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
