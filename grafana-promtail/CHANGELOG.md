@@ -1,5 +1,19 @@
 # Changelog
 
+## grafana-promtail 3.0.5 - 2023-12-31
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update mikefarah/yq Docker tag to v4.40.2 @renovate (#134)
+- ⏫ Update mikefarah/yq Docker tag to v4.40.3 @renovate (#135)
+- ⏫ Update mikefarah/yq Docker tag to v4.40.4 @renovate (#139)
+- ⏫ Update grafana/promtail Docker tag to v2.9.3 @renovate (#144)
+- ⏫ Update mikefarah/yq Docker tag to v4.40.5 @renovate (#145)
+- ⏫ Update HomeAssistant hassio-addons debian base image to v7.3.0 @renovate (#148)
+- ⏫ Update HomeAssistant hassio-addons debian base image to v7.3.1 @renovate (#149)
+
 ## grafana-promtail 3.0.4 - 2023-11-16
 
 ### Changes
