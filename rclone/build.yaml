@@ -15,6 +15,6 @@ labels:
   org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
   org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/rclone
   org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/rclone/README.md
-  org.opencontainers.image.created: "2023-11-16T20:49:04Z"
-  org.opencontainers.image.revision: cb8340c2e44bb753f0e0cef193cf463ab4ae7ff3
-  org.opencontainers.image.version: 3.1.2
+  org.opencontainers.image.created: "2023-12-31T14:53:52Z"
+  org.opencontainers.image.revision: ccadaad2977f4eb51687ccb4d67b91046d17d50a
+  org.opencontainers.image.version: 3.1.3
