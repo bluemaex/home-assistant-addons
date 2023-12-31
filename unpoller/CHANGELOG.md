@@ -1,5 +1,14 @@
 # Changelog
 
+## unpoller 3.0.9 - 2023-12-31
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update HomeAssistant Add-on base image to v3.19 @renovate (#141)
+- ⏫ Update ghcr.io/unpoller/unpoller Docker tag to v2.9.5 @renovate (#147)
+
 ## unpoller 3.0.8 - 2023-11-16
 
 ### Changes

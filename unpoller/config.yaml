@@ -1,6 +1,6 @@
 ---
 name: UnPoller
-version: 3.0.8
+version: 3.0.9
 slug: unpoller
 description: |
   Collect your UniFi controller data and report it to an InfluxDB instance, or export it for Prometheus collection.
