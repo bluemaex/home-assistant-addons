@@ -1,5 +1,14 @@
 # Changelog
 
+## grafana-loki 3.0.5 - 2023-12-31
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update HomeAssistant Add-on base image to v3.19 @renovate (#141)
+- ⏫ Update grafana/loki Docker tag to v2.9.3 @renovate (#143)
+
 ## grafana-loki 3.0.4 - 2023-11-16
 
 ### Changes
