@@ -1,5 +1,13 @@
 # Changelog
 
+## traefik 4.2.3 - 2024-03-10
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update traefik Docker tag to v2.11.0 @renovate (#159)
+
 ## traefik 4.2.2 - 2023-12-31
 
 ### Changes
