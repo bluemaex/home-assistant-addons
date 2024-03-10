@@ -208,9 +208,9 @@ SOFTWARE.
 [unpoller-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [unpoller-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [unpoller-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[addon-victoriametrics]: https://github.com/bluemaex/home-assistant-addons/tree/victoriametrics-2.0.3
-[addon-doc-victoriametrics]: https://github.com/bluemaex/home-assistant-addons/blob/victoriametrics-2.0.3/README.md
-[victoriametrics-version-shield]: https://img.shields.io/badge/version-2.0.3-blue.svg
+[addon-victoriametrics]: https://github.com/bluemaex/home-assistant-addons/tree/victoriametrics-2.0.4
+[addon-doc-victoriametrics]: https://github.com/bluemaex/home-assistant-addons/blob/victoriametrics-2.0.4/README.md
+[victoriametrics-version-shield]: https://img.shields.io/badge/version-2.0.4-blue.svg
 [victoriametrics-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [victoriametrics-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [victoriametrics-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg

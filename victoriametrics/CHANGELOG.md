@@ -1,5 +1,16 @@
 # Changelog
 
+## victoriametrics 2.0.4 - 2024-03-10
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update VictoriaMetrics to v1.97.0 @renovate (#154)
+- ⏫ Update VictoriaMetrics to v1.97.1 @renovate (#156)
+- ⏫ Update VictoriaMetrics to v1.98.0 @renovate (#161)
+- ⏫ Update VictoriaMetrics to v1.99.0 @renovate (#167)
+
 ## victoriametrics 2.0.3 - 2023-12-31
 
 ### Changes
