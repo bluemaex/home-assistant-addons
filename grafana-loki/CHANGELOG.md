@@ -1,5 +1,14 @@
 # Changelog
 
+## grafana-loki 3.0.6 - 2024-03-10
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update grafana/loki Docker tag to v2.9.4 @renovate (#151)
+- ⏫ Update grafana/loki Docker tag to v2.9.5 @renovate (#165)
+
 ## grafana-loki 3.0.5 - 2023-12-31
 
 ### Changes
