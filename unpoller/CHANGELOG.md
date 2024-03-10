@@ -1,5 +1,13 @@
 # Changelog
 
+## unpoller 3.0.10 - 2024-03-10
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/unpoller/unpoller Docker tag to v2.10.0 @renovate (#168)
+
 ## unpoller 3.0.9 - 2023-12-31
 
 ### Changes
