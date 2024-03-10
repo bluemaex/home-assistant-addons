@@ -1,5 +1,13 @@
 # Changelog
 
+## healthchecks 3.1.0 - 2024-03-10
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.2 @bluemaex (#170)
+
 ## healthchecks 3.0.2 - 2023-10-14
 
 ### Changes
