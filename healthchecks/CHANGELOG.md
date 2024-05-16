@@ -1,5 +1,21 @@
 # Changelog
 
+## healthchecks 3.1.1 - 2024-05-16
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.2.20240311 @renovate (#171)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.2.20240318 @renovate (#174)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240403 @renovate (#178)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240408 @renovate (#186)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240415 @renovate (#193)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240422 @renovate (#197)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240429 @renovate (#206)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240506 @renovate (#207)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240513 @renovate (#210)
+
 ## healthchecks 3.1.0 - 2024-03-10
 
 ### Changes

@@ -10,6 +10,6 @@ labels:
   org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
   org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/healthchecks
   org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/healthchecks/README.md
-  org.opencontainers.image.created: "2024-03-10T19:04:13Z"
-  org.opencontainers.image.revision: ac9ec7c6726c62d65afe8cf0f0752a576f664c3b
-  org.opencontainers.image.version: 3.1.0
+  org.opencontainers.image.created: "2024-05-16T18:56:46Z"
+  org.opencontainers.image.revision: 9d30b2cc720ca8f996ce226fb8025f18f8bb703e
+  org.opencontainers.image.version: 3.1.1
