@@ -1,6 +1,6 @@
 ARG BUILD_FROM
 
-FROM victoriametrics/victoria-metrics:v1.101.0 as victoriametrics-server
+FROM victoriametrics/victoria-metrics:v1.38.0 as victoriametrics-server
 FROM victoriametrics/vmagent:v1.101.0 as victoriametrics-agent
 FROM ${BUILD_FROM} AS final
 
