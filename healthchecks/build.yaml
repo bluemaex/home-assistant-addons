@@ -1,7 +1,7 @@
 ---
 build_from:
-  aarch64: "ghcr.io/linuxserver/healthchecks:3.4.20240715"
-  amd64: "ghcr.io/linuxserver/healthchecks:3.4.20240715"
+  aarch64: "ghcr.io/linuxserver/healthchecks:3.4.20240722"
+  amd64: "ghcr.io/linuxserver/healthchecks:3.4.20240722"
 labels:
   maintainer: "bluemaex <homeassistant@blmx.de>"
   org.opencontainers.image.authors: "bluemaex <homeassistant@blmx.de>"
