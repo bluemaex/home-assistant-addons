@@ -110,7 +110,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: 🧱 Build ${{ inputs.addon }} add-on
-        uses: home-assistant/builder@2024.08.1
+        uses: home-assistant/builder@2024.08.2
         with:
           args: |
             --${{ matrix.arch }} \
