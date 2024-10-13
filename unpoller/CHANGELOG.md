@@ -1,5 +1,13 @@
 # Changelog
 
+## unpoller 3.0.12 - 2024-10-13
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update HomeAssistant Add-on base image to v3.20 @renovate (#216)
+
 ## unpoller 3.0.11 - 2024-05-16
 
 ### Changes
