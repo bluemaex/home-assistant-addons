@@ -1,5 +1,22 @@
 # Changelog
 
+## traefik 4.2.5 - 2024-10-13
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update traefik Docker tag to v2.11.3 @renovate (#214)
+- ⏫ Update HomeAssistant Add-on base image to v3.20 @renovate (#216)
+- ⏫ Update traefik Docker tag to v2.11.4 @renovate (#223)
+- ⏫ Update traefik Docker tag to v2.11.5 @renovate (#228)
+- ⏫ Update traefik Docker tag to v2.11.6 @renovate (#235)
+- ⏫ Update traefik Docker tag to v2.11.7 @renovate (#247)
+- ⏫ Update traefik Docker tag to v2.11.8 @renovate (#253)
+- ⏫ Update traefik Docker tag to v2.11.10 @renovate (#269)
+- ⏫ Update traefik Docker tag to v2.11.11 @renovate (#277)
+- ⏫ Update traefik Docker tag to v2.11.12 @renovate (#283)
+
 ## traefik 4.2.4 - 2024-05-16
 
 ### Changes
