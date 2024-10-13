@@ -1,6 +1,6 @@
 ---
 name: healthchecks
-version: 3.1.1
+version: 3.1.2
 slug: healthchecks
 description: |
   Healthchecks is a watchdog for your cron jobs.

@@ -1,5 +1,34 @@
 # Changelog
 
+## healthchecks 3.1.2 - 2024-10-13
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240520 @renovate (#213)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240527 @renovate (#217)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240531 @renovate (#219)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240603 @renovate (#220)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240610 @renovate (#222)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.3.20240617 @renovate (#227)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.4.20240620 @renovate (#229)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.4.20240624 @renovate (#230)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.4.20240701 @renovate (#232)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.4.20240708 @renovate (#240)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.4.20240715 @renovate (#242)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.4.20240722 @renovate (#244)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.4.20240729 @renovate (#246)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.4.20240805 @renovate (#250)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.4.20240812 @renovate (#256)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.4.20240819 @renovate (#258)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.5.20240820 @renovate (#259)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.6.20240904 @renovate (#263)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.6.20240909 @renovate (#264)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.6.20240916 @renovate (#268)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.6.20240930 @renovate (#275)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v3.6.20241007 @renovate (#278)
+
 ## healthchecks 3.1.1 - 2024-05-16
 
 ### Changes
