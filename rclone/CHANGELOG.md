@@ -1,5 +1,16 @@
 # Changelog
 
+## rclone 3.1.5 - 2024-10-13
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update HomeAssistant Add-on base image to v3.20 @renovate (#216)
+- ⏫ Update rclone/rclone Docker tag to v1.67.0 @renovate (#225)
+- ⏫ Update rclone/rclone Docker tag to v1.68.0 @renovate (#267)
+- ⏫ Update rclone/rclone Docker tag to v1.68.1 @renovate (#272)
+
 ## rclone 3.1.4 - 2024-03-10
 
 ### Changes
