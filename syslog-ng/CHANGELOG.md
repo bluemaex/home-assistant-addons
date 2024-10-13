@@ -1,5 +1,13 @@
 # Changelog
 
+## syslog-ng 5.0.4 - 2024-10-13
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/linuxserver/syslog-ng Docker tag to v4.7.1 @renovate (#215)
+
 ## syslog-ng 5.0.3 - 2024-03-10
 
 ### Changes
