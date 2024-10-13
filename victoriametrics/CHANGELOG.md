@@ -1,5 +1,17 @@
 # Changelog
 
+## victoriametrics 2.0.6 - 2024-10-13
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update HomeAssistant Add-on base image to v3.20 @renovate (#216)
+- ⏫ Update VictoriaMetrics to v1.102.0 @renovate (#243)
+- ⏫ Update VictoriaMetrics to v1.102.1 @renovate (#248)
+- ⏫ Update VictoriaMetrics to v1.103.0 @renovate (#261)
+- ⏫ Update VictoriaMetrics to v1.104.0 @renovate (#276)
+
 ## victoriametrics 2.0.5 - 2024-05-16
 
 ### Changes
