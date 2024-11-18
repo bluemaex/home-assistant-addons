@@ -1,7 +1,7 @@
 ARG BUILD_FROM
 
 FROM grafana/promtail:3.2.1 as promtail-base
-FROM mikefarah/yq:4.44.3 as yq-base
+FROM mikefarah/yq:4.44.5 as yq-base
 FROM ${BUILD_FROM} AS final
 
 
