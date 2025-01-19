@@ -54,7 +54,7 @@ jobs:
         path: ${{ fromJson(needs.find.outputs.addons) }}
     steps:
       - name: 🚀 Run Release Drafter for ${{ matrix.path }}
-        uses: release-drafter/release-drafter@v6.0.0
+        uses: release-drafter/release-drafter@v6.1.0
         with:
           config-name: "release-drafter-${{ matrix.path }}.yml"
         env:
