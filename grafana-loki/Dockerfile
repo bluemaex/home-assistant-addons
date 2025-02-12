@@ -1,6 +1,6 @@
 ARG BUILD_FROM
 
-FROM grafana/loki:3.3.2 as loki-base
+FROM grafana/loki:3.4.0 as loki-base
 FROM ${BUILD_FROM} AS final
 
 COPY rootfs /
