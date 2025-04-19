@@ -139,7 +139,7 @@ jobs:
         with:
           addons: ${{ inputs.addon }}
       - name: 🔧 Commit new Addon Config
-        uses: stefanzweifel/git-auto-commit-action@v5.1.0
+        uses: stefanzweifel/git-auto-commit-action@v5.2.0
         with:
           commit_message: 🚀 Released ${{ needs.init.outputs.release_name }}
           commit_user_email: actions@github.com
