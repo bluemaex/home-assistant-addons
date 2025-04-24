@@ -98,7 +98,7 @@ jobs:
         arch: ${{ fromJson(needs.init.outputs.architectures) }}
     steps:
       - name: ⤵️ Download Release Artifacts
-        uses: actions/download-artifact@v4.2.1
+        uses: actions/download-artifact@v4.3.0
         with:
           name: release-files
       - name: Untar artifacts
@@ -129,7 +129,7 @@ jobs:
       - name: ⤵️ Check out the repository
         uses: actions/checkout@v4.2.2
       - name: ⤵️ Download Release Artifacts
-        uses: actions/download-artifact@v4.2.1
+        uses: actions/download-artifact@v4.3.0
         with:
           name: release-files
       - name: Untar artifacts
