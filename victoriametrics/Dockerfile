@@ -1,7 +1,7 @@
 ARG BUILD_FROM
 
-FROM victoriametrics/victoria-metrics:v1.116.0 as victoriametrics-server
-FROM victoriametrics/vmagent:v1.116.0 as victoriametrics-agent
+FROM victoriametrics/victoria-metrics:v1.117.0 as victoriametrics-server
+FROM victoriametrics/vmagent:v1.117.0 as victoriametrics-agent
 FROM ${BUILD_FROM} AS final
 
 COPY rootfs /
