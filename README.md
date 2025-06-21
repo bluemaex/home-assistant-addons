@@ -157,7 +157,7 @@ SOFTWARE.
 [ha-addons]: https://www.home-assistant.io/addons/
 [add-repository-image]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
 [license-shield]: https://img.shields.io/github/license/bluemaex/home-assistant-addons.svg
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2023.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2025.svg
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
 [addon-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/tree/grafana-loki-4.0.0
 [addon-doc-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/blob/grafana-loki-4.0.0/README.md
