@@ -173,9 +173,9 @@ SOFTWARE.
 [grafana-promtail-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [grafana-promtail-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [grafana-promtail-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
-[addon-healthchecks]: https://github.com/bluemaex/home-assistant-addons/tree/healthchecks-3.1.2
-[addon-doc-healthchecks]: https://github.com/bluemaex/home-assistant-addons/blob/healthchecks-3.1.2/README.md
-[healthchecks-version-shield]: https://img.shields.io/badge/version-3.1.2-blue.svg
+[addon-healthchecks]: https://github.com/bluemaex/home-assistant-addons/tree/healthchecks-3.1.3
+[addon-doc-healthchecks]: https://github.com/bluemaex/home-assistant-addons/blob/healthchecks-3.1.3/README.md
+[healthchecks-version-shield]: https://img.shields.io/badge/version-3.1.3-blue.svg
 [healthchecks-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [healthchecks-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [healthchecks-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
