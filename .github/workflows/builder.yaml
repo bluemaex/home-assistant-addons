@@ -21,7 +21,7 @@ jobs:
       addons: ${{ steps.changed_addons.outputs.addons }}
     steps:
       - name: ⤵️ Check out the repository
-        uses: actions/checkout@v4.3.0
+        uses: actions/checkout@v4.3.1
       - name: 🗝️ Get changed files
         id: changed_files
         uses: jitterbit/get-changed-files@v1
@@ -56,7 +56,7 @@ jobs:
         arch: ["aarch64", "amd64", "armhf", "armv7", "i386"]
     steps:
       - name: ⤵️ Check out repository
-        uses: actions/checkout@v4.3.0
+        uses: actions/checkout@v4.3.1
       - name: ℹ️ Get information
         id: info
         uses: home-assistant/actions/helpers/info@master
