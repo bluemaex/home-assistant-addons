@@ -37,7 +37,7 @@ jobs:
         with:
           path: "./${{ inputs.addon }}"
       - name: 📝 Run Release Drafter
-        uses: release-drafter/release-drafter@v6.1.1
+        uses: release-drafter/release-drafter@v6.2.0
         id: release_notes
         with:
           config-name: "release-drafter-${{ inputs.addon }}.yml"
@@ -144,7 +144,7 @@ jobs:
           commit_message: 🚀 Released ${{ needs.init.outputs.release_name }}
           commit_user_email: actions@github.com
       - name: 🚀 Create Release
-        uses: release-drafter/release-drafter@v6.1.1
+        uses: release-drafter/release-drafter@v6.2.0
         with:
           config-name: "release-drafter-${{ inputs.addon }}.yml"
           publish: true
