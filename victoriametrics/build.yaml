@@ -10,6 +10,6 @@ labels:
   org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
   org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/victoriametrics
   org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/victoriametrics/README.md
-  org.opencontainers.image.created: "2025-06-21T09:57:17Z"
-  org.opencontainers.image.revision: 53195bbf9825f6fa232f1144dec318239e40acfd
-  org.opencontainers.image.version: 2.0.7
+  org.opencontainers.image.created: "2026-01-24T22:07:49Z"
+  org.opencontainers.image.revision: 5039c1b6817883d89a91854c0d476714c0d31507
+  org.opencontainers.image.version: 3.0.0
