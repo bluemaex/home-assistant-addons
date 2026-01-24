@@ -159,9 +159,9 @@ SOFTWARE.
 [license-shield]: https://img.shields.io/github/license/bluemaex/home-assistant-addons.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2025.svg
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
-[addon-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/tree/grafana-loki-4.0.1
-[addon-doc-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/blob/grafana-loki-4.0.1/README.md
-[grafana-loki-version-shield]: https://img.shields.io/badge/version-4.0.1-blue.svg
+[addon-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/tree/grafana-loki-5.0.0
+[addon-doc-grafana-loki]: https://github.com/bluemaex/home-assistant-addons/blob/grafana-loki-5.0.0/README.md
+[grafana-loki-version-shield]: https://img.shields.io/badge/version-5.0.0-blue.svg
 [grafana-loki-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [grafana-loki-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [grafana-loki-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
@@ -186,7 +186,7 @@ SOFTWARE.
 [rclone-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [rclone-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [rclone-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
-[rclone-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
+[rclone-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
 [addon-syslog-ng]: https://github.com/bluemaex/home-assistant-addons/tree/syslog-ng-5.0.5
 [addon-doc-syslog-ng]: https://github.com/bluemaex/home-assistant-addons/blob/syslog-ng-5.0.5/README.md
 [syslog-ng-version-shield]: https://img.shields.io/badge/version-5.0.5-blue.svg
@@ -214,4 +214,4 @@ SOFTWARE.
 [victoriametrics-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [victoriametrics-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [victoriametrics-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
-[victoriametrics-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
+[victoriametrics-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
