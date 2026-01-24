@@ -166,9 +166,9 @@ SOFTWARE.
 [grafana-loki-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [grafana-loki-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [grafana-loki-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
-[addon-grafana-promtail]: https://github.com/bluemaex/home-assistant-addons/tree/grafana-promtail-4.0.0
-[addon-doc-grafana-promtail]: https://github.com/bluemaex/home-assistant-addons/blob/grafana-promtail-4.0.0/README.md
-[grafana-promtail-version-shield]: https://img.shields.io/badge/version-4.0.0-blue.svg
+[addon-grafana-promtail]: https://github.com/bluemaex/home-assistant-addons/tree/grafana-promtail-5.0.0
+[addon-doc-grafana-promtail]: https://github.com/bluemaex/home-assistant-addons/blob/grafana-promtail-5.0.0/README.md
+[grafana-promtail-version-shield]: https://img.shields.io/badge/version-5.0.0-blue.svg
 [grafana-promtail-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [grafana-promtail-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [grafana-promtail-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
