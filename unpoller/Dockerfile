@@ -1,6 +1,6 @@
 ARG BUILD_FROM
 
-FROM ghcr.io/unpoller/unpoller:v2.24.0 as unpoller-base
+FROM ghcr.io/unpoller/unpoller:v2.25.0 as unpoller-base
 FROM ${BUILD_FROM} AS final
 
 COPY rootfs /
