@@ -64,6 +64,18 @@ It's a web server that listens for pings from your cron jobs, plus a web interfa
 
 [:books: healthchecks add-on documentation][addon-doc-healthchecks]
 
+### &#10003; [OpenBao][addon-openbao]
+
+![Latest Version][openbao-version-shield]
+![Supports armhf Architecture][openbao-armhf-shield]
+![Supports armv7 Architecture][openbao-armv7-shield]
+![Supports aarch64 Architecture][openbao-aarch64-shield]
+![Supports amd64 Architecture][openbao-amd64-shield]
+
+OpenBao is an identity-based secrets and encryption management system.
+
+[:books: OpenBao add-on documentation][addon-doc-openbao]
+
 ### &#10003; [Rclone][addon-rclone]
 
 ![Latest Version][rclone-version-shield]
@@ -180,6 +192,13 @@ SOFTWARE.
 [healthchecks-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [healthchecks-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [healthchecks-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
+[addon-openbao]: https://github.com/bluemaex/home-assistant-addons/tree/openbao-0.1.0
+[addon-doc-openbao]: https://github.com/bluemaex/home-assistant-addons/blob/openbao-0.1.0/README.md
+[openbao-version-shield]: https://img.shields.io/badge/version-0.1.0-blue.svg
+[openbao-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[openbao-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[openbao-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
+[openbao-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
 [addon-rclone]: https://github.com/bluemaex/home-assistant-addons/tree/rclone-4.0.0
 [addon-doc-rclone]: https://github.com/bluemaex/home-assistant-addons/blob/rclone-4.0.0/README.md
 [rclone-version-shield]: https://img.shields.io/badge/version-4.0.0-blue.svg

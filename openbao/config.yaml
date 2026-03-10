@@ -1,6 +1,6 @@
 ---
 name: OpenBao
-version: 1.0.0
+version: 0.1.0
 slug: openbao
 description: |
   OpenBao is an identity-based secrets and encryption management system.
