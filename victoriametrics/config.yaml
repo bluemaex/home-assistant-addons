@@ -1,6 +1,6 @@
 ---
 name: Victoria Metrics
-version: 3.0.0
+version: 3.0.1
 slug: victoriametrics
 description: |
   VictoriaMetrics is a fast, cost-effective and scalable monitoring solution and time series database.
