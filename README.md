@@ -220,9 +220,9 @@ SOFTWARE.
 [traefik-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [traefik-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [traefik-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[addon-unpoller]: https://github.com/bluemaex/home-assistant-addons/tree/unpoller-4.0.0
-[addon-doc-unpoller]: https://github.com/bluemaex/home-assistant-addons/blob/unpoller-4.0.0/README.md
-[unpoller-version-shield]: https://img.shields.io/badge/version-4.0.0-blue.svg
+[addon-unpoller]: https://github.com/bluemaex/home-assistant-addons/tree/unpoller-4.0.1
+[addon-doc-unpoller]: https://github.com/bluemaex/home-assistant-addons/blob/unpoller-4.0.1/README.md
+[unpoller-version-shield]: https://img.shields.io/badge/version-4.0.1-blue.svg
 [unpoller-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [unpoller-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [unpoller-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
