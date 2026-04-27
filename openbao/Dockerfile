@@ -1,6 +1,6 @@
 ARG BUILD_FROM
 
-FROM ghcr.io/openbao/openbao:2.5.1 AS openbao-base
+FROM ghcr.io/openbao/openbao:2.5.3 AS openbao-base
 FROM ${BUILD_FROM} AS final
 
 ARG USERNAME=openbao
