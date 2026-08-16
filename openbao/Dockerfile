@@ -6,7 +6,7 @@ FROM ${BUILD_FROM} AS final
 ARG USERNAME=openbao
 
 COPY rootfs /
-COPY --from=openbao-base /bin/bao /usr/local/bin/bao
+COPY --from=openbao-base /usr/bin/bao /usr/local/bin/bao
 
 RUN apk add --no-cache curl gomplate jq \
     && addgroup "${USERNAME}" \
