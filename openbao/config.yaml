@@ -17,7 +17,6 @@ ports_description:
   8200/tcp: OpenBao API and UI
 map:
   - data
-  - ssl
 options:
   log_level: info
   auto_unseal: true
