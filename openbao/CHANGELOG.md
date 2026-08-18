@@ -1,5 +1,14 @@
 # Changelog
 
+## openbao 0.1.1 - 2026-08-18
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update HomeAssistant Add-on base image to v3.24 @[renovate[bot]](https://github.com/apps/renovate) (#552)
+- ⏫ Update ghcr.io/openbao/openbao Docker tag to v2.6.1 @[renovate[bot]](https://github.com/apps/renovate) (#518)
+
 ## openbao 0.1.0 - 2026-03-10
 
 ### Changes
