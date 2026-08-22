@@ -8,6 +8,6 @@ ARG USERNAME=openbao
 COPY rootfs /
 COPY --from=openbao-base /usr/bin/bao /usr/local/bin/bao
 
-RUN apk add --no-cache curl gomplate jq \
+RUN apk add --no-cache curl gomplate jq logrotate \
     && addgroup "${USERNAME}" \
     && adduser -S -G "${USERNAME}" "${USERNAME}"

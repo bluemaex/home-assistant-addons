@@ -9,11 +9,11 @@ encryption-as-a-service for your homelab.
 On the very first start, the addon automatically:
 
 1. Creates data directories under `/data/openbao/`
-2. Generates the server configuration from your options
-3. Starts the OpenBao server
-4. **Initializes** the Raft storage backend (single key share, 1-of-1 threshold)
-5. Saves the root token and unseal key to `/data/openbao/init.json`
-6. **Unseals** the vault (if `auto_unseal: true`)
+1. Generates the server configuration from your options
+1. Starts the OpenBao server
+1. **Initializes** the Raft storage backend (single key share, 1-of-1 threshold)
+1. Saves the root token and unseal key to `/data/openbao/init.json`
+1. **Unseals** the vault (if `auto_unseal: true`)
 
 **After the first start, immediately back up `/data/openbao/init.json`.**
 This file contains your root token and unseal key. If lost, your secrets are
@@ -163,10 +163,8 @@ To enable TLS directly on OpenBao:
 1. Place your certificate files in `/ssl/openbao/`:
    - `fullchain.pem` — certificate chain
    - `privkey.pem` — private key
-
-2. Set `tls_disable: false` in the addon options
-
-3. Restart the addon
+1. Set `tls_disable: false` in the addon options
+1. Restart the addon
 
 With TLS enabled, use `https://<homeassistant-ip>:8200` for direct access.
 
@@ -227,7 +225,33 @@ ansible-galaxy collection install community.hashi_vault
 | `log_level` | `info` | Log verbosity level |
 | `auto_unseal` | `true` | Auto-unseal on startup using key from `init.json` |
 | `tls_disable` | `true` | Disable TLS (use a reverse proxy for encryption) |
+| `audit_stdout` | `true` | Audit log to the add-on log (and therefore journald) |
+| `audit_file` | `false` | Audit log to `/data/openbao/logs/audit.log`, rotated |
 | `env_vars` | `[]` | Extra environment variables for the OpenBao process |
+
+## Audit Logging
+
+OpenBao v2.3.2+ **refuses to create audit devices over the API**:
+
+```
+* cannot enable audit device via API; use declarative, config-based audit device management instead
+```
+
+So `bao audit enable …` will not work, and neither will Terraform's `vault_audit`
+resource. Audit devices are declared in the server configuration instead, which
+this add-on generates — hence the two options above.
+
+| Option | Sink | Fails closed? |
+| --- | --- | --- |
+| `audit_stdout` | add-on log → journald | No — `/dev/stdout` never touches the filesystem |
+| `audit_file` | `/data/openbao/logs/audit.log` | Yes, if the volume fills |
+
+**Read this before enabling `audit_file`.** OpenBao stops serving requests when no
+enabled audit device can record them — *"OpenBao will not respond to requests when
+no enabled audit devices can record them"*.
+
+Values in the log are HMAC-SHA256'd — the log shows *which* path was accessed, not
+the secret.
 
 ## Security Notes
 
