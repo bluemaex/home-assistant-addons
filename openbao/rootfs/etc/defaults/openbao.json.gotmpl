@@ -1,4 +1,6 @@
 {{- $options := (ds "options") -}}
+{{- $auditStdout := index $options "audit_stdout" -}}
+{{- $auditFile := index $options "audit_file" -}}
 {
   "ui": true,
   "api_addr": "http{{ if not $options.tls_disable }}s{{ end }}://0.0.0.0:8200",
@@ -24,5 +26,32 @@
       "node_id": "homeassistant"
     }
   },
+{{- if or $auditStdout $auditFile }}
+  "audit": [
+{{- if $auditStdout }}
+    {
+      "file": {
+        "to-stdout": {
+          "description": "audit -> addon log -> journald",
+          "options": { "file_path": "/dev/stdout" }
+        }
+      }
+    }{{ if $auditFile }},{{ end }}
+{{- end }}
+{{- if $auditFile }}
+    {
+      "file": {
+        "to-file": {
+          "description": "audit -> /data/openbao/logs, rotated by logrotate",
+          "options": {
+            "file_path": "/data/openbao/logs/audit.log",
+            "mode": "0600"
+          }
+        }
+      }
+    }
+{{- end }}
+  ],
+{{- end }}
   "log_level": "{{ strings.ToUpper $options.log_level }}"
 }

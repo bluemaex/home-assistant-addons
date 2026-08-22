@@ -19,10 +19,14 @@ options:
   log_level: info
   auto_unseal: true
   tls_disable: true
+  audit_stdout: true
+  audit_file: false
   env_vars: []
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)
   auto_unseal: bool
   tls_disable: bool
+  audit_stdout: bool
+  audit_file: bool
   env_vars:
     - str
