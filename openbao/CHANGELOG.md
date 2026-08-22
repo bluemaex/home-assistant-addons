@@ -1,5 +1,15 @@
 # Changelog
 
+## openbao 0.1.2 - 2026-08-22
+
+### Changes
+
+- feat(openbao): declarative audit devices with log rotation @bluemaex (#587)
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/openbao/openbao Docker tag to v2.6.2 @[renovate[bot]](https://github.com/apps/renovate) (#582)
+
 ## openbao 0.1.1 - 2026-08-18
 
 ### Changes
