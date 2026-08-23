@@ -243,7 +243,7 @@ this add-on generates — hence the two options above.
 
 | Option | Sink | Fails closed? |
 | --- | --- | --- |
-| `audit_stdout` | add-on log → journald | No — `/dev/stdout` never touches the filesystem |
+| `audit_stdout` | add-on log → journald | No — the `stdout` sink never touches the filesystem |
 | `audit_file` | `/data/openbao/logs/audit.log` | Yes, if the volume fills |
 
 **Read this before enabling `audit_file`.** OpenBao stops serving requests when no
