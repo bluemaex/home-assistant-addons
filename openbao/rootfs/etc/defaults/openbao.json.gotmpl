@@ -1,6 +1,7 @@
 {{- $options := (ds "options") -}}
 {{- $auditStdout := index $options "audit_stdout" -}}
 {{- $auditFile := index $options "audit_file" -}}
+{{- $trustedProxies := index $options "trusted_proxies" -}}
 {
   "ui": true,
   "api_addr": "http{{ if not $options.tls_disable }}s{{ end }}://0.0.0.0:8200",
@@ -13,6 +14,14 @@
         {{ if not $options.tls_disable -}}
         "tls_cert_file": "/ssl/openbao/fullchain.pem",
         "tls_key_file": "/ssl/openbao/privkey.pem",
+        {{ end -}}
+        {{ if $trustedProxies -}}
+        "x_forwarded_for_authorized_addrs": "{{ $trustedProxies }}",
+        {{/* Both default to true upstream. Left true, a request WITHOUT an
+             X-Forwarded-For header is rejected — which would break the add-on's own
+             localhost calls for init, unseal and readiness. Pin them false. */}}
+        "x_forwarded_for_reject_not_authorized": false,
+        "x_forwarded_for_reject_not_present": false,
         {{ end -}}
         "telemetry": {
           "unauthenticated_metrics_access": false

@@ -21,6 +21,7 @@ options:
   tls_disable: true
   audit_stdout: true
   audit_file: false
+  trusted_proxies: ""
   env_vars: []
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)
@@ -28,5 +29,6 @@ schema:
   tls_disable: bool
   audit_stdout: bool
   audit_file: bool
+  trusted_proxies: str?
   env_vars:
     - str
