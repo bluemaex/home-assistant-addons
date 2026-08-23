@@ -17,9 +17,6 @@
         {{ end -}}
         {{ if $trustedProxies -}}
         "x_forwarded_for_authorized_addrs": "{{ $trustedProxies }}",
-        {{/* Both default to true upstream. Left true, a request WITHOUT an
-             X-Forwarded-For header is rejected — which would break the add-on's own
-             localhost calls for init, unseal and readiness. Pin them false. */}}
         "x_forwarded_for_reject_not_authorized": false,
         "x_forwarded_for_reject_not_present": false,
         {{ end -}}
@@ -62,5 +59,9 @@
 {{- end }}
   ],
 {{- end }}
+  "telemetry": {
+    "prometheus_retention_time": "24h",
+    "disable_hostname": true
+  },
   "log_level": "{{ strings.ToUpper $options.log_level }}"
 }
