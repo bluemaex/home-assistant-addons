@@ -227,6 +227,7 @@ ansible-galaxy collection install community.hashi_vault
 | `tls_disable` | `true` | Disable TLS (use a reverse proxy for encryption) |
 | `audit_stdout` | `true` | Audit log to the add-on log (and therefore journald) |
 | `audit_file` | `false` | Audit log to `/data/openbao/logs/audit.log`, rotated |
+| `trusted_proxies` | `""` | CIDR(s) whose `X-Forwarded-For` header OpenBao will trust |
 | `env_vars` | `[]` | Extra environment variables for the OpenBao process |
 
 ## Audit Logging
@@ -236,10 +237,6 @@ OpenBao v2.3.2+ **refuses to create audit devices over the API**:
 ```
 * cannot enable audit device via API; use declarative, config-based audit device management instead
 ```
-
-So `bao audit enable …` will not work, and neither will Terraform's `vault_audit`
-resource. Audit devices are declared in the server configuration instead, which
-this add-on generates — hence the two options above.
 
 | Option | Sink | Fails closed? |
 | --- | --- | --- |
@@ -252,6 +249,16 @@ no enabled audit devices can record them"*.
 
 Values in the log are HMAC-SHA256'd — the log shows *which* path was accessed, not
 the secret.
+
+## Reverse proxies and client addresses
+
+Set `trusted_proxies` to the CIDR the proxy connects from — for the Home Assistant traefik add-on
+that is its Docker network, e.g. `172.30.0.0/16` — and OpenBao will trust `X-Forwarded-For` from
+those sources and record the real client instead.
+
+**Only set this if the proxy is the only way in.** Any client that can reach the API *directly*
+from a trusted CIDR can forge its own address by setting the header. If the add-on's port is
+published on the host, unpublish it first.
 
 ## Security Notes
 
