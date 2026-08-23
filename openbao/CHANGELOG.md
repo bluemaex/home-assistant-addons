@@ -1,5 +1,11 @@
 # Changelog
 
+## openbao 0.1.3 - 2026-08-23
+
+### Changes
+
+- fix(openbao): fix stdout usage @bluemaex (#588)
+
 ## openbao 0.1.2 - 2026-08-22
 
 ### Changes
