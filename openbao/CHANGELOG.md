@@ -1,5 +1,11 @@
 # Changelog
 
+## openbao 0.1.4 - 2026-08-23
+
+### Changes
+
+- feat(openbao): Add trusted_proxies and enable prometheus endpoint @bluemaex (#590)
+
 ## openbao 0.1.3 - 2026-08-23
 
 ### Changes

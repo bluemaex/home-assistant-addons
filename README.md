@@ -192,9 +192,9 @@ SOFTWARE.
 [healthchecks-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [healthchecks-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [healthchecks-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
-[addon-openbao]: https://github.com/bluemaex/home-assistant-addons/tree/openbao-0.1.3
-[addon-doc-openbao]: https://github.com/bluemaex/home-assistant-addons/blob/openbao-0.1.3/README.md
-[openbao-version-shield]: https://img.shields.io/badge/version-0.1.3-blue.svg
+[addon-openbao]: https://github.com/bluemaex/home-assistant-addons/tree/openbao-0.1.4
+[addon-doc-openbao]: https://github.com/bluemaex/home-assistant-addons/blob/openbao-0.1.4/README.md
+[openbao-version-shield]: https://img.shields.io/badge/version-0.1.4-blue.svg
 [openbao-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [openbao-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [openbao-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
