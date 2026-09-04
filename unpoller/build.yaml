@@ -10,6 +10,6 @@ labels:
   org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
   org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/unpoller
   org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/unpoller/README.md
-  org.opencontainers.image.created: "2026-08-18T20:08:15Z"
-  org.opencontainers.image.revision: 4c30f153f7635247d8eac92c81ec474357eb4db9
-  org.opencontainers.image.version: 5.0.1
+  org.opencontainers.image.created: "2026-09-04T22:34:59Z"
+  org.opencontainers.image.revision: 7872c785a42786dd0bd2747b8d0ce82c309fe306
+  org.opencontainers.image.version: 5.0.2
