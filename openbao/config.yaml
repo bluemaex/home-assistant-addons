@@ -22,6 +22,7 @@ options:
   audit_stdout: true
   audit_file: false
   trusted_proxies: ""
+  unauthenticated_metrics: false
   env_vars: []
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)
@@ -30,5 +31,6 @@ schema:
   audit_stdout: bool
   audit_file: bool
   trusted_proxies: str?
+  unauthenticated_metrics: bool
   env_vars:
     - str

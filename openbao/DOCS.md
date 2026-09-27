@@ -228,6 +228,7 @@ ansible-galaxy collection install community.hashi_vault
 | `audit_stdout` | `true` | Audit log to the add-on log (and therefore journald) |
 | `audit_file` | `false` | Audit log to `/data/openbao/logs/audit.log`, rotated |
 | `trusted_proxies` | `""` | CIDR(s) whose `X-Forwarded-For` header OpenBao will trust |
+| `unauthenticated_metrics` | `false` | Serve `/v1/sys/metrics` without a token |
 | `env_vars` | `[]` | Extra environment variables for the OpenBao process |
 
 ## Audit Logging
@@ -259,6 +260,16 @@ those sources and record the real client instead.
 **Only set this if the proxy is the only way in.** Any client that can reach the API *directly*
 from a trusted CIDR can forge its own address by setting the header. If the add-on's port is
 published on the host, unpublish it first.
+
+## Metrics
+
+Prometheus metrics are served at `/v1/sys/metrics?format=prometheus`. By default the scraper needs
+a token with `read` on `sys/metrics`. Tokens expire unless something renews them, and most scrapers
+never do — the scrape then fails with a 403 and the metrics silently stop.
+
+Set `unauthenticated_metrics: true` to serve the endpoint without a token. It exposes request
+counts, seal state, storage and runtime stats — no secret data — and every other endpoint still
+requires a token. Only enable it if the API is not reachable from untrusted networks.
 
 ## Security Notes
 
