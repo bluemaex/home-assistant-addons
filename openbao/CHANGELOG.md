@@ -1,5 +1,15 @@
 # Changelog
 
+## openbao 0.2.0 - 2026-09-29
+
+### Changes
+
+- feat(openbao): optional unauthenticated_metrics for token-free sys/metrics @bluemaex (#608)
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/openbao/openbao Docker tag to v2.7.0 @[renovate[bot]](https://github.com/apps/renovate) (#604)
+
 ## openbao 0.1.4 - 2026-08-23
 
 ### Changes
