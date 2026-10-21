@@ -8,12 +8,9 @@
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": ["//Dockerfile$/", "//build.yaml$/"],
+      "managerFilePatterns": ["//Dockerfile$/"],
       "matchStringsStrategy": "any",
-      "matchStrings": [
-        "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+",
-        "(aarch64|amd64|armhf|armv7|i386):\\s[\"']?(?<depName>.*?):(?<currentValue>.*?)[\"']?\\s"
-      ],
+      "matchStrings": ["ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"],
       "datasourceTemplate": "docker"
     }
   ],
@@ -35,12 +32,12 @@
     {
       "groupName": "HomeAssistant Add-on base image",
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["/^(?:ghcr.io/)?home-assistant/.*-base$/"]
+      "matchPackageNames": ["/^(?:ghcr.io/)?home-assistant/(?:.*-)?base$/"]
     },
     {
       "groupName": "HomeAssistant hassio-addons debian base image",
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["/^(?:ghcr.io/)?hassio-addons/debian-base/.*$/"]
+      "matchPackageNames": ["/^(?:ghcr.io/)?hassio-addons/debian-base(?:/.*)?$/"]
     },
     {
       "groupName": "VictoriaMetrics",

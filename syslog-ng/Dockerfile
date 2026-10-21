@@ -1,4 +1,4 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/linuxserver/syslog-ng:4.11.0
 
 FROM ${BUILD_FROM} AS final
 
@@ -7,3 +7,11 @@ RUN apk add --no-cache gomplate \
     && usermod -d /data abc
 
 COPY rootfs /
+
+LABEL \
+    maintainer="bluemaex <homeassistant@blmx.de>" \
+    org.opencontainers.image.authors="bluemaex <homeassistant@blmx.de>" \
+    org.opencontainers.image.licenses="MIT License" \
+    org.opencontainers.image.title="Home Assistant Unofficial Add-on: syslog-ng" \
+    org.opencontainers.image.url="https://github.com/bluemaex/home-assistant-addons" \
+    org.opencontainers.image.documentation="https://github.com/bluemaex/home-assistant-addons/syslog-ng/README.md"

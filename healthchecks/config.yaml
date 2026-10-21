@@ -8,7 +8,7 @@ description: |
 arch:
   - aarch64
   - amd64
-image: "ghcr.io/bluemaex/ha-addons-healthchecks-{arch}"
+image: "ghcr.io/bluemaex/ha-addons-healthchecks"
 startup: system
 url: https://github.com/bluemaex/home-assistant-addons/tree/master/healthchecks
 init: false

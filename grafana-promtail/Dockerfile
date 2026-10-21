@@ -1,7 +1,7 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:9.5.0
 
-FROM grafana/promtail:3.6.11 as promtail-base
-FROM mikefarah/yq:4.54.1 as yq-base
+FROM grafana/promtail:3.6.11 AS promtail-base
+FROM mikefarah/yq:4.54.1 AS yq-base
 FROM ${BUILD_FROM} AS final
 
 
@@ -14,3 +14,11 @@ RUN set -eux; \
 COPY rootfs /
 COPY --from=promtail-base /usr/bin/promtail /usr/bin/promtail
 COPY --from=yq-base /usr/bin/yq /usr/bin/yq
+
+LABEL \
+    maintainer="bluemaex <homeassistant@blmx.de>" \
+    org.opencontainers.image.authors="bluemaex <homeassistant@blmx.de>" \
+    org.opencontainers.image.licenses="MIT License" \
+    org.opencontainers.image.title="Home Assistant Unofficial Add-on: grafana-promtail" \
+    org.opencontainers.image.url="https://github.com/bluemaex/home-assistant-addons" \
+    org.opencontainers.image.documentation="https://github.com/bluemaex/home-assistant-addons/grafana-promtail/README.md"
