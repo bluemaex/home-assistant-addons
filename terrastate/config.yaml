@@ -1,6 +1,6 @@
 ---
 name: Terrastate
-version: 0.1.0
+version: 0.0.1
 slug: terrastate
 description: |
   Terrastate — a Terraform/OpenTofu HTTP state backend with locking.

@@ -10,4 +10,6 @@ labels:
   org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
   org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/terrastate
   org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/terrastate/README.md
-  org.opencontainers.image.version: 0.1.0
+  org.opencontainers.image.version: 0.0.1
+  org.opencontainers.image.created: "2026-10-21T20:36:30Z"
+  org.opencontainers.image.revision: 14c876d1b3381ca2704495ddb4e8d65ec6cd6faa

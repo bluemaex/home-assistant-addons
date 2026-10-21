@@ -225,9 +225,9 @@ SOFTWARE.
 [syslog-ng-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [syslog-ng-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [syslog-ng-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
-[addon-terrastate]: https://github.com/bluemaex/home-assistant-addons/tree/terrastate-0.1.0
-[addon-doc-terrastate]: https://github.com/bluemaex/home-assistant-addons/blob/terrastate-0.1.0/README.md
-[terrastate-version-shield]: https://img.shields.io/badge/version-0.1.0-blue.svg
+[addon-terrastate]: https://github.com/bluemaex/home-assistant-addons/tree/terrastate-0.0.1
+[addon-doc-terrastate]: https://github.com/bluemaex/home-assistant-addons/blob/terrastate-0.0.1/README.md
+[terrastate-version-shield]: https://img.shields.io/badge/version-0.0.1-blue.svg
 [terrastate-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [terrastate-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [terrastate-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
