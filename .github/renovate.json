@@ -5,9 +5,10 @@
   "labels": ["dependencies"],
   "commitMessagePrefix": "⏫",
   "commitMessageTopic": "{{depName}}",
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["/Dockerfile$", "/build.yaml$"],
+      "customType": "regex",
+      "managerFilePatterns": ["//Dockerfile$/", "//build.yaml$/"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+",
@@ -30,27 +31,27 @@
     {
       "groupName": "HomeAssistant Add-on base image",
       "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["^(?:ghcr.io/)?home-assistant/.*-base$"]
+      "matchPackageNames": ["/^(?:ghcr.io/)?home-assistant/.*-base$/"]
     },
     {
       "groupName": "HomeAssistant hassio-addons debian base image",
       "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["^(?:ghcr.io/)?hassio-addons/debian-base/.*$"]
+      "matchPackageNames": ["/^(?:ghcr.io/)?hassio-addons/debian-base/.*$/"]
     },
     {
       "groupName": "VictoriaMetrics",
       "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["^victoriametrics/"]
+      "matchPackageNames": ["/^victoriametrics//"]
     },
     {
       "groupName": "linuxserver.io/syslog-ng",
       "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["^lscr.io/linuxserver/syslog-ng"]
+      "matchPackageNames": ["/^lscr.io/linuxserver/syslog-ng/"]
     },
     {
       "groupName": "linuxserver.io/healthchecks",
       "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["^lscr.io/linuxserver/healthchecks"]
+      "matchPackageNames": ["/^lscr.io/linuxserver/healthchecks/"]
     }
   ]
 }
