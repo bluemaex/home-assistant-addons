@@ -10,6 +10,6 @@ labels:
   org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
   org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/openbao
   org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/openbao/README.md
-  org.opencontainers.image.created: "2026-09-29T20:15:24Z"
-  org.opencontainers.image.revision: 03dc9095c111c36bd9d0fce53edbeb42848dca30
-  org.opencontainers.image.version: 0.2.0
+  org.opencontainers.image.created: "2026-10-21T20:51:57Z"
+  org.opencontainers.image.revision: c9e81a3f689f81df93cfb26dc5a265f6d7d33bf8
+  org.opencontainers.image.version: 0.2.1

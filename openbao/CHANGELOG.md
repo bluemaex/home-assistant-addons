@@ -1,5 +1,13 @@
 # Changelog
 
+## openbao 0.2.1 - 2026-10-21
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/openbao/openbao Docker tag to v2.7.1 @[renovate[bot]](https://github.com/apps/renovate) (#609)
+
 ## openbao 0.2.0 - 2026-09-29
 
 ### Changes
