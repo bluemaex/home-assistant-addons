@@ -1,5 +1,20 @@
 # Changelog
 
+## grafana-loki 5.0.2 - 2026-10-21
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update grafana/loki Docker tag to v3.7.2 @[renovate[bot]](https://github.com/apps/renovate) (#541)
+- ⏫ Update HomeAssistant Add-on base image to v3.24 @[renovate[bot]](https://github.com/apps/renovate) (#552)
+- ⏫ Update grafana/loki Docker tag to v3.7.3 @[renovate[bot]](https://github.com/apps/renovate) (#563)
+- ⏫ Update grafana/loki Docker tag to v3.7.4 @[renovate[bot]](https://github.com/apps/renovate) (#576)
+- ⏫ Update grafana/loki Docker tag to v3.7.6 @[renovate[bot]](https://github.com/apps/renovate) (#579)
+- ⏫ Update grafana/loki Docker tag to v3.7.7 @[renovate[bot]](https://github.com/apps/renovate) (#592)
+- ⏫ Update grafana/loki Docker tag to v3.7.8 @[renovate[bot]](https://github.com/apps/renovate) (#602)
+- ⏫ Update grafana/loki Docker tag to v3.7.9 @[renovate[bot]](https://github.com/apps/renovate) (#625)
+
 ## grafana-loki 5.0.1 - 2026-04-07
 
 ### Changes
