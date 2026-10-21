@@ -232,9 +232,9 @@ SOFTWARE.
 [terrastate-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [terrastate-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [terrastate-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
-[addon-traefik]: https://github.com/bluemaex/home-assistant-addons/tree/traefik-5.0.0
-[addon-doc-traefik]: https://github.com/bluemaex/home-assistant-addons/blob/traefik-5.0.0/README.md
-[traefik-version-shield]: https://img.shields.io/badge/version-5.0.0-blue.svg
+[addon-traefik]: https://github.com/bluemaex/home-assistant-addons/tree/traefik-5.0.1
+[addon-doc-traefik]: https://github.com/bluemaex/home-assistant-addons/blob/traefik-5.0.1/README.md
+[traefik-version-shield]: https://img.shields.io/badge/version-5.0.1-blue.svg
 [traefik-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [traefik-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [traefik-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg

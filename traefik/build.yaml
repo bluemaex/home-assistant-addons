@@ -10,6 +10,6 @@ labels:
   org.opencontainers.image.url: https://github.com/bluemaex/home-assistant-addons
   org.opencontainers.image.source: https://github.com/bluemaex/home-assistant-addons/traefik
   org.opencontainers.image.documentation: https://github.com/bluemaex/home-assistant-addons/traefik/README.md
-  org.opencontainers.image.created: "2026-01-24T22:02:47Z"
-  org.opencontainers.image.revision: cb56104cc5944629a3a2dcf2ce8fa55bfd29aa6e
-  org.opencontainers.image.version: 5.0.0
+  org.opencontainers.image.created: "2026-10-21T21:03:19Z"
+  org.opencontainers.image.revision: c9e81a3f689f81df93cfb26dc5a265f6d7d33bf8
+  org.opencontainers.image.version: 5.0.1

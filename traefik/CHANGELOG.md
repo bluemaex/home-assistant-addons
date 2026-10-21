@@ -1,5 +1,34 @@
 # Changelog
 
+## traefik 5.0.1 - 2026-10-21
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update traefik Docker tag to v2.11.36 @[renovate[bot]](https://github.com/apps/renovate) (#491)
+- ⏫ Update traefik Docker tag to v2.11.37 @[renovate[bot]](https://github.com/apps/renovate) (#496)
+- ⏫ Update traefik Docker tag to v2.11.38 @[renovate[bot]](https://github.com/apps/renovate) (#505)
+- ⏫ Update traefik Docker tag to v2.11.40 @[renovate[bot]](https://github.com/apps/renovate) (#509)
+- ⏫ Update traefik Docker tag to v2.11.41 @[renovate[bot]](https://github.com/apps/renovate) (#513)
+- ⏫ Update traefik Docker tag to v2.11.42 @[renovate[bot]](https://github.com/apps/renovate) (#523)
+- ⏫ Update traefik Docker tag to v2.11.43 @[renovate[bot]](https://github.com/apps/renovate) (#532)
+- ⏫ Update traefik Docker tag to v2.11.44 @[renovate[bot]](https://github.com/apps/renovate) (#535)
+- ⏫ Update traefik Docker tag to v2.11.45 @[renovate[bot]](https://github.com/apps/renovate) (#537)
+- ⏫ Update traefik Docker tag to v2.11.46 @[renovate[bot]](https://github.com/apps/renovate) (#540)
+- ⏫ Update traefik Docker tag to v2.11.48 @[renovate[bot]](https://github.com/apps/renovate) (#546)
+- ⏫ Update traefik Docker tag to v2.11.49 @[renovate[bot]](https://github.com/apps/renovate) (#548)
+- ⏫ Update traefik Docker tag to v2.11.50 @[renovate[bot]](https://github.com/apps/renovate) (#551)
+- ⏫ Update HomeAssistant Add-on base image to v3.24 @[renovate[bot]](https://github.com/apps/renovate) (#552)
+- ⏫ Update traefik Docker tag to v2.11.52 @[renovate[bot]](https://github.com/apps/renovate) (#567)
+- ⏫ Update traefik Docker tag to v2.11.54 @[renovate[bot]](https://github.com/apps/renovate) (#577)
+- ⏫ Update traefik Docker tag to v2.11.55 @[renovate[bot]](https://github.com/apps/renovate) (#585)
+- ⏫ Update traefik Docker tag to v2.11.56 @[renovate[bot]](https://github.com/apps/renovate) (#594)
+- ⏫ Update traefik Docker tag to v2.11.57 @[renovate[bot]](https://github.com/apps/renovate) (#599)
+- ⏫ Update traefik Docker tag to v2.11.58 @[renovate[bot]](https://github.com/apps/renovate) (#614)
+- ⏫ Update traefik Docker tag to v2.11.59 @[renovate[bot]](https://github.com/apps/renovate) (#621)
+- ⏫ Update traefik Docker tag to v2.11.60 @[renovate[bot]](https://github.com/apps/renovate) (#624)
+
 ## traefik 5.0.0 - 2026-01-24
 
 ### Changes
