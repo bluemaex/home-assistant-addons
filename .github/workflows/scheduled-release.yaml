@@ -24,6 +24,8 @@ jobs:
   find:
     name: 🔍 Find pending releases
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     outputs:
       addons: ${{ steps.pending.outputs.addons }}
     steps:
