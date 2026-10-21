@@ -1,5 +1,21 @@
 # Changelog
 
+## healthchecks 3.1.6 - 2026-10-21
+
+### Changes
+
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v5 @[renovate[bot]](https://github.com/apps/renovate) (#628)
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v4.3.20260824 @[renovate[bot]](https://github.com/apps/renovate) (#591)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v4.4.20260901 @[renovate[bot]](https://github.com/apps/renovate) (#596)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v4.4.20260907 @[renovate[bot]](https://github.com/apps/renovate) (#600)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v4.4.20260921 @[renovate[bot]](https://github.com/apps/renovate) (#603)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v4.4.20261005 @[renovate[bot]](https://github.com/apps/renovate) (#613)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v4.4.20261012 @[renovate[bot]](https://github.com/apps/renovate) (#620)
+- ⏫ Update ghcr.io/linuxserver/healthchecks Docker tag to v4.4.20261019 @[renovate[bot]](https://github.com/apps/renovate) (#622)
+
 ## healthchecks 3.1.5 - 2026-08-18
 
 ### Changes
