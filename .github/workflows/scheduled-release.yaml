@@ -1,0 +1,72 @@
+---
+name: Scheduled Release
+
+# yamllint disable-line rule:truthy
+on:
+  schedule:
+    - cron: "0 6 1,15 * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Only list add-ons with pending changes
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: scheduled-release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  find:
+    name: 🔍 Find pending releases
+    runs-on: ubuntu-latest
+    outputs:
+      addons: ${{ steps.pending.outputs.addons }}
+    steps:
+      - name: ⤵️ Check out the repository
+        uses: actions/checkout@v7.0.1
+      - name: 🗒️ Find draft releases with changes
+        id: pending
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pending=()
+          for tag in $(gh api "repos/${{ github.repository }}/releases" --paginate \
+            --jq '.[] | select(.draft and ((.body // "") | contains("No changes") | not)) | .tag_name'); do
+            addon="${tag%-*}"
+            if [[ -f "${addon}/config.yaml" ]] && [[ ! " ${pending[*]} " =~ " ${addon} " ]]; then
+              pending+=("${addon}")
+            fi
+          done
+
+          addons=$(printf '%s\n' "${pending[@]}" | jq -R . | jq -sc 'map(select(. != ""))')
+          echo "addons=${addons}" >> $GITHUB_OUTPUT
+          echo "Pending add-ons: ${addons}"
+
+          {
+            echo "## Pending add-on releases"
+            for addon in "${pending[@]}"; do echo "- ${addon}"; done
+            if [[ ${#pending[@]} -eq 0 ]]; then echo "_None_"; fi
+          } >> $GITHUB_STEP_SUMMARY
+
+  release:
+    name: 🚀 Release ${{ matrix.addon }}
+    needs: find
+    if: needs.find.outputs.addons != '[]' && !inputs.dry_run
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+    strategy:
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        addon: ${{ fromJson(needs.find.outputs.addons) }}
+    uses: ./.github/workflows/deployer.yaml
+    with:
+      addon: ${{ matrix.addon }}
+    secrets: inherit
