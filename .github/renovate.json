@@ -29,6 +29,10 @@
       "automerge": true
     },
     {
+      "matchPackageNames": ["home-assistant/builder"],
+      "versioning": "regex:^(?<major>\\d{4})\\.(?<minor>\\d{2})\\.(?<patch>\\d+)$"
+    },
+    {
       "groupName": "HomeAssistant Add-on base image",
       "matchDatasources": ["docker"],
       "matchPackageNames": ["/^(?:ghcr.io/)?home-assistant/.*-base$/"]
