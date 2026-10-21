@@ -103,6 +103,18 @@ them to log analysis tools
 
 [:books: syslog-ng add-on documentation][addon-doc-syslog-ng]
 
+### &#10003; [Terrastate][addon-terrastate]
+
+![Latest Version][terrastate-version-shield]
+![Supports armhf Architecture][terrastate-armhf-shield]
+![Supports armv7 Architecture][terrastate-armv7-shield]
+![Supports aarch64 Architecture][terrastate-aarch64-shield]
+![Supports amd64 Architecture][terrastate-amd64-shield]
+
+Terrastate — a Terraform/OpenTofu HTTP state backend with locking.
+
+[:books: Terrastate add-on documentation][addon-doc-terrastate]
+
 ### &#10003; [Traefik][addon-traefik]
 
 ![Latest Version][traefik-version-shield]
@@ -213,6 +225,13 @@ SOFTWARE.
 [syslog-ng-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [syslog-ng-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [syslog-ng-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
+[addon-terrastate]: https://github.com/bluemaex/home-assistant-addons/tree/terrastate-0.1.0
+[addon-doc-terrastate]: https://github.com/bluemaex/home-assistant-addons/blob/terrastate-0.1.0/README.md
+[terrastate-version-shield]: https://img.shields.io/badge/version-0.1.0-blue.svg
+[terrastate-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[terrastate-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[terrastate-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
+[terrastate-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
 [addon-traefik]: https://github.com/bluemaex/home-assistant-addons/tree/traefik-5.0.0
 [addon-doc-traefik]: https://github.com/bluemaex/home-assistant-addons/blob/traefik-5.0.0/README.md
 [traefik-version-shield]: https://img.shields.io/badge/version-5.0.0-blue.svg
@@ -220,9 +239,9 @@ SOFTWARE.
 [traefik-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [traefik-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [traefik-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[addon-unpoller]: https://github.com/bluemaex/home-assistant-addons/tree/unpoller-5.0.2
-[addon-doc-unpoller]: https://github.com/bluemaex/home-assistant-addons/blob/unpoller-5.0.2/README.md
-[unpoller-version-shield]: https://img.shields.io/badge/version-5.0.2-blue.svg
+[addon-unpoller]: https://github.com/bluemaex/home-assistant-addons/tree/unpoller-5.0.3
+[addon-doc-unpoller]: https://github.com/bluemaex/home-assistant-addons/blob/unpoller-5.0.3/README.md
+[unpoller-version-shield]: https://img.shields.io/badge/version-5.0.3-blue.svg
 [unpoller-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [unpoller-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [unpoller-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
