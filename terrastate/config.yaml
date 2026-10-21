@@ -1,0 +1,29 @@
+---
+name: Terrastate
+version: 0.1.0
+slug: terrastate
+description: |
+  Terrastate — a Terraform/OpenTofu HTTP state backend with locking.
+arch:
+  - aarch64
+  - amd64
+image: "ghcr.io/bluemaex/ha-addons-terrastate-{arch}"
+startup: system
+url: https://github.com/bluemaex/home-assistant-addons/tree/master/terrastate
+init: false
+backup: cold
+ports:
+  8445/tcp: 8445
+ports_description:
+  8445/tcp: Terraform HTTP state backend
+options:
+  log_level: info
+  username: terraform
+  password: ""
+  env_vars: []
+schema:
+  log_level: list(debug|info|warn|error)
+  username: str
+  password: password
+  env_vars:
+    - str
