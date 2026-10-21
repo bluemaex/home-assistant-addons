@@ -83,7 +83,7 @@ jobs:
       - name: ⤴️ Upload Release Artifacts
         uses: actions/upload-artifact@v7.0.2
         with:
-          name: release-files
+          name: release-files-${{ inputs.addon }}
           path: addon.tar
 
   build:
@@ -100,7 +100,7 @@ jobs:
       - name: ⤵️ Download Release Artifacts
         uses: actions/download-artifact@v8.0.2
         with:
-          name: release-files
+          name: release-files-${{ inputs.addon }}
       - name: Untar artifacts
         run: tar -xvf addon.tar ${{ inputs.addon }} && rm addon.tar
       - name: 🏗  Login to GitHub Container Registry
@@ -133,7 +133,7 @@ jobs:
       - name: ⤵️ Download Release Artifacts
         uses: actions/download-artifact@v8.0.2
         with:
-          name: release-files
+          name: release-files-${{ inputs.addon }}
       - name: Untar artifacts
         run: tar -xvf addon.tar ${{ inputs.addon }} && rm addon.tar
       - name: 📝 Update README.md
