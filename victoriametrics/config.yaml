@@ -7,7 +7,7 @@ description: |
 arch:
   - aarch64
   - amd64
-image: "ghcr.io/bluemaex/ha-addons-victoriametrics-{arch}"
+image: "ghcr.io/bluemaex/ha-addons-victoriametrics"
 startup: system
 url: https://github.com/bluemaex/home-assistant-addons/tree/master/victoriametrics
 ports:

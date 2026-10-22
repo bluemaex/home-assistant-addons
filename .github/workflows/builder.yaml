@@ -2,7 +2,7 @@
 name: Builder
 
 env:
-  MONITORED_FILES: "build.yaml config.yaml Dockerfile rootfs apparmor.txt"
+  MONITORED_FILES: "config.yaml Dockerfile rootfs apparmor.txt"
 
 # yamllint disable-line rule:truthy
 on:
@@ -33,6 +33,12 @@ jobs:
         id: changed_addons
         run: |
           changed_addons=()
+          # Rebuild all add-ons when the build workflows change
+          if [[ "${{ steps.changed_files.outputs.all }}" =~ \.github/workflows/(builder|build-addon)\.yaml ]]; then
+            for addon in ${{ steps.addons.outputs.addons }}; do
+              changed_addons+=("\"${addon}\",");
+            done
+          fi
           for addon in ${{ steps.addons.outputs.addons }}; do
             for file in ${{ env.MONITORED_FILES }}; do
               if [[ "${{ steps.changed_files.outputs.all }}" =~ "${addon}/${file}" ]] && [[ ! "${changed_addons[@]}" =~ $addon ]]; then
@@ -47,39 +53,18 @@ jobs:
 
   build:
     needs: init
-    runs-on: ubuntu-latest
     if: needs.init.outputs.addons != '[]'
-    name: 👷‍♂️ Build ${{ matrix.addon }} for ${{ matrix.arch }}
+    name: 👷‍♂️ Build ${{ matrix.addon }}
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
     strategy:
+      fail-fast: false
       matrix:
         addon: ${{ fromJson(needs.init.outputs.addons) }}
-        arch: ["aarch64", "amd64", "armhf", "armv7", "i386"]
-    steps:
-      - name: ⤵️ Check out repository
-        uses: actions/checkout@v7.0.1
-      - name: ℹ️ Get information
-        id: info
-        uses: home-assistant/actions/helpers/info@master
-        with:
-          path: "./${{ matrix.addon }}"
-      - name: 🦺 Check if add-on should be built
-        id: check
-        run: |
-          if [[ "${{ steps.info.outputs.architectures }}" =~ ${{ matrix.arch }} ]]; then
-             echo "${{ matrix.arch }} is a supported arch for ${{ matrix.addon }}, starting build";
-             echo "build_arch=true" >> $GITHUB_OUTPUT;
-           else
-             echo "${{ matrix.arch }} is not a valid arch for ${{ matrix.addon }}, skipping build";
-             echo "build_arch=false" >> $GITHUB_OUTPUT;
-          fi
-      - name: 🚀 Build ${{ matrix.addon }} add-on
-        if: steps.check.outputs.build_arch == 'true'
-        uses: home-assistant/builder@2024.08.2
-        with:
-          args: |
-            --test \
-            --${{ matrix.arch }} \
-            --target /data/${{ matrix.addon }} \
-            --image "${{ steps.check.outputs.image }}" \
-            --docker-hub "ghcr.io/${{ github.repository_owner }}" \
-            --addon
+    uses: ./.github/workflows/build-addon.yaml
+    with:
+      addon: ${{ matrix.addon }}
+      publish: false
+    secrets: inherit
