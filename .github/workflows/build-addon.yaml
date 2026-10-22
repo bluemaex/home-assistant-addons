@@ -1,0 +1,151 @@
+---
+name: Build Add-on
+
+# yamllint disable-line rule:truthy
+on:
+  workflow_call:
+    inputs:
+      addon:
+        description: Addon-Name
+        required: true
+        type: string
+      version:
+        description: Image version (defaults to version in config.yaml)
+        required: false
+        default: ""
+        type: string
+      publish:
+        description: Push images and multi-arch manifest
+        required: true
+        type: boolean
+  workflow_dispatch:
+    inputs:
+      addon:
+        description: Addon-Name
+        required: true
+        type: string
+      version:
+        description: Image version (defaults to version in config.yaml)
+        required: false
+        default: ""
+        type: string
+      publish:
+        description: Push images and multi-arch manifest
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    name: ⏳ Prepare ${{ inputs.addon }}
+    runs-on: ubuntu-latest
+    outputs:
+      architectures: ${{ steps.info.outputs.architectures }}
+      matrix: ${{ steps.matrix.outputs.matrix }}
+      image_name: ${{ steps.normalize.outputs.image_name }}
+      registry_prefix: ${{ steps.normalize.outputs.registry_prefix }}
+      version: ${{ steps.normalize.outputs.version }}
+      name: ${{ steps.normalize.outputs.name }}
+      description: ${{ steps.normalize.outputs.description }}
+      url: ${{ steps.normalize.outputs.url }}
+    steps:
+      - name: ⤵️ Check out the repository
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: ℹ️ Get information
+        id: info
+        uses: home-assistant/actions/helpers/info@master
+        with:
+          path: "./${{ inputs.addon }}"
+      - name: 🪚 Normalize information
+        id: normalize
+        env:
+          INFO_IMAGE: ${{ steps.info.outputs.image }}
+          INFO_VERSION: ${{ steps.info.outputs.version }}
+          INFO_NAME: ${{ steps.info.outputs.name }}
+          INFO_DESCRIPTION: ${{ steps.info.outputs.description }}
+          INFO_URL: ${{ steps.info.outputs.url }}
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          # info helper returns JSON encoded values
+          image=$(jq -r . <<< "$INFO_IMAGE")
+          version=$(jq -r . <<< "$INFO_VERSION")
+          name=$(jq -r . <<< "$INFO_NAME")
+          description=$(jq -r 'gsub("\\s+"; " ") | sub(" $"; "")' <<< "$INFO_DESCRIPTION")
+          url=$(jq -r '. // ""' <<< "$INFO_URL")
+
+          {
+            echo "image_name=${image##*/}"
+            echo "registry_prefix=${image%/*}"
+            echo "version=${INPUT_VERSION:-$version}"
+            echo "name=${name}"
+            echo "description=${description}"
+            echo "url=${url}"
+          } | tee -a "$GITHUB_OUTPUT"
+      - name: 🧮 Prepare build matrix
+        id: matrix
+        uses: home-assistant/builder/actions/prepare-multi-arch-matrix@2026.09.0
+        with:
+          architectures: ${{ steps.info.outputs.architectures }}
+          image-name: ${{ steps.normalize.outputs.image_name }}
+          registry-prefix: ${{ steps.normalize.outputs.registry_prefix }}
+
+  build:
+    needs: prepare
+    name: 👩‍💻 Build ${{ matrix.arch }}
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - name: ⤵️ Check out the repository
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: 🧱 Build ${{ inputs.addon }} add-on
+        uses: home-assistant/builder/actions/build-image@2026.09.0
+        with:
+          arch: ${{ matrix.arch }}
+          cache-gha-scope: ${{ inputs.addon }}-${{ matrix.arch }}
+          container-registry-password: ${{ secrets.GITHUB_TOKEN }}
+          context: "./${{ inputs.addon }}"
+          image: ${{ matrix.image }}
+          image-tags: |
+            ${{ needs.prepare.outputs.version }}
+            latest
+          labels: |
+            io.hass.type=addon
+            io.hass.name=${{ needs.prepare.outputs.name }}
+            io.hass.description=${{ needs.prepare.outputs.description }}
+            ${{ needs.prepare.outputs.url && format('io.hass.url={0}', needs.prepare.outputs.url) || '' }}
+            org.opencontainers.image.revision=${{ github.sha }}
+          push: ${{ inputs.publish }}
+          version: ${{ needs.prepare.outputs.version }}
+
+  manifest:
+    needs: [prepare, build]
+    if: inputs.publish
+    name: 📦 Publish multi-arch manifest
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      packages: write
+    steps:
+      - name: 📦 Publish multi-arch manifest
+        uses: home-assistant/builder/actions/publish-multi-arch-manifest@2026.09.0
+        with:
+          architectures: ${{ needs.prepare.outputs.architectures }}
+          container-registry-password: ${{ secrets.GITHUB_TOKEN }}
+          image-name: ${{ needs.prepare.outputs.image_name }}
+          image-tags: |
+            ${{ needs.prepare.outputs.version }}
+            latest
+          registry-prefix: ${{ needs.prepare.outputs.registry_prefix }}
