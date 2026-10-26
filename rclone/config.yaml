@@ -1,6 +1,6 @@
 ---
 name: Rclone
-version: 4.0.1
+version: 4.0.2
 slug: rclone
 description: |
   Rclone is a command line program to sync files and directories to and
