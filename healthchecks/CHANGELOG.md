@@ -1,5 +1,13 @@
 # Changelog
 
+## healthchecks 3.1.7 - 2026-10-26
+
+### Changes
+
+#### 🧰 Maintenance
+
+- migrate to the new addon builder structure 2026.09.0 @bluemaex (#630)
+
 ## healthchecks 3.1.6 - 2026-10-21
 
 ### Changes
