@@ -1,5 +1,17 @@
 # Changelog
 
+## unpoller 5.0.4 - 2026-10-26
+
+### Changes
+
+#### 🧰 Maintenance
+
+- migrate to the new addon builder structure 2026.09.0 @bluemaex (#630)
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/unpoller/unpoller Docker tag to v5.8.3 @[renovate[bot]](https://github.com/apps/renovate) (#635)
+
 ## unpoller 5.0.3 - 2026-10-21
 
 ### Changes
