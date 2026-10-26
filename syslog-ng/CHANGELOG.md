@@ -1,5 +1,13 @@
 # Changelog
 
+## syslog-ng 5.0.9 - 2026-10-26
+
+### Changes
+
+#### 🧰 Maintenance
+
+- migrate to the new addon builder structure 2026.09.0 @bluemaex (#630)
+
 ## syslog-ng 5.0.8 - 2026-10-21
 
 ### Changes
