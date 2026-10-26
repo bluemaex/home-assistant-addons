@@ -1,5 +1,13 @@
 # Changelog
 
+## traefik 5.0.2 - 2026-10-26
+
+### Changes
+
+#### 🧰 Maintenance
+
+- migrate to the new addon builder structure 2026.09.0 @bluemaex (#630)
+
 ## traefik 5.0.1 - 2026-10-21
 
 ### Changes
