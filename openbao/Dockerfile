@@ -1,6 +1,6 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/base:3.24
 
-FROM ghcr.io/openbao/openbao:2.7.1 AS openbao-base
+FROM ghcr.io/openbao/openbao:2.7.2 AS openbao-base
 FROM ${BUILD_FROM} AS final
 
 ARG USERNAME=openbao
