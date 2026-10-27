@@ -1,5 +1,11 @@
 # Changelog
 
+## grafana-loki 5.0.4 - 2026-10-27
+
+### Changes
+
+- No changes
+
 ## grafana-loki 5.0.3 - 2026-10-26
 
 ### Changes
