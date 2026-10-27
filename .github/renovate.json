@@ -18,7 +18,15 @@
     {
       "dependencyDashboardApproval": true,
       "matchUpdateTypes": ["major"],
-      "labels": ["UPDATE-MAJOR"]
+      "addLabels": ["major"]
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "addLabels": ["minor"]
+    },
+    {
+      "matchUpdateTypes": ["patch", "digest", "pin", "pinDigest"],
+      "addLabels": ["patch"]
     },
     {
       "matchUpdateTypes": ["minor", "patch"],
