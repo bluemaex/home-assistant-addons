@@ -1,7 +1,7 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/base:3.24
 
-FROM victoriametrics/victoria-metrics:v1.154.1 AS victoriametrics-server
-FROM victoriametrics/vmagent:v1.154.1 AS victoriametrics-agent
+FROM victoriametrics/victoria-metrics:v1.155.0 AS victoriametrics-server
+FROM victoriametrics/vmagent:v1.155.0 AS victoriametrics-agent
 FROM ${BUILD_FROM} AS final
 
 COPY rootfs /
