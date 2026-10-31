@@ -1,6 +1,6 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/base:3.24
 
-FROM traefik:v2.11.60 AS traefik-base
+FROM traefik:v2.11.61 AS traefik-base
 FROM ${BUILD_FROM} AS final
 
 COPY rootfs /
