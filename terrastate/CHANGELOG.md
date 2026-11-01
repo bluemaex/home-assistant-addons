@@ -1,5 +1,13 @@
 # Changelog
 
+## terrastate 0.0.3 - 2026-11-01
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update webhippie/terrastate Docker tag to v2.11.1 @[renovate[bot]](https://github.com/apps/renovate) (#638)
+
 ## terrastate 0.0.2 - 2026-10-22
 
 ### Changes
