@@ -1,5 +1,13 @@
 # Changelog
 
+## traefik 5.0.3 - 2026-11-01
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update traefik Docker tag to v2.11.61 @[renovate[bot]](https://github.com/apps/renovate) (#639)
+
 ## traefik 5.0.2 - 2026-10-26
 
 ### Changes
