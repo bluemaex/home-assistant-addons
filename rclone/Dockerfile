@@ -1,6 +1,6 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/base:3.24
 
-FROM rclone/rclone:1.75.2 AS rclone-base
+FROM rclone/rclone:1.76.0 AS rclone-base
 FROM ${BUILD_FROM} AS final
 
 COPY rootfs /
