@@ -1,7 +1,7 @@
 ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:9.5.2
 
 FROM grafana/promtail:3.6.11 AS promtail-base
-FROM mikefarah/yq:4.54.2 AS yq-base
+FROM mikefarah/yq:4.54.3 AS yq-base
 FROM ${BUILD_FROM} AS final
 
 
