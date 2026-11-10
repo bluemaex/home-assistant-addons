@@ -1,6 +1,6 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/base:3.24
 
-FROM webhippie/terrastate:2.11.2 AS terrastate-base
+FROM webhippie/terrastate:2.11.3 AS terrastate-base
 FROM ${BUILD_FROM} AS final
 
 ARG USERNAME=terrastate
