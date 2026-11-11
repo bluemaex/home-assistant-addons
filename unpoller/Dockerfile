@@ -1,6 +1,6 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/base:3.24
 
-FROM ghcr.io/unpoller/unpoller:v5.9.4 AS unpoller-base
+FROM ghcr.io/unpoller/unpoller:v5.9.5 AS unpoller-base
 FROM ${BUILD_FROM} AS final
 
 COPY rootfs /
