@@ -1,6 +1,6 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/base:3.24
 
-FROM grafana/loki:3.7.9 AS loki-base
+FROM grafana/loki:3.7.10 AS loki-base
 FROM ${BUILD_FROM} AS final
 
 COPY rootfs /
