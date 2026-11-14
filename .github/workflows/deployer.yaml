@@ -27,7 +27,7 @@ jobs:
       - name: ⤵️ Check out the repository
         uses: actions/checkout@v7.0.1
       - name: 📝 Run Release Drafter
-        uses: release-drafter/release-drafter@v7.10.0
+        uses: release-drafter/release-drafter@v7.11.0
         id: release_notes
         with:
           config-name: "release-drafter-${{ inputs.addon }}.yml"
@@ -102,7 +102,7 @@ jobs:
           commit_message: 🚀 Released ${{ needs.init.outputs.release_name }}
           commit_user_email: actions@github.com
       - name: 🚀 Create Release
-        uses: release-drafter/release-drafter@v7.10.0
+        uses: release-drafter/release-drafter@v7.11.0
         with:
           config-name: "release-drafter-${{ inputs.addon }}.yml"
           publish: true
