@@ -1,5 +1,13 @@
 # Changelog
 
+## grafana-loki 5.0.5 - 2026-11-15
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update grafana/loki Docker tag to v3.7.10 @[renovate[bot]](https://github.com/apps/renovate) (#653)
+
 ## grafana-loki 5.0.4 - 2026-10-27
 
 ### Changes
