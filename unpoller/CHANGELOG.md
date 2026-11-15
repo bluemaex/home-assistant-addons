@@ -1,5 +1,16 @@
 # Changelog
 
+## unpoller 5.1.1 - 2026-11-15
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/unpoller/unpoller Docker tag to v5.9.2 @[renovate[bot]](https://github.com/apps/renovate) (#641)
+- ⏫ Update ghcr.io/unpoller/unpoller Docker tag to v5.9.3 @[renovate[bot]](https://github.com/apps/renovate) (#642)
+- ⏫ Update ghcr.io/unpoller/unpoller Docker tag to v5.9.4 @[renovate[bot]](https://github.com/apps/renovate) (#645)
+- ⏫ Update ghcr.io/unpoller/unpoller Docker tag to v5.9.5 @[renovate[bot]](https://github.com/apps/renovate) (#652)
+
 ## unpoller 5.1.0 - 2026-11-01
 
 ### Changes
