@@ -1,5 +1,15 @@
 # Changelog
 
+## grafana-promtail 5.0.4 - 2026-11-15
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update ghcr.io/hassio-addons/debian-base Docker tag to v9.5.2 @[renovate[bot]](https://github.com/apps/renovate) (#644)
+- ⏫ Update mikefarah/yq Docker tag to v4.54.2 @[renovate[bot]](https://github.com/apps/renovate) (#646)
+- ⏫ Update mikefarah/yq Docker tag to v4.54.3 @[renovate[bot]](https://github.com/apps/renovate) (#648)
+
 ## grafana-promtail 5.0.3 - 2026-10-26
 
 ### Changes
