@@ -1,5 +1,13 @@
 # Changelog
 
+## victoriametrics 3.2.0 - 2026-11-15
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update VictoriaMetrics to v1.156.0 @[renovate[bot]](https://github.com/apps/renovate) (#650)
+
 ## victoriametrics 3.1.0 - 2026-11-01
 
 ### Changes
