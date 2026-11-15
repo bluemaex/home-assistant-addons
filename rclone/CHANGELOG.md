@@ -1,5 +1,13 @@
 # Changelog
 
+## rclone 4.1.0 - 2026-11-15
+
+### Changes
+
+#### ⬆️ Dependency updates
+
+- ⏫ Update rclone/rclone Docker tag to v1.76.0 @[renovate[bot]](https://github.com/apps/renovate) (#647)
+
 ## rclone 4.0.2 - 2026-10-26
 
 ### Changes
