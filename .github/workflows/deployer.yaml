@@ -47,7 +47,7 @@ jobs:
           yq -i '.version = "${{ steps.values.outputs.release_version }}"' "${{ inputs.addon }}/config.yaml"
           head "${{ inputs.addon }}/config.yaml"
       - name: 📝 Update CHANGELOG.md
-        uses: stefanzweifel/changelog-updater-action@v1.12.0
+        uses: stefanzweifel/changelog-updater-action@v1.13.0
         id: update_changelog
         with:
           latest-version: ${{ steps.release_notes.outputs.name }}
