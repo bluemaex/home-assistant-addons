@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:9.5.2
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:9.6.0
 
 FROM grafana/promtail:3.6.11 AS promtail-base
 FROM mikefarah/yq:4.54.3 AS yq-base
